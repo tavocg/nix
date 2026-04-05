@@ -1,22 +1,26 @@
-{ self, inputs, ... }: {
+{ self, inputs, ... }:
+let
+  swaySupportPackages = pkgs: with pkgs; [
+    bemenu
+    foot
+    waybar
+    wmenu
+  ];
+in {
   flake.nixosModules.sway = { pkgs, ... }: {
     programs.sway = {
       enable = true;
       xwayland.enable = true;
       wrapperFeatures.gtk = true;
-      extraPackages = with pkgs; [
-        bemenu
-        foot
-        waybar
-        wmenu
-      ];
-      extraConfig = ''
-        set $mod Mod4
-
-        bindsym $mod+Return exec ${pkgs.foot}/bin/foot
-        bindsym $mod+r exec ${pkgs.bemenu}/bin/bemenu-run
-      '';
+      extraPackages = swaySupportPackages pkgs;
     };
+
+    environment.etc."sway/config.d/99-local.conf".text = ''
+      set $mod Mod4
+
+      bindsym $mod+Return exec ${pkgs.foot}/bin/foot
+      bindsym $mod+r exec ${pkgs.bemenu}/bin/bemenu-run
+    '';
 
     security.polkit.enable = true;
 
@@ -31,6 +35,27 @@
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
+    };
+  };
+
+  perSystem = { pkgs, ... }: {
+    apps.sway = {
+      type = "app";
+      program = "${pkgs.writeShellApplication {
+        name = "sway";
+        runtimeInputs = [ pkgs.sway ] ++ swaySupportPackages pkgs;
+        text = ''
+          exec sway "$@"
+        '';
+      }}/bin/sway";
+    };
+
+    packages.sway = pkgs.writeShellApplication {
+      name = "sway";
+      runtimeInputs = [ pkgs.sway ] ++ swaySupportPackages pkgs;
+      text = ''
+        exec sway "$@"
+      '';
     };
   };
 }
