@@ -3,12 +3,6 @@
     boot = {
       plymouth = {
         enable = true;
-        theme = "bgrt";
-        themePackages = with pkgs; [
-          (adi1090x-plymouth-themes.override {
-            selected_themes = [ "bgrt" ];
-          })
-        ];
       };
 
       # Enable "Silent boot"
