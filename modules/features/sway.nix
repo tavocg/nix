@@ -141,8 +141,14 @@ in {
       enable = true;
       wrapperFeatures.gtk = true;
     };
+
     environment.systemPackages = [
       self.packages.${pkgs.stdenv.hostPlatform.system}.sway
+    ];
+
+    fonts.packages = with pkgs; [
+      jetbrains-mono
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
   };
 
