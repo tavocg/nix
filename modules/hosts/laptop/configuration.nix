@@ -7,6 +7,7 @@
       self.nixosModules.flakes
       self.nixosModules.fonts
       self.nixosModules.pipewire
+      self.nixosModules.plymouth
       self.nixosModules.shell
       self.nixosModules.sway
       self.nixosModules.tavo-autologin
