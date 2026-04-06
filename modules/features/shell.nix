@@ -7,6 +7,7 @@
       lazygit
       nodejs
       gcc
+      yazi
     ];
   };
 }
