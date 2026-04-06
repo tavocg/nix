@@ -5,6 +5,7 @@
       self.nixosModules.cr
       self.nixosModules.cups
       self.nixosModules.flakes
+      self.nixosModules.fonts
       self.nixosModules.pipewire
       self.nixosModules.shell
       self.nixosModules.sway
