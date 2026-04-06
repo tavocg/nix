@@ -2,8 +2,8 @@
   flake.nixosModules.kde = { pkgs, ... }: {
     services = {
       desktopManager.plasma6.enable = true;
-      #displayManager.sddm.enable = true;
-      #displayManager.sddm.wayland.enable = true;
+      displayManager.sddm.enable = true;
+      displayManager.sddm.wayland.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -15,7 +15,7 @@
       kdePackages.kcolorchooser # Color picker
       #kdePackages.kolourpaint # Simple paint program
       #kdePackages.ksystemlog # System log viewer
-      #kdePackages.sddm-kcm # SDDM configuration module
+      kdePackages.sddm-kcm # SDDM configuration module
       #kdiff3 # File/directory comparison tool
       kdePackages.okular
 
