@@ -9,7 +9,7 @@
       self.nixosModules.pipewire
       self.nixosModules.plymouth
       self.nixosModules.shell
-      self.nixosModules.sway
+      self.nixosModules.kde
       self.nixosModules.tavo-autologin
       self.nixosModules.tavo
       self.nixosModules.unfree

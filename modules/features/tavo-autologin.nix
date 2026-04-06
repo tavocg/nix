@@ -6,7 +6,9 @@
     };
 
     environment.loginShellInit = ''
-      [[ "$(tty)" == /dev/tty1 ]] && sway
+      if [[ "$(tty)" == /dev/tty1 ]]; then
+        exec startplasma-wayland
+      fi
     '';
   };
 }
