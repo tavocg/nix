@@ -9,6 +9,7 @@
       self.nixosModules.pipewire
       self.nixosModules.shell
       self.nixosModules.sway
+      self.nixosModules.tavo-autologin
       self.nixosModules.tavo
       self.nixosModules.unfree
       self.nixosModules.wifi
