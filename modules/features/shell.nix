@@ -7,6 +7,7 @@
       lazygit
       gcc
       yazi
+      rnote
     ];
   };
 }
