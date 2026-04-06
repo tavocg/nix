@@ -3,7 +3,6 @@
     imports = [
       self.nixosModules.laptopHardware
       self.nixosModules.sway
-      self.nixosModules.shell
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -40,14 +39,18 @@
       LC_TIME = "es_CR.UTF-8";
     };
 
-    # Enable the X11 stack for Xwayland and X11 applications.
-    services.xserver.enable = true;
+    # Enable the X11 windowing system.
+    # services.xserver.enable = true;
+
+    # Enable the GNOME Desktop Environment.
+    # services.xserver.displayManager.gdm.enable = true;
+    # services.xserver.desktopManager.gnome.enable = true;
 
     # Configure keymap in X11
-    services.xserver.xkb = {
-      layout = "latam";
-      variant = "";
-    };
+    # services.xserver.xkb = {
+    #   layout = "latam";
+    #   variant = "";
+    # };
 
     # Configure console keymap
     console.keyMap = "la-latin1";
@@ -78,10 +81,7 @@
     users.users.tavo = {
       isNormalUser = true;
       description = "Gustavo Calvo";
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
-      #  thunderbird
-      ];
+      extraGroups = [ "networkmanager" "wheel" "video" "input" ];
     };
 
     # Install firefox.
@@ -93,13 +93,11 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-      swaybg
-      swayidle
-      swaylock
-      wl-clipboard
-      xorg.xeyes
-      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      #  wget
+      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      git
+      lazygit
+      nodejs
+      gcc
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
