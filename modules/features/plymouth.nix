@@ -21,7 +21,8 @@
 
       # If you are using LUKS encryption and the password prompt falls back
       # to text mode, it may help to switch to initrd-systemd mode:
-      boot.initrd.systemd.enable = true;
     };
+
+    boot.initrd.systemd.enable = true;
   };
 }
