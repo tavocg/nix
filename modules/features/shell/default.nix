@@ -14,7 +14,7 @@
 
     programs.bash = {
       enable = true;
-      initExtra = ''
+      bashrcExtra = ''
         if [ -r ~/.config/shell/bashrc ]; then
           . ~/.config/shell/bashrc
         fi
