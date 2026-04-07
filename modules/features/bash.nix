@@ -4,7 +4,9 @@
   ];
 
   flake.wrappers.bash = { config, pkgs, lib, wlib, ... }: {
-    let
+    imports = [ wlib.modules.default ];
+
+    config = let
       shellPackages = with pkgs; [
         git
         lazygit
@@ -12,33 +14,31 @@
         eza
       ];
     in {
-    imports = [ wlib.modules.default ];
+      package = pkgs.bashInteractive;
 
-    package = pkgs.bashInteractive;
+      flags."--rcfile" = config.constructFiles.bashrc.path;
 
-    flags."--rcfile" = config.constructFiles.bashrc.path;
+      constructFiles.bashrc = {
+        relPath = "bashrc";
+        content = ''
+          dotfiles_root="${inputs.dotfiles}"
 
-    constructFiles.bashrc = {
-      relPath = "bashrc";
-      content = ''
-        dotfiles_root="${inputs.dotfiles}"
+          export PATH="${lib.makeBinPath shellPackages}:$PATH"
 
-        export PATH="${lib.makeBinPath shellPackages}:$PATH"
+          if [ -d "$dotfiles_root/profile.d" ]; then
+            for profile in "$dotfiles_root"/profile.d/*; do
+              if [ -f "$profile" ] && [ -r "$profile" ]; then
+                . "$profile"
+              fi
+            done
+          fi
 
-        if [ -d "$dotfiles_root/profile.d" ]; then
-          for profile in "$dotfiles_root"/profile.d/*; do
-            if [ -r "$profile" ]; then
-              . "$profile"
-            fi
-          done
-        fi
-
-        if [ -r "$dotfiles_root/bashrc" ]; then
-          . "$dotfiles_root/bashrc"
-        fi
-      '';
+          if [ -r "$dotfiles_root/bashrc" ]; then
+            . "$dotfiles_root/bashrc"
+          fi
+        '';
+      };
     };
-  };
   };
 
   perSystem = { config, ... }: {
