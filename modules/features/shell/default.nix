@@ -1,14 +1,16 @@
 { self, ... }: {
-  flake.nixosModules.shell = { pkgs, ... }: {
+  flake.nixosModules.shell = { pkgs, ... }: let
+    bashPackage = self.packages.${pkgs.stdenv.hostPlatform.system}.bash;
+  in {
     imports = [
     ];
 
     programs.bash.enable = true;
 
-    users.defaultUserShell = self.packages.${pkgs.system}.bash;
+    users.defaultUserShell = bashPackage;
     environment.shells = [
       "/run/current-system/sw/bin/bash"
-      "${self.packages.${pkgs.system}.bash}/bin/bash"
+      "${bashPackage}/bin/bash"
     ];
   };
 }
