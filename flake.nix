@@ -5,7 +5,7 @@
     import-tree.url = "github:vic/import-tree";
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
     dotfiles = {
-      url = "github:tavocg/dotfiles";
+      url = "gitlab:tavocg/dotfiles";
       flake = false;
     };
   };
