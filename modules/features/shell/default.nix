@@ -5,17 +5,10 @@
 
     programs.bash = {
       enable = true;
-      interactiveShellInit = ''
+      shellInit = ''
         if [ -r ~/.config/shell/bashrc ]; then
           . ~/.config/shell/bashrc
         fi
-      '';
-      loginShellInit = ''
-        for f in ~/.config/shell/profile.d/*.sh; do
-          if [ -r "$f" ]; then
-            . "$f"
-          fi
-        done
       '';
     };
 
