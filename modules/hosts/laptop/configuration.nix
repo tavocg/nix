@@ -2,6 +2,7 @@
   flake.nixosModules.laptopConfiguration = { pkgs, lib, ... }: {
     imports = [
       self.nixosModules.laptopHardware
+      self.nixosModules.desktop
       self.nixosModules.nixos
       self.nixosModules.shell
       self.nixosModules.system
