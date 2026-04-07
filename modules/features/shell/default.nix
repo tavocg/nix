@@ -3,9 +3,18 @@
     imports = [
     ];
 
+    # programs.bash = {
+    #   enable = true;
+    #   shellInit = ''
+    #     if [ -r ~/.config/shell/bashrc ]; then
+    #       . ~/.config/shell/bashrc
+    #     fi
+    #   '';
+    # };
+
     programs.bash = {
       enable = true;
-      shellInit = ''
+      initExtra = ''
         if [ -r ~/.config/shell/bashrc ]; then
           . ~/.config/shell/bashrc
         fi
