@@ -5,8 +5,6 @@
     imports = [
     ];
 
-    programs.bash.enable = true;
-
     users.defaultUserShell = bashPackage;
     environment.shells = [
       "/run/current-system/sw/bin/bash"
