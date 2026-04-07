@@ -5,7 +5,10 @@
 
     programs.bash.enable = true;
 
-    users.defaultUserShell = /run/current-system/sw/bin/bash;
-    environment.shells = [ /run/current-system/sw/bin/bash ];
+    users.defaultUserShell = self.packages.${pkgs.system}.bash;
+    environment.shells = [
+      "/run/current-system/sw/bin/bash"
+      "${self.packages.${pkgs.system}.bash}/bin/bash"
+    ];
   };
 }

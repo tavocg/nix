@@ -1,6 +1,6 @@
 { inputs, ... }: {
   imports = [
-    inputs.wrapper-modules.flakeModules.default
+    inputs.wrapper-modules.flakeModules.wrappers
   ];
 
   flake.wrappers.bash = { config, pkgs, lib, wlib, ... }: {
@@ -15,6 +15,7 @@
       ];
     in {
       package = pkgs.bashInteractive;
+      passthru.shellPath = "/bin/bash";
 
       flags."--rcfile" = config.constructFiles.bashrc.path;
 
