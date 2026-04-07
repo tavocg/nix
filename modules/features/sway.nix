@@ -8,6 +8,9 @@
         foot
         wl-clipboard
         bemenu
+        slurp
+        grim
+        i3status-rust
       ];
     };
   };

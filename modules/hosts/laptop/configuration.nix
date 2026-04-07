@@ -2,19 +2,11 @@
   flake.nixosModules.laptopConfiguration = { pkgs, lib, ... }: {
     imports = [
       self.nixosModules.laptopHardware
-      self.nixosModules.cr
-      self.nixosModules.cups
-      self.nixosModules.flakes
-      self.nixosModules.fonts
-      self.nixosModules.pipewire
-      self.nixosModules.plymouth
+      self.nixosModules.nixos
       self.nixosModules.shell
-      #self.nixosModules.sway
-      self.nixosModules.kde
-      #self.nixosModules.tavo-autologin
-      self.nixosModules.tavo
-      self.nixosModules.unfree
-      self.nixosModules.wifi
+      self.nixosModules.system
+      self.nixosModules.nm
+      self.nixosModules.sway
     ];
 
     networking.hostName = "laptop";

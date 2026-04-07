@@ -1,13 +1,13 @@
-{ ... }: {
+{ self, ... }: {
   flake.nixosModules.shell = { pkgs, ... }: {
+    imports = [
+    ];
+
     environment.systemPackages = with pkgs; [
-      firefox
-      neovim
       git
       lazygit
-      gcc
       yazi
-      rnote
+      eza
     ];
   };
 }
