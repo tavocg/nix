@@ -3,7 +3,7 @@
     imports = [
     ];
 
-    programs.bash {
+    programs.bash = {
       enable = true;
       shellInit = ''
         if [ -r ~/.config/shell/bashrc ]; then
