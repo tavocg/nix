@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775597781,
+        "narHash": "sha256-N7RhrXohYzxl+cLcc0es0H6mvSHsol5DDxJFfqGM2dw=",
+        "owner": "tavocg",
+        "repo": "dotfiles",
+        "rev": "96b47808f12849f062c5562f9e35d6c415728300",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tavocg",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -82,6 +98,7 @@
     },
     "root": {
       "inputs": {
+        "dotfiles": "dotfiles",
         "flake-parts": "flake-parts",
         "import-tree": "import-tree",
         "nixpkgs": "nixpkgs",
