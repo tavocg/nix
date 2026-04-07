@@ -3,7 +3,15 @@
     inputs.wrapper-modules.flakeModules.default
   ];
 
-  flake.wrappers.bash = { config, pkgs, wlib, ... }: {
+  flake.wrappers.bash = { config, pkgs, lib, wlib, ... }: {
+    let
+      shellPackages = with pkgs; [
+        git
+        lazygit
+        yazi
+        eza
+      ];
+    in {
     imports = [ wlib.modules.default ];
 
     package = pkgs.bashInteractive;
@@ -14,6 +22,8 @@
       relPath = "bashrc";
       content = ''
         dotfiles_root="${inputs.dotfiles}"
+
+        export PATH="${lib.makeBinPath shellPackages}:$PATH"
 
         if [ -d "$dotfiles_root/profile.d" ]; then
           for profile in "$dotfiles_root"/profile.d/*; do
@@ -28,6 +38,7 @@
         fi
       '';
     };
+  };
   };
 
   perSystem = { config, ... }: {
