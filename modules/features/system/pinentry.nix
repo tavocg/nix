@@ -5,9 +5,6 @@
     programs.gnupg.agent = {
       enable = true;
       pinentryPackage = anypinentry;
-      settings = {
-        pinentry-program = "${anypinentry}/bin/pinentry";
-      };
     };
   };
 }
