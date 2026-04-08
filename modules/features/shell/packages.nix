@@ -1,7 +1,7 @@
 { inputs, self, ... }: {
-  perSystem = { pkgs, ... }: {
+  perSystem = { pkgs, ... }: let
     system = pkgs.stdenv.hostPlatform.system;
-
+  in {
     packages.shell-runtime = pkgs.buildEnv {
       name = "shell-runtime";
       paths = with pkgs; [
