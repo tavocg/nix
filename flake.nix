@@ -4,16 +4,16 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+
+    shtatus.url = "github:tavocg/shtatus";
+    anypinentry.url = "github:tavocg/anypinentry";
+    kanban.url = "github:tavocg/kanban";
+
     dotfiles = {
       url = "gitlab:tavocg/dotfiles";
       flake = false;
     };
-    shtatus = {
-      url = "github:tavocg/shtatus";
-      flake = false;
-    };
-    anypinentry.url = "github:tavocg/anypinentry";
-    kanban.url = "github:tavocg/kanban";
+
     codex-nix.url = "github:SecBear/codex-nix";
   };
 

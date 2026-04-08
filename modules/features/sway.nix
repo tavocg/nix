@@ -1,17 +1,6 @@
 { inputs, ... }: {
   flake.nixosModules.sway = { pkgs, ... }: {
-    programs.sway = let
-      shtatus = pkgs.stdenvNoCC.mkDerivation {
-        pname = "shtatus";
-        version = "unstable";
-        src = inputs.shtatus;
-        dontUnpack = true;
-
-        installPhase = ''
-          install -Dm755 "$src/shtatus" "$out/bin/shtatus"
-        '';
-      };
-    in {
+    programs.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
 
@@ -21,7 +10,7 @@
         bemenu
         slurp
         grim
-        shtatus
+        inputs.shtatus.packages.${pkgs.system}.default
         inputs.anypinentry.packages.${pkgs.system}.default
       ];
     };
