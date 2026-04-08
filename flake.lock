@@ -3,11 +3,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1775605755,
-        "narHash": "sha256-tX4FTevT68HIeRj7SxBPw4mpGZTG4ychKEShfszz29M=",
+        "lastModified": 1775627387,
+        "narHash": "sha256-MLLBEYojGjj6qlisM9qykoB34LSwx7qr5foezDKeOqs=",
         "owner": "tavocg",
         "repo": "dotfiles",
-        "rev": "307330cc70e6bc5d5dcafd83dfa9e2a4b8207fee",
+        "rev": "b0c0d7afb0ba7d42e1b88bfab78c36fde33f0c7b",
         "type": "gitlab"
       },
       "original": {
@@ -82,11 +82,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1774610258,
-        "narHash": "sha256-HaThtroVD9wRdx7KQk0B75JmFcXlMUoEdDFNOMOlsOs=",
+        "lastModified": 1775579569,
+        "narHash": "sha256-/m3yyS/EnXqoPGBJYVy4jTOsirdgsEZ3JdN2gGkBr14=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "832efc09b4caf6b4569fbf9dc01bec3082a00611",
+        "rev": "dfd9566f82a6e1d55c30f861879186440614696e",
         "type": "github"
       },
       "original": {
@@ -102,7 +102,24 @@
         "flake-parts": "flake-parts",
         "import-tree": "import-tree",
         "nixpkgs": "nixpkgs",
+        "shtatus": "shtatus",
         "wrapper-modules": "wrapper-modules"
+      }
+    },
+    "shtatus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775627786,
+        "narHash": "sha256-3CYJb35wPTb4+pi8MJgeynOk9hcBYZQaqxSP2OJNGIo=",
+        "owner": "tavocg",
+        "repo": "shtatus",
+        "rev": "269444a4c346400e83292ed979258c9151bc889a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tavocg",
+        "repo": "shtatus",
+        "type": "github"
       }
     },
     "wrapper-modules": {
@@ -110,11 +127,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1775539951,
-        "narHash": "sha256-4gaWFOIgIeNuDYxqCpJ3+IuhSLuDswcgTHubc2edC2U=",
+        "lastModified": 1775624755,
+        "narHash": "sha256-94xZxLryQqJnWcjI6WKDONMv/I9jav90MmNoCeqot0Y=",
         "owner": "BirdeeHub",
         "repo": "nix-wrapper-modules",
-        "rev": "5369f45fb04a729074e2c6fe43d9f577318cd853",
+        "rev": "f50065f6d6e733765a8afb8452c7d42bd3a7e4b9",
         "type": "github"
       },
       "original": {
