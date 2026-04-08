@@ -8,6 +8,10 @@
       url = "gitlab:tavocg/dotfiles";
       flake = false;
     };
+    shtatus = {
+      url = "github:tavocg/shtatus";
+      flake = false;
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
