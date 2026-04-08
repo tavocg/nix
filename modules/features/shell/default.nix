@@ -1,15 +1,13 @@
 { self, ... }: {
-  perSystem = { pkgs, ... }: let
-    system = pkgs.stdenv.hostPlatform.system;
-  in {
+  perSystem = { pkgs, self', ... }: {
     packages.shell = pkgs.writeShellScriptBin "shell" ''
-      export PATH="${self.packages.${system}.shell-runtime}/bin:$PATH"
-      exec "${self.packages.${system}.bash}/bin/bash" "$@"
+      export PATH="${self'.packages.shell-runtime}/bin:$PATH"
+      exec "${self'.packages.bash}/bin/bash" "$@"
     '';
 
     apps.shell = {
       type = "app";
-      program = "${self.packages.${system}.shell}/bin/shell";
+      program = "${self'.packages.shell}/bin/shell";
     };
   };
 
