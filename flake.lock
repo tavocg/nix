@@ -3,11 +3,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1775633719,
-        "narHash": "sha256-zPezwbw1EweCOmSeVDBQbd5SXyAGrxlSdO/VxddFzgE=",
+        "lastModified": 1775662325,
+        "narHash": "sha256-eNdJYxxKsZCN86i2xdfYzF3BdGs1tj9Qze4cCfTJ3yo=",
         "owner": "tavocg",
         "repo": "dotfiles",
-        "rev": "d9f002589235cd439701de117d66049172bd7710",
+        "rev": "a860529eda04a72917b556b5eca098a8ba844fc4",
         "type": "gitlab"
       },
       "original": {
@@ -109,11 +109,11 @@
     "shtatus": {
       "flake": false,
       "locked": {
-        "lastModified": 1775633405,
-        "narHash": "sha256-kQy6EY7jbCTkKA1yOp6IPJctZZ/RTtqroEuHcO/FB7Y=",
+        "lastModified": 1775665339,
+        "narHash": "sha256-8Tk3SilSZgzn+D22EUM5bW9jZBXqQ8xQjyQZpmZF3lA=",
         "owner": "tavocg",
         "repo": "shtatus",
-        "rev": "a04c24d6dd38cea62c2af3b8f435aef8d7398809",
+        "rev": "1a36bd5284918dbea7a7ec332a8f31b480092199",
         "type": "github"
       },
       "original": {
@@ -127,11 +127,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1775624755,
-        "narHash": "sha256-94xZxLryQqJnWcjI6WKDONMv/I9jav90MmNoCeqot0Y=",
+        "lastModified": 1775642420,
+        "narHash": "sha256-GtPLsfjbwhVXThi/AhbA7b2aFF9aTPqHAANx9tLvZLo=",
         "owner": "BirdeeHub",
         "repo": "nix-wrapper-modules",
-        "rev": "f50065f6d6e733765a8afb8452c7d42bd3a7e4b9",
+        "rev": "df7d060a3a28fabafe0089a02a7bf92f5b4ed7c1",
         "type": "github"
       },
       "original": {
