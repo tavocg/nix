@@ -109,11 +109,11 @@
     "shtatus": {
       "flake": false,
       "locked": {
-        "lastModified": 1775627786,
-        "narHash": "sha256-3CYJb35wPTb4+pi8MJgeynOk9hcBYZQaqxSP2OJNGIo=",
+        "lastModified": 1775628188,
+        "narHash": "sha256-9Ky3w+6hu3qvoDt3LGHxNIaE6uM53Hc1dTvndg0FuZ4=",
         "owner": "tavocg",
         "repo": "shtatus",
-        "rev": "269444a4c346400e83292ed979258c9151bc889a",
+        "rev": "f210e83722027c9d01f6bf203fb062e09d53d492",
         "type": "github"
       },
       "original": {
