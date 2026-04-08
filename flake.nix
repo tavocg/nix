@@ -13,6 +13,7 @@
       flake = false;
     };
     anypinentry.url = "github:tavocg/anypinentry";
+    kanban.url = "github:tavocg/kanban";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);

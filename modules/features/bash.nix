@@ -3,28 +3,21 @@
     inputs.wrapper-modules.flakeModules.wrappers
   ];
 
-  flake.wrappers.bash = { config, pkgs, lib, wlib, ... }: {
+  flake.wrappers.bash = { config, pkgs, wlib, ... }: let
+    bashrcPath = config.constructFiles.bashrc.path;
+  in {
     imports = [ wlib.modules.default ];
 
-    config = let
-      shellPackages = with pkgs; [
-        git
-        lazygit
-        yazi
-        eza
-      ];
-    in {
+    config = {
       package = pkgs.bashInteractive;
       passthru.shellPath = "/bin/bash";
 
-      flags."--rcfile" = config.constructFiles.bashrc.path;
+      flags."--rcfile" = bashrcPath;
 
       constructFiles.bashrc = {
         relPath = "bashrc";
         content = ''
           dotfiles_root="${inputs.dotfiles}"
-
-          export PATH="${lib.makeBinPath shellPackages}:$PATH"
 
           if [ -d "$dotfiles_root/profile.d" ]; then
             for profile in "$dotfiles_root"/profile.d/*; do
