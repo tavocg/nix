@@ -14,6 +14,7 @@
     };
     anypinentry.url = "github:tavocg/anypinentry";
     kanban.url = "github:tavocg/kanban";
+    codex-nix.url = "github:SecBear/codex-nix";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
