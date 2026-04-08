@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ inputs, self, ... }: {
   flake.nixosModules.packages = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       firefox
@@ -10,6 +10,7 @@
       xournalpp
       gimp
       kdePackages.kdenlive
+      inputs.anypinentry.packages.${pkgs.system}.default
     ];
   };
 }

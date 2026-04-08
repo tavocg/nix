@@ -1,13 +1,31 @@
 {
   "nodes": {
+    "anypinentry": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1775669936,
+        "narHash": "sha256-gGq8XbOYz+Fj8mQYox+Euf31pOu+oLKYqhBqnfsQ20E=",
+        "owner": "tavocg",
+        "repo": "anypinentry",
+        "rev": "5beb70c4120628c2e2ceedb2e9738d43b080e8bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tavocg",
+        "repo": "anypinentry",
+        "type": "github"
+      }
+    },
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1775667341,
-        "narHash": "sha256-lOkPbJhG74qwneM12IIqVBS6mkS5Q/UI8Cv672ni+UI=",
+        "lastModified": 1775668844,
+        "narHash": "sha256-529yJvv/H0RDow5SS++plYQeoPLxWxeUXXXmhUY5NjM=",
         "owner": "tavocg",
         "repo": "dotfiles",
-        "rev": "02498aafc7b4e8399c39f9d706fb05ef3a5750e5",
+        "rev": "8195178ff4e5d8d916f374289305739058a5adf0",
         "type": "gitlab"
       },
       "original": {
@@ -53,13 +71,13 @@
       "locked": {
         "lastModified": 1775423009,
         "narHash": "sha256-vPKLpjhIVWdDrfiUM8atW6YkIggCEKdSAlJPzzhkQlw=",
-        "owner": "nixos",
+        "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "68d8aa3d661f0e6bd5862291b5bb263b2a6595c9",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -82,6 +100,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1775423009,
+        "narHash": "sha256-vPKLpjhIVWdDrfiUM8atW6YkIggCEKdSAlJPzzhkQlw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "68d8aa3d661f0e6bd5862291b5bb263b2a6595c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1775579569,
         "narHash": "sha256-/m3yyS/EnXqoPGBJYVy4jTOsirdgsEZ3JdN2gGkBr14=",
         "owner": "NixOS",
@@ -98,10 +132,11 @@
     },
     "root": {
       "inputs": {
+        "anypinentry": "anypinentry",
         "dotfiles": "dotfiles",
         "flake-parts": "flake-parts",
         "import-tree": "import-tree",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "shtatus": "shtatus",
         "wrapper-modules": "wrapper-modules"
       }
@@ -124,7 +159,7 @@
     },
     "wrapper-modules": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1775642420,

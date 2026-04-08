@@ -12,6 +12,7 @@
       url = "github:tavocg/shtatus";
       flake = false;
     };
+    anypinentry.url = "github:tavocg/anypinentry";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);

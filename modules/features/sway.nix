@@ -22,6 +22,7 @@
         slurp
         grim
         shtatus
+        inputs.anypinentry.packages.${pkgs.system}.default
       ];
     };
   };
