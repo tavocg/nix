@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.tavo = { pkgs, ... }: {
+  flake.nixosModules.tavo = { pkgs, lib, ... }: {
     users.users.tavo = {
       isNormalUser = true;
       description = "Gustavo Calvo";
