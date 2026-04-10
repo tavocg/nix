@@ -40,11 +40,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1775679991,
-        "narHash": "sha256-+M0TxYwkuFXyYbkWipOf2040QFkhLCH3ZC2Qa68TbL4=",
+        "lastModified": 1775688513,
+        "narHash": "sha256-gMYguHTdJyY+tr/PatQei6yxWTyDms3pHwYrWTTMHaQ=",
         "owner": "tavocg",
         "repo": "dotfiles",
-        "rev": "46eec399217edc4cd9fd4986f7f3daefa54197b4",
+        "rev": "906e85b63f1dd9e3189a4d9f34a345b11edf66ca",
         "type": "gitlab"
       },
       "original": {
@@ -284,11 +284,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1775642420,
-        "narHash": "sha256-GtPLsfjbwhVXThi/AhbA7b2aFF9aTPqHAANx9tLvZLo=",
+        "lastModified": 1775724285,
+        "narHash": "sha256-/ukfzDYzcuz7i+unH7XioPS3Acam6FC935XsOCaJDmY=",
         "owner": "BirdeeHub",
         "repo": "nix-wrapper-modules",
-        "rev": "df7d060a3a28fabafe0089a02a7bf92f5b4ed7c1",
+        "rev": "d79d2f910dd0d8bffd11113865923199cb304f86",
         "type": "github"
       },
       "original": {
