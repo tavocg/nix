@@ -9,7 +9,10 @@
       zathura
       xournalpp
       gimp
+      darktable
+      libreoffice-fresh
       kdePackages.kdenlive
+
       inputs.anypinentry.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
