@@ -7,6 +7,7 @@
         lazygit
         yazi
         eza
+        ripgrep
         ripgrep-all
         bat
         fd
