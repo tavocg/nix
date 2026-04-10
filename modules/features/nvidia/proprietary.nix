@@ -1,7 +1,7 @@
 { self, ... }: {
   # Note: this would work in desktop but not in a laptop,
   # for laptop create something like nvidiaProprietaryPrime
-  flake.nixosModules.nvidiaProprietary = { pkgs, ... }: {
+  flake.nixosModules.nvidiaProprietary = { config, ... }: {
     hardware.graphics.enable = true;
     services.xserver.videoDrivers = ["nvidia"]; # (Xorg and Wayland)
 
