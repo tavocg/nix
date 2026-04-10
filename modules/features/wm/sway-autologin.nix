@@ -8,7 +8,7 @@
 
     services.getty = {
       autologinUser = "tavo";
-      autologinOnce = true;
+      autologinOnce = false; # TODO: should be true? but it didnt seem to work when true?
     };
   };
 }

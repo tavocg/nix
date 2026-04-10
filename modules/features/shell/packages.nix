@@ -12,6 +12,7 @@
         bat
         fd
         fzf
+	jq
 
         inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
 
