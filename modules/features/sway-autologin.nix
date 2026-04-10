@@ -1,8 +1,8 @@
 { ... }: {
-  flake.nixosModules.autologin = {
+  flake.nixosModules.swayAutologin = { config, lib, ... }: {
     programs.bash.loginShellInit = ''
       if [[ "$(tty)" == /dev/tty1 ]]; then
-        exec sway
+        exec ${lib.getExe config.programs.sway.package}
       fi
     '';
 

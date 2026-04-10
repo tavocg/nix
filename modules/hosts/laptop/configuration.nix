@@ -7,7 +7,7 @@
       self.nixosModules.shell
       self.nixosModules.system
       self.nixosModules.iwd
-      self.nixosModules.autologin
+      self.nixosModules.swayAutologin
       self.nixosModules.sway
     ];
 
