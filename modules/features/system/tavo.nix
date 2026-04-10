@@ -3,7 +3,7 @@
     users.users.tavo = {
       isNormalUser = true;
       description = "Gustavo Calvo";
-      extraGroups = [ "wheel" "video" "input" ];
+      extraGroups = [ "wheel" "video" "input" "docker" ];
     };
 
     nix.settings.trusted-users = lib.mkAfter [ "tavo" ];
