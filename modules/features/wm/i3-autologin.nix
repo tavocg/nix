@@ -1,8 +1,8 @@
 { ... }: {
-  flake.nixosModules.i3Autologin = { config, lib, ... }: {
-    programs.bash.loginShellInit = ''
-      if [[ "$(tty)" == /dev/tty1 ]]; then
-        exec ${lib.getExe config.services.xserver.windowManager.i3.package}
+  flake.nixosModules.i3Autologin = { lib, pkgs, ... }: {
+    programs.bash.loginShellInit = lib.mkAfter ''
+      if [[ -z "$DISPLAY" && "$(tty)" == /dev/tty1 ]]; then
+        exec ${pkgs.xorg.xinit}/bin/startx
       fi
     '';
 
