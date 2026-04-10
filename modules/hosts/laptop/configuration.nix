@@ -3,6 +3,7 @@
     imports = [
       self.nixosModules.laptopHardware
       self.nixosModules.desktop
+      self.nixosModules.extra
       self.nixosModules.nixos
       self.nixosModules.shell
       self.nixosModules.system
