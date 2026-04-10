@@ -52,7 +52,6 @@
         impala
         udiskie
         wtype
-        (pass.withExtensions (exts: [ exts.pass-otp ]))
         inputs.shtatus.packages.${pkgs.stdenv.hostPlatform.system}.default
         inputs.anypinentry.packages.${pkgs.stdenv.hostPlatform.system}.default
       ] ++ [
