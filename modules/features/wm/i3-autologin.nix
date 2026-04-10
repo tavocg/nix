@@ -2,7 +2,7 @@
   flake.nixosModules.i3Autologin = { lib, pkgs, ... }: {
     programs.bash.loginShellInit = lib.mkAfter ''
       if [[ -z "$DISPLAY" && "$(tty)" == /dev/tty1 ]]; then
-        exec ${pkgs.xorg.xinit}/bin/startx
+        exec ${pkgs.xinit}/bin/startx
       fi
     '';
 

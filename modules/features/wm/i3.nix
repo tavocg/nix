@@ -71,11 +71,11 @@
             dbus-update-activation-environment --systemd --all || true
 
             if [ -r /etc/X11/Xresources ]; then
-              ${pkgs.xorg.xrdb}/bin/xrdb -merge /etc/X11/Xresources
+              ${pkgs.xrdb}/bin/xrdb -merge /etc/X11/Xresources
             fi
 
             ${lib.getExe' pkgs.polkit_gnome "polkit-gnome-authentication-agent-1"} &
-            ${pkgs.xorg.xset}/bin/xset r rate 300 70
+            ${pkgs.xset}/bin/xset r rate 300 70
 
             # Keep a short grace period before handing control to i3.
             sleep 0.2
