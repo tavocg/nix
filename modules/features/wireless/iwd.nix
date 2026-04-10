@@ -13,9 +13,5 @@
         };
       };
     };
-
-    environment.systemPackages = with pkgs; [
-      impala
-    ];
   };
 }

@@ -12,7 +12,6 @@
         bat
         fd
         fzf
-        wiremix
 
         inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
 
