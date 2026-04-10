@@ -1,7 +1,7 @@
 { self, ... }: {
   flake.nixosModules.desktop = { pkgs, ... }: {
     imports = [
-      self.nixosModules.packages
+      self.nixosModules.desktopPackages
     ];
   };
 }
