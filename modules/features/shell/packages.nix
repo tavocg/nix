@@ -1,7 +1,5 @@
 { inputs, self, ... }: {
-  perSystem = { pkgs, ... }: let
-    system = pkgs.stdenv.hostPlatform.system;
-  in {
+  perSystem = { pkgs, ... }: {
     packages.shell-runtime = pkgs.buildEnv {
       name = "shell-runtime";
       paths = with pkgs; [
@@ -9,8 +7,14 @@
         lazygit
         yazi
         eza
-        inputs.kanban.packages.${system}.default
-        inputs.codex-nix.packages.${system}.default
+        ripgrep-all
+        bat
+        fd
+        fzf
+
+        inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+        inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
         bubblewrap # used by codex
       ];
     };
