@@ -2,7 +2,7 @@
   flake.nixosModules.iwd = { pkgs, ... }: {
     networking.dhcpcd.enable = false;
     networking.networkmanager.enable = false;
-    networking.resolvconf.enable = true;
+    services.resolved.enable = true;
 
     networking.wireless.iwd = {
       enable = true;
@@ -10,9 +10,6 @@
         General = {
           AddressRandomization = "network";
           EnableNetworkConfiguration = true;
-        };
-        Network = {
-          NameResolvingService = "resolvconf";
         };
       };
     };
