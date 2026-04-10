@@ -10,7 +10,7 @@
       xournalpp
       gimp
       kdePackages.kdenlive
-      inputs.anypinentry.packages.${pkgs.system}.default
+      inputs.anypinentry.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }

@@ -10,8 +10,8 @@
         bemenu
         slurp
         grim
-        inputs.shtatus.packages.${pkgs.system}.default
-        inputs.anypinentry.packages.${pkgs.system}.default
+        inputs.shtatus.packages.${pkgs.stdenv.hostPlatform.system}.default
+        inputs.anypinentry.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
     };
   };
