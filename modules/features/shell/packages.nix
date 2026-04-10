@@ -3,6 +3,7 @@
     packages.shell-runtime = pkgs.buildEnv {
       name = "shell-runtime";
       paths = (with pkgs; [
+        neovim
         lazygit
         yazi
         eza
@@ -11,6 +12,7 @@
         bat
         fd
         fzf
+        wiremix
 
         inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
 
