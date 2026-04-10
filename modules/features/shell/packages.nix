@@ -12,7 +12,8 @@
         bat
         fd
         fzf
-	jq
+        jq
+        trash-cli
 
         inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
 
