@@ -13,7 +13,9 @@
 
   flake.nixosModules.shell = { pkgs, ... }: {
     imports = [
+      self.nixosModules.git
       self.nixosModules.shellPackages
+      self.nixosModules.tmux
     ];
     users.defaultUserShell = self.packages.${pkgs.stdenv.hostPlatform.system}.bash;
     environment.shells = [

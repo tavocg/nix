@@ -1,9 +1,8 @@
 { inputs, self, ... }: {
-  perSystem = { pkgs, ... }: {
+  perSystem = { pkgs, self', ... }: {
     packages.shell-runtime = pkgs.buildEnv {
       name = "shell-runtime";
-      paths = with pkgs; [
-        git
+      paths = (with pkgs; [
         lazygit
         yazi
         eza
@@ -17,6 +16,9 @@
 
         inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
         bubblewrap # used by codex
+      ]) ++ [
+        self'.packages.git
+        self'.packages.tmux
       ];
     };
   };

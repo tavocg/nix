@@ -33,19 +33,24 @@
   };
 
   flake.nixosModules.sway = { pkgs, ... }: {
+    imports = [
+      self.nixosModules.foot
+    ];
+
     programs.sway = {
       enable = true;
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.sway;
       wrapperFeatures.gtk = true;
 
       extraPackages = with pkgs; [
-        foot
         wl-clipboard
         bemenu
         slurp
         grim
         inputs.shtatus.packages.${pkgs.stdenv.hostPlatform.system}.default
         inputs.anypinentry.packages.${pkgs.stdenv.hostPlatform.system}.default
+      ] ++ [
+        self.packages.${pkgs.stdenv.hostPlatform.system}.foot
       ];
     };
   };
