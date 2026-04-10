@@ -1,5 +1,5 @@
 { inputs, self, ... }: {
-  flake.nixosModules.desktopPackages = { pkgs, ... }: {
+  flake.nixosModules.environmentPackages = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       firefox
       obs-studio
