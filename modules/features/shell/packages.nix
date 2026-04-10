@@ -11,6 +11,7 @@
         eza
         inputs.kanban.packages.${system}.default
         inputs.codex-nix.packages.${system}.default
+        bubblewrap # used by codex
       ];
     };
   };
