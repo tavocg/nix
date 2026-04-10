@@ -2,7 +2,7 @@
   flake.nixosModules.i3Autologin = { config, lib, ... }: {
     programs.bash.loginShellInit = ''
       if [[ "$(tty)" == /dev/tty1 ]]; then
-        exec ${lib.getExe config.programs.i3.package}
+        exec ${lib.getExe config.services.xserver.windowManager.i3.package}
       fi
     '';
 
