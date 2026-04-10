@@ -9,8 +9,8 @@
       self.nixosModules.system
       self.nixosModules.iwd
       self.nixosModules.bt
-      self.nixosModules.i3Autologin
-      self.nixosModules.i3
+      self.nixosModules.swayAutologin
+      self.nixosModules.sway
     ];
 
     networking.hostName = "laptop";
