@@ -53,6 +53,8 @@
           enable = true;
           generateScript = true;
           extraCommands = ''
+            export DISPLAY="''${DISPLAY:-:0}"
+            export XAUTHORITY="''${XAUTHORITY:-$XDG_RUNTIME_DIR/Xauthority}"
             export DESKTOP_SESSION=i3
             export XDG_CURRENT_DESKTOP=i3
             export XDG_SESSION_DESKTOP=i3
@@ -69,6 +71,10 @@
               XDG_SESSION_TYPE || true
 
             dbus-update-activation-environment --systemd --all || true
+
+            # gpg-agent can stay alive across logins with stale DISPLAY/TTY data.
+            ${pkgs.gnupg}/bin/gpg-connect-agent reloadagent /bye >/dev/null 2>&1 || true
+            ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1 || true
 
             if [ -r /etc/X11/Xresources ]; then
               ${pkgs.xrdb}/bin/xrdb -merge /etc/X11/Xresources
