@@ -21,8 +21,21 @@
   };
 
   perSystem = { config, pkgs, ... }: let
-    dotfilesXinitrc = "${inputs.dotfiles}/X11/xinit/xinitrc";
+    dotfilesXresources = "${inputs.dotfiles}/X11/Xresources";
+    dotfilesXinitrcDir = "${inputs.dotfiles}/X11/xinit/xinitrc.d";
     dotfilesXorgConfigDir = "${inputs.dotfiles}/X11/xorg.conf.d";
+    dotfilesXinitrc = pkgs.writeText "xinitrc" (
+      builtins.replaceStrings
+        [
+          "USRRESOURCES=\"\${XDG_CONFIG_HOME:-$HOME/.config}\"/X11/Xresources"
+          "usr_xinit_d=\"\${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinit/xinitrc.d\""
+        ]
+        [
+          "USRRESOURCES=\"${dotfilesXresources}\""
+          "usr_xinit_d=\"${dotfilesXinitrcDir}\""
+        ]
+        (builtins.readFile "${inputs.dotfiles}/X11/xinit/xinitrc")
+    );
   in {
     wrappers = {
       control_type = "build";
@@ -41,10 +54,10 @@
       done
 
       if [ "$has_server_args" -eq 1 ]; then
-        exec ${pkgs.xorg.xinit}/bin/startx "$@"
+        exec ${pkgs.xinit}/bin/startx "$@"
       fi
 
-      exec ${pkgs.xorg.xinit}/bin/startx "$@" -- :0 -configdir "${dotfilesXorgConfigDir}"
+      exec ${pkgs.xinit}/bin/startx "$@" -- :0 -configdir "${dotfilesXorgConfigDir}"
     '';
 
     apps.i3 = {
