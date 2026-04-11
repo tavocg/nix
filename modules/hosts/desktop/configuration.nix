@@ -7,7 +7,7 @@
       self.nixosModules.nixos
       self.nixosModules.shell
       self.nixosModules.system
-      # self.nixosModules.bt
+      self.nixosModules.bt
       self.nixosModules.i3Autologin
       self.nixosModules.i3
     ];
