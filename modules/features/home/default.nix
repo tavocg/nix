@@ -3,6 +3,7 @@
     imports = [
       self.homeModules.gnupg
       self.homeModules.pass
+      self.homeModules.ssh
     ];
   };
 }
