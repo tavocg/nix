@@ -5,6 +5,6 @@
       ./programs.nix
     ];
 
-    home.file.".config/sway/config".source = "${inputs.dotfiles}/sway/config";
+    xdg.configFile."sway/config".source = "${inputs.dotfiles}/sway/config";
   };
 }
