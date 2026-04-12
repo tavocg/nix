@@ -5,6 +5,7 @@
     imports = [
       self.homeModules.bash
       self.homeModules.codex
+      self.homeModules.bemenu
       self.homeModules.extra
       self.homeModules.git
       self.homeModules.gnupg

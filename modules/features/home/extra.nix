@@ -1,6 +1,8 @@
-{ ... }: {
-  flake.homeModules.extra = { pkgs, ... }: {
-    home.packages = with pkgs; [
+{ inputs, ... }: {
+  flake.homeModules.codex = { pkgs, ... }: {
+    home.packages = [
+      inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ] ++ (with pkgs; [
       gnome-disk-utility
       upower
       ffmpeg-full
@@ -39,6 +41,6 @@
       gnome-themes-extra
       yazi
       trash-cli
-    ];
+    ]);
   };
 }
