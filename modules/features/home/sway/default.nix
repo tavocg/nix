@@ -1,6 +1,9 @@
 { inputs, ... }: {
-  flake.homeModules.sway = { pkgs, ... }: {
-    home.packages = [ pkgs.sway ];
+  flake.homeModules.sway = { ... }: {
+    imports = [
+      ./foot.nix
+      ./programs.nix
+    ];
 
     home.file.".config/sway/config".source = "${inputs.dotfiles}/sway/config";
   };
