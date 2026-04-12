@@ -1,8 +1,8 @@
-{ inputs, ... }: {
+{ self, inputs, ... }: {
   flake.homeModules.sway = {
     imports = [
-      ./foot.nix
-      ./programs.nix
+      self.homeModules.swayFoot
+      self.homeModules.swayPrograms
     ];
 
     xdg.configFile."sway/config".source = "${inputs.dotfiles}/sway/config";

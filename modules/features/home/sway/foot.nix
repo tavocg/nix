@@ -1,5 +1,7 @@
-{ inputs, pkgs, ... }: {
-  home.packages = [ pkgs.foot ];
+{ inputs, ... }: {
+  flake.homeModules.swayFoot = { pkgs, ... }: {
+    home.packages = [ pkgs.foot ];
 
-  xdg.configFile."foot/foot.ini".source = "${inputs.dotfiles}/foot/foot.ini";
+    xdg.configFile."foot/foot.ini".source = "${inputs.dotfiles}/foot/foot.ini";
+  };
 }
