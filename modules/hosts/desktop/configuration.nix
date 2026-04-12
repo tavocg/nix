@@ -3,14 +3,16 @@
     networking.hostName = "desktop";
 
     imports = [
-      self.nixosModules.desktopHardware
-      self.nixosModules.packages
       inputs.home-manager.nixosModules.home-manager
+
+      self.nixosModules.desktopHardware
+
       self.nixosModules.nixos
-      self.nixosModules.sway
-      self.nixosModules.swayAutologin
       self.nixosModules.system
       self.nixosModules.bt
+
+      self.nixosModules.sway
+      self.nixosModules.swayAutologin
     ];
 
     local.user = {
@@ -26,7 +28,10 @@
     };
 
     home-manager.users.${config.local.user.name} = {
-      imports = [ self.homeModules.swayConfig ];
+      imports = [
+        self.homeModules.swayConfig
+        self.homeModules.home
+      ];
       home.stateVersion = config.system.stateVersion;
     };
 

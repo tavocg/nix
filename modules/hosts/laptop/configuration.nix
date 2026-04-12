@@ -4,14 +4,16 @@
     console.keyMap = "la-latin1";
 
     imports = [
-      self.nixosModules.laptopHardware
-      self.nixosModules.packages
       inputs.home-manager.nixosModules.home-manager
+
+      self.nixosModules.laptopHardware
+
       self.nixosModules.nixos
-      self.nixosModules.sway
-      self.nixosModules.swayAutologin
       self.nixosModules.system
       self.nixosModules.wireless
+
+      self.nixosModules.sway
+      self.nixosModules.swayAutologin
     ];
 
     local.user = {
@@ -27,7 +29,10 @@
     };
 
     home-manager.users.${config.local.user.name} = {
-      imports = [ self.homeModules.swayConfig ];
+      imports = [
+        self.homeModules.home
+        self.homeModules.swayConfig
+      ];
       home.stateVersion = config.system.stateVersion;
     };
 
