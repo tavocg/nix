@@ -1,7 +1,6 @@
 { inputs, ... }: {
   flake.homeModules.swayPrograms = { pkgs, ... }: {
     home.packages = [
-      pkgs.sway
       pkgs.grim
       pkgs.slurp
       pkgs.wl-clipboard
