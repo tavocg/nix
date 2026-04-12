@@ -35,6 +35,7 @@
       # p7zip
       # rsync
       # resvg
+      neovim
       curl
       fzf
       eza
