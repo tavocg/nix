@@ -75,7 +75,7 @@
 
       # extra
       corefonts
-      gnome.gnome-themes-extra
+      gnome-themes-extra
     ];
 
     fonts.packages = with pkgs; [
