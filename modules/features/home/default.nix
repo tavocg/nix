@@ -1,5 +1,7 @@
 { self, ... }: {
   flake.homeModules.home = { lib, ... }: {
+    xdg.enable = true;
+
     imports = [
       self.homeModules.bash
       self.homeModules.codex
