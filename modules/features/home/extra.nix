@@ -1,0 +1,42 @@
+{ ... }: {
+  flake.homeModules.extra = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      gnome-disk-utility
+      upower
+      ffmpeg-full
+      fuse
+      firefox
+      libreoffice-fresh
+      zathura
+      mpv
+      vlc
+      imv
+      kdePackages.kdenlive
+      obs-studio
+      darktable
+      gimp
+      xournalpp
+      neovim
+      curl
+      fzf
+      eza
+      fd
+      ripgrep
+      tectonic
+      zbar
+      imagemagick
+      tmux
+      bat
+      tokei
+      groff
+      lazygit
+      shellcheck
+      jq
+      android-tools
+      btop
+      python3
+      ledger
+      gnome-themes-extra
+    ];
+  };
+}
