@@ -1,10 +1,8 @@
 { inputs, ... }: {
-  flake.nixosModules.pinentry = { pkgs, ... }: let
-    anypinentry = inputs.anypinentry.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  in {
+  flake.nixosModules.pinentry = { pkgs, ... }: {
     programs.gnupg.agent = {
       enable = true;
-      pinentryPackage = anypinentry;
+      pinentryPackage = inputs.anypinentry.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
   };
 }
