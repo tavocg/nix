@@ -37,6 +37,8 @@
       python3
       ledger
       gnome-themes-extra
+      yazi
+      trash-cli
     ];
   };
 }
