@@ -6,6 +6,7 @@
     imports = [
       self.nixosModules.laptopHardware
       self.nixosModules.environment
+      self.nixosModules.home
       self.nixosModules.nixos
       self.nixosModules.system
       self.nixosModules.wireless

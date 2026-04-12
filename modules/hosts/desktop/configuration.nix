@@ -5,6 +5,7 @@
     imports = [
       self.nixosModules.desktopHardware
       self.nixosModules.environment
+      self.nixosModules.home
       self.nixosModules.nixos
       self.nixosModules.system
       self.nixosModules.bt
