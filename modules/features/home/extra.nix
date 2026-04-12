@@ -1,5 +1,5 @@
 { inputs, ... }: {
-  flake.homeModules.codex = { pkgs, ... }: {
+  flake.homeModules.extra = { pkgs, ... }: {
     home.packages = [
       inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
     ] ++ (with pkgs; [
