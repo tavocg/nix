@@ -1,22 +1,16 @@
 { inputs, ... }: {
-  flake.homeModules.ssh = { ... }: {
-    programs.ssh = {
-      enable = true;
-      enableDefaultConfig = false;
-      includes = [ "${inputs.dotfiles}/ssh/config" ];
+  flake.homeModules.ssh = { lib, ... }: {
+    xdg.configFile."ssh".source = lib.mkForce "${inputs.dotfiles}/ssh";
 
-      # matchBlocks."*" = {
-      #   forwardAgent = false;
-      #   addKeysToAgent = "no";
-      #   compression = false;
-      #   serverAliveInterval = 0;
-      #   serverAliveCountMax = 3;
-      #   hashKnownHosts = false;
-      #   userKnownHostsFile = "~/.ssh/known_hosts";
-      #   controlMaster = "no";
-      #   controlPath = "~/.ssh/master-%r@%n:%p";
-      #   controlPersist = "no";
-      # };
+    home.sessionVariablesExtra = ''
+      export SSH_CONFIG="-F ''${XDG_CONFIG_HOME:-$HOME/.config}/ssh/config"
+      export GIT_SSH_COMMAND="ssh ''${SSH_CONFIG}"
+    '';
+
+    programs.bash.shellAliases = {
+      ssh = ''ssh ''${SSH_CONFIG}'';
+      scp = ''scp ''${SSH_CONFIG}'';
+      rsync = ''rsync --rsh "ssh ''${SSH_CONFIG}"'';
     };
   };
 }
