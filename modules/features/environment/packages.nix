@@ -7,7 +7,7 @@
       # glib
       # lxqt.lxqt-policykit
       # polkit
-      gnome.gnome-disk-utility
+      gnome-disk-utility
       upower
       ffmpeg-full
       fuse
