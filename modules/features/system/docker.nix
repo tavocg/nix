@@ -1,9 +1,9 @@
 { ... }: {
-  flake.nixosModules.docker = { pkgs, ... }: {
+  flake.nixosModules.docker = { lib, config, ... }: {
     virtualisation.docker.enable = true;
 
-    environment.systemPackages = with pkgs; [
-      lazydocker
-    ];
+    config = lib.mkIf config.local.user.enable {
+      users.users.${config.local.user.name}.extraGroups = lib.mkAfter [ "docker" ];
+    };
   };
 }

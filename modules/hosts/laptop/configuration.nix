@@ -1,24 +1,24 @@
 { self, inputs, ... }: {
   flake.nixosModules.laptopConfiguration = { pkgs, lib, ... }: {
+    networking.hostName = "laptop";
+    console.keyMap = "la-latin1";
+
     imports = [
       self.nixosModules.laptopHardware
       self.nixosModules.environment
-      self.nixosModules.extra
       self.nixosModules.nixos
-      self.nixosModules.shell
       self.nixosModules.system
-      self.nixosModules.iwd
-      self.nixosModules.bt
-      self.nixosModules.swayAutologin
-      self.nixosModules.sway
+      self.nixosModules.wireless
     ];
 
-    networking.hostName = "laptop";
+    local.user = {
+      enable = true;
+      name = "tavo";
+      description = "Gustavo Calvo";
+    };
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-
-    console.keyMap = "la-latin1";
 
     system.stateVersion = "25.11";
   };

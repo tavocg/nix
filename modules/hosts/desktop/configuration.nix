@@ -1,18 +1,20 @@
 { self, inputs, ... }: {
   flake.nixosModules.desktopConfiguration = { pkgs, lib, ... }: {
+    networking.hostName = "desktop";
+
     imports = [
       self.nixosModules.desktopHardware
       self.nixosModules.environment
-      self.nixosModules.extra
       self.nixosModules.nixos
-      self.nixosModules.shell
       self.nixosModules.system
       self.nixosModules.bt
-      self.nixosModules.swayAutologin
-      self.nixosModules.sway
     ];
 
-    networking.hostName = "desktop";
+    local.user = {
+      enable = true;
+      name = "tavo";
+      description = "Gustavo Calvo";
+    };
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
