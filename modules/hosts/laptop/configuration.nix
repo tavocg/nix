@@ -8,6 +8,7 @@
       self.nixosModules.environment
       inputs.home-manager.nixosModules.home-manager
       self.nixosModules.nixos
+      self.nixosModules.sway
       self.nixosModules.system
       self.nixosModules.wireless
     ];
@@ -25,7 +26,7 @@
     };
 
     home-manager.users.${config.local.user.name} = {
-      imports = [ self.homeModules.sway ];
+      imports = [ self.homeModules.swayConfig ];
       home.stateVersion = config.system.stateVersion;
     };
 
