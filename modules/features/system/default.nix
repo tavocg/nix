@@ -10,6 +10,7 @@
       self.nixosModules.plymouth
       self.nixosModules.storage
       self.nixosModules.user
+      self.nixosModules.profile
     ];
   };
 }

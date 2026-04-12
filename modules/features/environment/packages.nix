@@ -1,5 +1,5 @@
 { inputs, self, ... }: {
-  flake.nixosModules.environmentPackages = { pkgs, ... }: {
+  flake.nixosModules.packages = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       # core / system
       # xdg-desktop-portal

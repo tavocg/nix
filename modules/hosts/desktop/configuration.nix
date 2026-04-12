@@ -4,10 +4,11 @@
 
     imports = [
       self.nixosModules.desktopHardware
-      self.nixosModules.environment
+      self.nixosModules.packages
       inputs.home-manager.nixosModules.home-manager
       self.nixosModules.nixos
       self.nixosModules.sway
+      self.nixosModules.swayAutologin
       self.nixosModules.system
       self.nixosModules.bt
     ];
