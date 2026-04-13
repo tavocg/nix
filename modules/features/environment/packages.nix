@@ -7,7 +7,11 @@
       impala
       wiremix
       bluetui
+
       inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+      bubblewrap
+      ripgrep
+      fd
     ];
   };
 }
