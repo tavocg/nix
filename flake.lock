@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "anypinentry": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1776048493,
-        "narHash": "sha256-PhR+Gywn937D+TOcwpcjTVxFXm9KYe6qIr9m7d+Rm/g=",
-        "owner": "tavocg",
-        "repo": "anypinentry",
-        "rev": "0c7326c86ff4687449f435664fd2ad51ade1a7e6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tavocg",
-        "repo": "anypinentry",
-        "type": "github"
-      }
-    },
     "codex-nix": {
       "inputs": {
         "flake-parts": [
@@ -152,7 +132,6 @@
     },
     "root": {
       "inputs": {
-        "anypinentry": "anypinentry",
         "codex-nix": "codex-nix",
         "dotfiles": "dotfiles",
         "flake-parts": "flake-parts",
@@ -160,8 +139,7 @@
         "kanban": "kanban",
         "nixpkgs": "nixpkgs",
         "pinentry-bemenu": "pinentry-bemenu",
-        "shtatus": "shtatus",
-        "wrapper-modules": "wrapper-modules"
+        "shtatus": "shtatus"
       }
     },
     "shtatus": {
@@ -181,26 +159,6 @@
       "original": {
         "owner": "tavocg",
         "repo": "shtatus",
-        "type": "github"
-      }
-    },
-    "wrapper-modules": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1776047825,
-        "narHash": "sha256-BOa9WLkJFlp+2cmWrwoTpC5a0ibmKU5y1hgQpR9jDdg=",
-        "owner": "BirdeeHub",
-        "repo": "nix-wrapper-modules",
-        "rev": "5e5ac5ff7e6858eed67cfeae9d93bd1049eb005d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "BirdeeHub",
-        "repo": "nix-wrapper-modules",
         "type": "github"
       }
     }

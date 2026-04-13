@@ -9,18 +9,14 @@
 
     import-tree.url = "github:vic/import-tree";
 
-    wrapper-modules = {
-      url = "github:BirdeeHub/nix-wrapper-modules";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # not currently wired into any module.
+    # wrapper-modules = {
+    #   url = "github:BirdeeHub/nix-wrapper-modules";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     shtatus = {
       url = "github:tavocg/shtatus";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    anypinentry = {
-      url = "github:tavocg/anypinentry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
