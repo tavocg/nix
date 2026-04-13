@@ -29,6 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    pinentry-bemenu = {
+      url = "github:tavocg/pinentry-bemenu";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     dotfiles = {
       url = "gitlab:tavocg/dotfiles";
       flake = false;
