@@ -34,6 +34,7 @@
       imagemagick
       file
       inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+      poppler-utils
       bubblewrap
       ripgrep
       fd
