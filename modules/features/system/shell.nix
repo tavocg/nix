@@ -2,6 +2,11 @@
   flake.nixosModules.shell = { pkgs, ... }: {
     users.defaultUserShell = pkgs.bashInteractive;
     environment.shells = [ pkgs.bashInteractive ];
+    environment.shellAliases = {
+      l = null;
+      ll = null;
+      ls = null;
+    };
 
     programs.bash = let
       bashrcPath = "${inputs.dotfiles}/bashrc";

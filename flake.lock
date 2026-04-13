@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775671086,
-        "narHash": "sha256-tnSOCV86DjiCcDu24PIoL8e1YsX5rAppCbqrSVAtji0=",
+        "lastModified": 1776048493,
+        "narHash": "sha256-PhR+Gywn937D+TOcwpcjTVxFXm9KYe6qIr9m7d+Rm/g=",
         "owner": "tavocg",
         "repo": "anypinentry",
-        "rev": "26b3cd4bbb2b9fa5abdda5d847fd985eee4dcc1f",
+        "rev": "0c7326c86ff4687449f435664fd2ad51ade1a7e6",
         "type": "github"
       },
       "original": {
@@ -130,6 +130,26 @@
         "type": "github"
       }
     },
+    "pinentry-bemenu": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1776048493,
+        "narHash": "sha256-PhR+Gywn937D+TOcwpcjTVxFXm9KYe6qIr9m7d+Rm/g=",
+        "owner": "tavocg",
+        "repo": "pinentry-bemenu",
+        "rev": "0c7326c86ff4687449f435664fd2ad51ade1a7e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tavocg",
+        "repo": "pinentry-bemenu",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "anypinentry": "anypinentry",
@@ -139,6 +159,7 @@
         "import-tree": "import-tree",
         "kanban": "kanban",
         "nixpkgs": "nixpkgs",
+        "pinentry-bemenu": "pinentry-bemenu",
         "shtatus": "shtatus",
         "wrapper-modules": "wrapper-modules"
       }
@@ -170,11 +191,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775940860,
-        "narHash": "sha256-8Jxnn2uoFhm2H579ycVxFWDtrywJ6Mc8RmqWbZwk5So=",
+        "lastModified": 1776047825,
+        "narHash": "sha256-BOa9WLkJFlp+2cmWrwoTpC5a0ibmKU5y1hgQpR9jDdg=",
         "owner": "BirdeeHub",
         "repo": "nix-wrapper-modules",
-        "rev": "fb62851ffc5f6a4d53ebc00b93743e29b41e6224",
+        "rev": "5e5ac5ff7e6858eed67cfeae9d93bd1049eb005d",
         "type": "github"
       },
       "original": {
