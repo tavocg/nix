@@ -12,6 +12,7 @@
       mpv
       eza
       markdownlint-cli
+      gnumake
       inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
       glow
       (pass.withExtensions (exts: [exts.pass-otp]))
