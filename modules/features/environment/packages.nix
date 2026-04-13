@@ -11,6 +11,7 @@
       eza
 
       inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
       bubblewrap
       ripgrep
       fd
