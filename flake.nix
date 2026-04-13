@@ -30,11 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dotfiles = {
-      url = "gitlab:tavocg/dotfiles";
-      flake = false;
-    };
-
     codex-nix = {
       url = "github:SecBear/codex-nix";
       inputs.nixpkgs.follows = "nixpkgs";

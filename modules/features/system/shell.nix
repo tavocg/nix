@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ ... }: {
   flake.nixosModules.shell = { pkgs, ... }: {
     users.defaultUserShell = pkgs.bashInteractive;
     environment.shells = [ pkgs.bashInteractive ];
@@ -8,19 +8,21 @@
       ls = null;
     };
 
-    programs.bash = let
-      bashrcPath = "${inputs.dotfiles}/bashrc";
-    in {
+    programs.bash = {
       enable = true;
 
       loginShellInit = ''
-        source ${bashrcPath}
+        if [ -r ~/.config/bashrc ]; then
+          . ~/.config/bashrc
+        fi
       '';
 
-      # NixOS writes its default prompt via promptInit, so load the dotfiles
-      # bashrc there to keep PS1/PROMPT_COMMAND from being overwritten.
+      # NixOS writes its default prompt via promptInit, so source ~/.config/bashrc
+      # there to keep PS1/PROMPT_COMMAND from being overwritten when present.
       promptInit = ''
-        source ${bashrcPath}
+        if [ -r ~/.config/bashrc ]; then
+          . ~/.config/bashrc
+        fi
       '';
     };
   };

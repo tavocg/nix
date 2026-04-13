@@ -23,22 +23,6 @@
         "type": "github"
       }
     },
-    "dotfiles": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1776047551,
-        "narHash": "sha256-6vZXDzYqT3yCZkhJQv7uTjW+9/k09B2vmLccmCk6Fa4=",
-        "owner": "tavocg",
-        "repo": "dotfiles",
-        "rev": "bca17557fe3e5c96f1e54bb2e76a2fe782211559",
-        "type": "gitlab"
-      },
-      "original": {
-        "owner": "tavocg",
-        "repo": "dotfiles",
-        "type": "gitlab"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -133,7 +117,6 @@
     "root": {
       "inputs": {
         "codex-nix": "codex-nix",
-        "dotfiles": "dotfiles",
         "flake-parts": "flake-parts",
         "import-tree": "import-tree",
         "kanban": "kanban",
