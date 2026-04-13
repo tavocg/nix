@@ -4,19 +4,34 @@
       neovim
       yazi
       git
+      trash-cli
+      tmux
+      jq
+      imv
+      vlc
+      mpv
+      eza
+      markdownlint-cli
+      inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
+      glow
+      (pass.withExtensions (exts: [exts.pass-otp]))
       lazygit
       lazydocker
       impala
       wiremix
       bluetui
-      eza
       firefox
-      (pass.withExtensions (exts: [exts.pass-otp]))
+      libreoffice-fresh
+      gnome-disk-utility
+      gimp
+      kdePackages.kdenlive
+      darktable
+      obs-studio
+      xournalpp
+      zathura
       imagemagick
       file
-
       inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
-      inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
       bubblewrap
       ripgrep
       fd
