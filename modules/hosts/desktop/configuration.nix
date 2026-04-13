@@ -6,6 +6,7 @@
       self.nixosModules.desktopHardware
 
       self.nixosModules.nixos
+      self.nixosModules.environment
       self.nixosModules.system
       self.nixosModules.bt
 
