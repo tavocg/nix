@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.cr = { pkgs, ... }: {
+  flake.nixosModules.cr = { ... }: {
     i18n.supportedLocales = [
       "en_US.UTF-8/UTF-8"
       "es_CR.UTF-8/UTF-8"

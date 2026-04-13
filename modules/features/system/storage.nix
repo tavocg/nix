@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.storage = { pkgs, ... }: {
+  flake.nixosModules.storage = { ... }: {
     services.udisks2.enable = true;
   };
 }

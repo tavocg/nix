@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.nixosModules.system = { pkgs, ... }: {
+  flake.nixosModules.system = { ... }: {
     imports = [
       self.nixosModules.cr
       self.nixosModules.cups

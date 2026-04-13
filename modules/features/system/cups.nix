@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.cups = { pkgs, ... }: {
+  flake.nixosModules.cups = { ... }: {
     services.printing.enable = true;
   };
 }

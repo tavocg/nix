@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.pipewire = { pkgs, ... }: {
+  flake.nixosModules.pipewire = { ... }: {
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
 
@@ -14,4 +14,3 @@
     services.pipewire.wireplumber.enable = true;
   };
 }
-
