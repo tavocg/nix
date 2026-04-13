@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.homeModules.home = { lib, ... }: {
+  flake.homeModules.home = { lib, inputs, ... }: {
     xdg.enable = true;
 
     imports = [
