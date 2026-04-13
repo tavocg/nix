@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.nixosModules.wireless = { pkgs, ... }: {
+  flake.nixosModules.wireless = { ... }: {
     imports = [
       self.nixosModules.bt
       self.nixosModules.iwd
