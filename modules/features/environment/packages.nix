@@ -13,6 +13,7 @@
       eza
       markdownlint-cli
       gnumake
+      tectonic
       inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
       glow
       (pass.withExtensions (exts: [exts.pass-otp]))
