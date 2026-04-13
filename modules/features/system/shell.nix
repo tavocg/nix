@@ -8,11 +8,13 @@
     in {
       enable = true;
 
-      interactiveShellInit = ''
+      loginShellInit = ''
         source ${bashrcPath}
       '';
 
-      loginShellInit = ''
+      # NixOS writes its default prompt via promptInit, so load the dotfiles
+      # bashrc there to keep PS1/PROMPT_COMMAND from being overwritten.
+      promptInit = ''
         source ${bashrcPath}
       '';
     };
