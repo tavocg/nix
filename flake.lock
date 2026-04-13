@@ -79,26 +79,6 @@
         "type": "github"
       }
     },
-    "home-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1776030105,
-        "narHash": "sha256-b4cNpWPDSH+/CTTiw8++yGh1UYG2kQNrbIehV2iGoeo=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "49088dc2e7a876e338e510c5f5f60f659819c650",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "import-tree": {
       "locked": {
         "lastModified": 1773693634,
@@ -156,7 +136,6 @@
         "codex-nix": "codex-nix",
         "dotfiles": "dotfiles",
         "flake-parts": "flake-parts",
-        "home-manager": "home-manager",
         "import-tree": "import-tree",
         "kanban": "kanban",
         "nixpkgs": "nixpkgs",
