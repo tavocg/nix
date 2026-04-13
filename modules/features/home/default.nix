@@ -3,7 +3,6 @@
     xdg.enable = true;
 
     imports = [
-      self.homeModules.bemenu
       self.homeModules.extra
       self.homeModules.git
       self.homeModules.gnupg
