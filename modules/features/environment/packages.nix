@@ -2,6 +2,7 @@
   flake.nixosModules.environmentPackages = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       neovim
+      yazi
       lazygit
       lazydocker
       impala
