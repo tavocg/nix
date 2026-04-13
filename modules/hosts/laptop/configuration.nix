@@ -21,6 +21,10 @@
       description = "Gustavo Calvo";
     };
 
+    environment.systemPackages = {
+      pkgs.brightnessctl
+    };
+
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
