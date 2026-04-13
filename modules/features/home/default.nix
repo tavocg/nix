@@ -4,10 +4,11 @@
 
     imports = [
       self.homeModules.extra
-      self.homeModules.git
       self.homeModules.gnupg
       self.homeModules.pass
-      self.homeModules.ssh
     ];
+
+    xdg.configFile."git".source = "${inputs.dotfiles}/git";
+    xdg.configFile."ssh".source = lib.mkForce "${inputs.dotfiles}/ssh";
   };
 }
