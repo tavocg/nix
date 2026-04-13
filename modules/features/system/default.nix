@@ -7,6 +7,7 @@
       self.nixosModules.fonts
       self.nixosModules.pipewire
       self.nixosModules.plymouth
+      self.nixosModules.shell
       self.nixosModules.storage
       self.nixosModules.user
     ];
