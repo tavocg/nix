@@ -1,5 +1,5 @@
-{ self, inputs, ... }: {
-  flake.nixosModules.laptopConfiguration = { config, pkgs, lib, ... }: {
+{ self, ... }: {
+  flake.nixosModules.laptopConfiguration = { ... }: {
     networking.hostName = "laptop";
     console.keyMap = "la-latin1";
 

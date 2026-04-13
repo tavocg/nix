@@ -1,5 +1,5 @@
-{ self, inputs, ... }: {
-  flake.nixosModules.desktopConfiguration = { config, pkgs, lib, ... }: {
+{ self, ... }: {
+  flake.nixosModules.desktopConfiguration = { ... }: {
     networking.hostName = "desktop";
 
     imports = [
