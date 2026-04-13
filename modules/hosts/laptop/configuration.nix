@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.nixosModules.laptopConfiguration = { ... }: {
+  flake.nixosModules.laptopConfiguration = { pkgs, ... }: {
     networking.hostName = "laptop";
     console.keyMap = "la-latin1";
 
@@ -21,9 +21,9 @@
       description = "Gustavo Calvo";
     };
 
-    environment.systemPackages = {
+    environment.systemPackages = [
       pkgs.brightnessctl
-    };
+    ];
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
