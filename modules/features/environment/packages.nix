@@ -12,7 +12,7 @@
       mpv
       eza
       markdownlint-cli
-      ffmpeg-all
+      ffmpeg-full
       gnumake
       tectonic
       inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
