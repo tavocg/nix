@@ -13,6 +13,7 @@
       eza
       markdownlint-cli
       gnumake
+      tectonic
       inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
       glow
       (pass.withExtensions (exts: [exts.pass-otp]))
@@ -33,6 +34,7 @@
       imagemagick
       file
       inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+      poppler-utils
       bubblewrap
       ripgrep
       fd
