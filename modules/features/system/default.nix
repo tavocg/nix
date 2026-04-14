@@ -18,6 +18,7 @@
 
   flake.nixosModules.system = { ... }: {
     imports = [
+      self.nixosModules.binsh
       self.nixosModules.cr
       self.nixosModules.cups
       self.nixosModules.docker
