@@ -9,6 +9,7 @@
       self.nixosModules.pipewire
       self.nixosModules.plymouth
       self.nixosModules.shell
+      self.nixosModules.ssh
       self.nixosModules.storage
       self.nixosModules.user
     ];
