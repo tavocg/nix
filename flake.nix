@@ -9,6 +9,11 @@
 
     import-tree.url = "github:vic/import-tree";
 
+    dotfiles = {
+      url = "gitlab:tavocg/dotfiles";
+      flake = false;
+    };
+
     # not currently wired into any module.
     # wrapper-modules = {
     #   url = "github:BirdeeHub/nix-wrapper-modules";
