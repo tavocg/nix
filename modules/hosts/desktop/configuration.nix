@@ -10,6 +10,8 @@
       self.nixosModules.system
       self.nixosModules.bt
 
+      self.nixosModules.tailscale
+
       self.nixosModules.sway
       self.nixosModules.swayAutologin
     ];

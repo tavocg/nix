@@ -11,6 +11,8 @@
       self.nixosModules.system
       self.nixosModules.wireless
 
+      self.nixosModules.tailscale
+
       self.nixosModules.sway
       self.nixosModules.swayAutologin
     ];
