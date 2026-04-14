@@ -24,6 +24,7 @@
       wiremix
       bluetui
       firefox
+      thunderbird
       libreoffice-fresh
       gnome-disk-utility
       gimp
