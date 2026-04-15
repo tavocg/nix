@@ -14,4 +14,4 @@ test:
 
 .PHONY: clean-garbage
 clean-garbage:
-	nix-collect-garbage
+	nix-collect-garbage -d
