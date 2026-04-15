@@ -14,6 +14,13 @@
       markdownlint-cli
       ffmpeg-full
       gnumake
+      autoconf
+      automake
+      binutils
+      pkg-config
+      fakeroot
+      flex
+      bison
       tectonic
       inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
       glow
