@@ -17,6 +17,7 @@
       autoconf
       automake
       binutils
+      tesseract
       pkg-config
       fakeroot
       flex
