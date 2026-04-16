@@ -25,6 +25,7 @@
       tectonic
       inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
       glow
+      pandoc
       (pass.withExtensions (exts: [exts.pass-otp]))
       lazygit
       lazydocker
