@@ -26,6 +26,7 @@
       inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
       glow
       pandoc
+      obsidian
       (pass.withExtensions (exts: [exts.pass-otp]))
       lazygit
       lazydocker
