@@ -25,6 +25,7 @@
     fileSystems."/mnt/wd" = {
       device = "/dev/disk/by-uuid/a5d5fbbc-7043-4d9c-93c9-5d642cc608f0";
       fsType = "ext4";
+      options = [ "users" "nofail" "exec" ];
     };
 
     swapDevices = [ ];
