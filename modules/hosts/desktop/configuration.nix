@@ -12,8 +12,8 @@
 
       self.nixosModules.tailscale
 
-      self.nixosModules.sway
-      self.nixosModules.swayAutologin
+      self.nixosModules.i3
+      self.nixosModules.i3Autologin
     ];
 
     programs.steam.enable = true;
