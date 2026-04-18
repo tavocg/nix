@@ -21,6 +21,21 @@
     local.ssh.enable = true;
 
     services.resolved.enable = true;
+    services.resolved.settings.Resolve = {
+      FallbackDNS = [
+        "1.1.1.1"
+        "8.8.8.8"
+      ];
+    };
+
+    systemd.network.networks."50-tailscale0" = {
+      matchConfig.Name = "tailscale0";
+      DHCP = "no";
+      networkConfig = {
+        IPv6AcceptRA = false;
+        LinkLocalAddressing = "no";
+      };
+    };
 
     security.sudo.wheelNeedsPassword = false;
 
