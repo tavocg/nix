@@ -6,6 +6,7 @@
       self.nixosModules.nixos
       self.nixosModules.binsh
       self.nixosModules.cr
+      self.nixosModules.tailscale
       self.nixosModules.ssh
       self.nixosModules.user
     ];
