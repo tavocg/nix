@@ -1,5 +1,9 @@
-{ inputs, ... }: {
+{ self, inputs, ... }: {
   flake.nixosModules.i3 = { pkgs, ... }: {
+    imports = [
+      self.nixosModules.x
+    ];
+
     environment.systemPackages = [
       pkgs.xclip
       pkgs.bemenu
