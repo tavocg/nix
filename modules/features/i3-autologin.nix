@@ -4,7 +4,7 @@
       (lib.mkIf config.services.xserver.windowManager.i3.enable {
         programs.bash.loginShellInit = ''
           if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == /dev/tty1 ]]; then
-            exec startx
+            exec startx "$HOME/.config/X11/xinit/xinitrc"
           fi
         '';
       })
