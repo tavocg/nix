@@ -1,57 +1,65 @@
 { inputs, ... }: {
-  flake.nixosModules.environmentPackages = { pkgs, ... }: {
-    environment.systemPackages = with pkgs; [
-      neovim
-      yazi
-      git
-      trash-cli
-      tmux
-      jq
-      imv
-      vlc
-      mpv
-      eza
-      markdownlint-cli
-      ffmpeg-full
-      gnumake
-      autoconf
-      automake
-      binutils
-      tesseract
-      pkg-config
-      fakeroot
-      flex
-      bison
-      tectonic
-      inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
-      glow
-      pandoc
-      obsidian
-      (pass.withExtensions (exts: [exts.pass-otp]))
-      lazygit
-      lazydocker
-      impala
-      wiremix
-      bluetui
-      firefox
-      thunderbird
-      libreoffice-fresh
-      gnome-disk-utility
-      gimp
-      kdePackages.kdenlive
-      darktable
-      obs-studio
-      xournalpp
-      zathura
-      imagemagick
-      exiftool
-      emacs-pgtk
-      file
-      inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
-      poppler-utils
-      bubblewrap
-      ripgrep
-      fd
-    ];
-  };
+  flake.nixosModules.environmentPackages = { config, lib, pkgs, ... }:
+    let
+      cudaEnabled = lib.attrByPath [ "local" "nvidia" "cuda" "enable" ] false config;
+      obsPackage =
+        if cudaEnabled then
+          pkgs.obs-studio.override { cudaSupport = true; }
+        else
+          pkgs.obs-studio;
+    in {
+      environment.systemPackages = with pkgs; [
+        neovim
+        yazi
+        git
+        trash-cli
+        tmux
+        jq
+        imv
+        vlc
+        mpv
+        eza
+        markdownlint-cli
+        ffmpeg-full
+        gnumake
+        autoconf
+        automake
+        binutils
+        tesseract
+        pkg-config
+        fakeroot
+        flex
+        bison
+        tectonic
+        inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
+        glow
+        pandoc
+        obsidian
+        (pass.withExtensions (exts: [exts.pass-otp]))
+        lazygit
+        lazydocker
+        impala
+        wiremix
+        bluetui
+        firefox
+        thunderbird
+        libreoffice-fresh
+        gnome-disk-utility
+        gimp
+        kdePackages.kdenlive
+        darktable
+        obsPackage
+        xournalpp
+        zathura
+        imagemagick
+        exiftool
+        emacs-pgtk
+        file
+        inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+        poppler-utils
+        bubblewrap
+        ripgrep
+        fd
+      ];
+    };
 }
