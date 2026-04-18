@@ -30,6 +30,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    st = {
+      url = "github:tavocg/st";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     pinentry-bemenu = {
       url = "github:tavocg/pinentry-bemenu";
       inputs.nixpkgs.follows = "nixpkgs";

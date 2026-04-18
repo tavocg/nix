@@ -1,5 +1,9 @@
-{ ... }: {
-  flake.nixosModules.i3 = { ... }: {
+{ inputs, ... }: {
+  flake.nixosModules.i3 = { pkgs, ... }: {
+    environment.systemPackages = [
+      inputs.st.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ];
+
     services.xserver = {
       enable = true;
 
