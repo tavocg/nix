@@ -28,8 +28,8 @@
 
       nvidiaSettings = true; # Nvidia settings menu,
 
-      # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # GTX 1060 (Pascal) is supported by the 580 legacy branch, not the current stable branch.
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
     };
   };
 }
