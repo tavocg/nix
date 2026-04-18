@@ -13,8 +13,8 @@
 
     local.user = {
       enable = true;
-      name = "drive";
-      description = "Drive";
+      name = "tavo";
+      description = "Gustavo Calvo";
       extraGroups = [ "wheel" ];
     };
 
