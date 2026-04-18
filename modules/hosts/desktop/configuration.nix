@@ -16,6 +16,8 @@
       self.nixosModules.swayAutologin
     ];
 
+    programs.steam.enable = true;
+
     local.user = {
       enable = true;
       name = "tavo";

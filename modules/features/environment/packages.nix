@@ -53,7 +53,5 @@
       ripgrep
       fd
     ];
-
-    programs.steam.enable = true;
   };
 }
