@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775886753,
-        "narHash": "sha256-fwHounrFIsOgukTuh52JFDFEjgJ5lPPTN1U8HgVB8QA=",
+        "lastModified": 1776289225,
+        "narHash": "sha256-2pjmO1if0T+YxTVklQORbz/DXC0SwG1lUZ4DKhyIjCo=",
         "owner": "SecBear",
         "repo": "codex-nix",
-        "rev": "5cc2b86252c366ce45df37825900650bbc4a14a2",
+        "rev": "7d495ed484d13eecb51b80ec369f55bec609fec7",
         "type": "github"
       },
       "original": {
@@ -26,11 +26,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1776271781,
-        "narHash": "sha256-RU8dOCBACMqQWU88OHibSuSLtD2J4VB7TL/HXXlKkG8=",
+        "lastModified": 1776495754,
+        "narHash": "sha256-1u48AZHNlSlpjsa3smI+b/++yDeSH0m0e2Und9WQ+js=",
         "owner": "tavocg",
         "repo": "dotfiles",
-        "rev": "7edcd0f7f501f6c5f7b187d7d1511c4bcf198e8d",
+        "rev": "0e1b11eccdb8f6d6b0626315c48b2b5e78bc6285",
         "type": "gitlab"
       },
       "original": {
@@ -96,11 +96,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1775710090,
-        "narHash": "sha256-ar3rofg+awPB8QXDaFJhJ2jJhu+KqN/PRCXeyuXR76E=",
+        "lastModified": 1776169885,
+        "narHash": "sha256-l/iNYDZ4bGOAFQY2q8y5OAfBBtrDAaPuRQqWaFHVRXM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4c1018dae018162ec878d42fec712642d214fdfa",
+        "rev": "4bd9165a9165d7b5e33ae57f3eecbcb28fb231c9",
         "type": "github"
       },
       "original": {
@@ -139,7 +139,8 @@
         "kanban": "kanban",
         "nixpkgs": "nixpkgs",
         "pinentry-bemenu": "pinentry-bemenu",
-        "shtatus": "shtatus"
+        "shtatus": "shtatus",
+        "st": "st"
       }
     },
     "shtatus": {
@@ -159,6 +160,26 @@
       "original": {
         "owner": "tavocg",
         "repo": "shtatus",
+        "type": "github"
+      }
+    },
+    "st": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1776497104,
+        "narHash": "sha256-h1WS0ZyLxVracq2IhI8knmJjeTSAK6P51Z2IRxEbC98=",
+        "owner": "tavocg",
+        "repo": "st",
+        "rev": "7c2fdbfa2d954ef0c67a3b2353380dc37cd5409a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tavocg",
+        "repo": "st",
         "type": "github"
       }
     }
