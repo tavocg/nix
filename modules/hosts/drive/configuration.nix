@@ -20,6 +20,8 @@
 
     local.ssh.enable = true;
 
+    services.resolved.enable = true;
+
     security.sudo.wheelNeedsPassword = false;
 
     environment.systemPackages = with pkgs; [
