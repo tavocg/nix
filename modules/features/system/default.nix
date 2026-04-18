@@ -30,6 +30,7 @@
       self.nixosModules.shell
       self.nixosModules.storage
       self.nixosModules.user
+      self.nixosModules.windowing
     ];
   };
 }

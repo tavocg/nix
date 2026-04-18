@@ -1,5 +1,7 @@
 { inputs, ... }: {
   flake.nixosModules.sway = { pkgs, ... }: {
+    local.wayland.enable = true;
+
     programs.sway = {
       enable = true;
       wrapperFeatures.gtk = true;

@@ -1,8 +1,6 @@
-{ self, inputs, ... }: {
+{ inputs, ... }: {
   flake.nixosModules.i3 = { pkgs, ... }: {
-    imports = [
-      self.nixosModules.x
-    ];
+    local.x11.enable = true;
 
     environment.systemPackages = [
       pkgs.xclip
