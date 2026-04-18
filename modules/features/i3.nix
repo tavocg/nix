@@ -8,6 +8,7 @@
       pkgs.xclip
       pkgs.bemenu
       pkgs.scrot
+      pkgs.xcolor
       pkgs.xdotool
       inputs.st.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.shtatus.packages.${pkgs.stdenv.hostPlatform.system}.default
