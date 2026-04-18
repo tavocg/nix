@@ -14,6 +14,7 @@
 
       self.nixosModules.i3
       self.nixosModules.i3Autologin
+      self.nixosModules.nvidiaProprietary
     ];
 
     programs.steam.enable = true;
