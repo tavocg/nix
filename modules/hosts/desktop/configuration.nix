@@ -18,14 +18,15 @@
       self.nixosModules.nvidiaCuda
     ];
 
-    programs.steam.enable = true;
-
     local.user = {
       enable = true;
       name = "tavo";
       description = "Gustavo Calvo";
     };
+
     local.ssh.enable = true;
+
+    programs.steam.enable = true;
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;

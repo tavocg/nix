@@ -22,6 +22,7 @@
       name = "tavo";
       description = "Gustavo Calvo";
     };
+
     local.ssh.enable = true;
 
     environment.systemPackages = [
