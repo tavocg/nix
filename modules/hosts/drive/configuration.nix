@@ -6,8 +6,6 @@
       self.nixosModules.nixos
       self.nixosModules.binsh
       self.nixosModules.cr
-      self.nixosModules.hosts
-      self.nixosModules.shell
       self.nixosModules.ssh
       self.nixosModules.user
     ];
@@ -25,14 +23,8 @@
 
     environment.systemPackages = with pkgs; [
       git
-      neovim
       tmux
       curl
-      wget
-      htop
-      file
-      ripgrep
-      fd
     ];
 
     system.stateVersion = "25.11";
