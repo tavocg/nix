@@ -3,7 +3,10 @@
   # for laptop create something like nvidiaProprietaryPrime
   flake.nixosModules.nvidiaProprietary = { config, ... }: {
     hardware.graphics.enable = true;
+
     services.xserver.videoDrivers = ["nvidia"]; # (Xorg and Wayland)
+
+    hardware.graphics.enable32Bit = true;
 
     hardware.nvidia = {
       modesetting.enable = true;
