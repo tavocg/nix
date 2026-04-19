@@ -3,6 +3,7 @@
     local.wayland.enable = true;
 
     environment.systemPackages = [
+      pkgs.bemenu
       pkgs.foot
       pkgs.waybar
     ];
