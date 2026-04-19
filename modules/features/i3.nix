@@ -1,5 +1,7 @@
-{ inputs, ... }: {
+{ inputs, lib, ... }: {
   flake.nixosModules.i3 = { pkgs, ... }: {
+    imports = [ (import ./startx.nix { inherit lib; }).flake.nixosModules.startx ];
+
     local.x11.enable = true;
 
     environment.systemPackages = [
