@@ -4,6 +4,7 @@
 
     environment.systemPackages = [
       pkgs.foot
+      pkgs.waybar
     ];
 
     programs.hyprland = {
