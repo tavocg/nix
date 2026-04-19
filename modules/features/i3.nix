@@ -8,8 +8,6 @@
       pkgs.scrot
       pkgs.xcolor
       pkgs.xdotool
-      pkgs.gnome-themes-extra
-      pkgs.xsettingsd
       inputs.st.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.shtatus.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
