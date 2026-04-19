@@ -4,6 +4,10 @@ all: switch
 switch:
 	nixos-rebuild switch --flake .
 
+.PHONY: boot
+boot:
+	nixos-rebuild boot --flake .
+
 .PHONY: update
 update:
 	nix flake update

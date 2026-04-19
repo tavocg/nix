@@ -12,8 +12,8 @@
 
       self.nixosModules.tailscale
 
-      self.nixosModules.i3
-      self.nixosModules.i3Autologin
+      self.nixosModules.hyprland
+      self.nixosModules.hyprlandAutologin
       self.nixosModules.nvidiaProprietary
       self.nixosModules.nvidiaCuda
     ];
