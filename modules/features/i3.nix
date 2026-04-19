@@ -1,6 +1,6 @@
-{ inputs, lib, ... }: {
+{ config, inputs, ... }: {
   flake.nixosModules.i3 = { pkgs, ... }: {
-    imports = [ (import ./startx.nix { inherit lib; }).flake.nixosModules.startx ];
+    imports = [ config.flake.nixosModules.startx ];
 
     local.x11.enable = true;
 
