@@ -6,6 +6,8 @@
       pkgs.bemenu
       pkgs.foot
       pkgs.waybar
+      pkgs.wl-clipboard
+      pkgs.wtype
     ];
 
     programs.hyprland = {
