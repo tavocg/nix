@@ -10,6 +10,7 @@
       pkgs.wtype
       pkgs.grim
       pkgs.slurp
+      pkgs.hyprpicker
     ];
 
     programs.hyprland = {
