@@ -14,6 +14,7 @@
 
       self.nixosModules.hyprland
       self.nixosModules.hyprlandAutologin
+
       self.nixosModules.nvidiaProprietary
       self.nixosModules.nvidiaCuda
     ];

@@ -13,8 +13,8 @@
 
       self.nixosModules.tailscale
 
-      self.nixosModules.sway
-      self.nixosModules.swayAutologin
+      self.nixosModules.hyprland
+      self.nixosModules.hyprlandAutologin
     ];
 
     local.user = {
