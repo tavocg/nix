@@ -8,6 +8,8 @@
       pkgs.waybar
       pkgs.wl-clipboard
       pkgs.wtype
+      pkgs.grim
+      pkgs.slurp
     ];
 
     programs.hyprland = {
