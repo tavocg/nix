@@ -14,6 +14,8 @@
     config = lib.mkIf windowingEnabled {
       environment.systemPackages = with pkgs; [
         gnome-themes-extra
+      ] ++ lib.optionals x11Enabled [
+        pkgs.xsettingsd
       ];
 
       programs.dconf = {
@@ -26,13 +28,9 @@
                 gtk-theme = "Adwaita-dark";
               };
             };
-          };
+          }
         ];
       };
-
-      environment.systemPackages = lib.optionals x11Enabled [
-        pkgs.xsettingsd
-      ];
     };
   };
 }
