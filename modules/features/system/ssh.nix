@@ -28,7 +28,6 @@
               PermitRootLogin = "no";
             };
           };
-          programs.ssh.startAgent = true;
         }
         (lib.mkIf config.local.user.enable {
           users.users.${config.local.user.name}.openssh.authorizedKeys.keys = cfg.authorizedKeys;
