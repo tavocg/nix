@@ -3,7 +3,7 @@
     imports = [
       self.nixosModules.obs
       self.nixosModules.emacs
-      self.nixosModules.nautilus
+      # self.nixosModules.nautilus
     ];
 
     environment.systemPackages =
@@ -62,9 +62,9 @@
         kdePackages.kdenlive
         darktable
         config.local.environment.packages.obs
-        config.local.environment.packages.nautilus
-        libheif
-        libheif.out
+        # config.local.environment.packages.nautilus
+        # libheif
+        # libheif.out
         xournalpp
         zathura
       ];
