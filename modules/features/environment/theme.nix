@@ -12,17 +12,14 @@
     windowingEnabled = x11Enabled || waylandEnabled;
   in {
     config = lib.mkIf windowingEnabled {
-      environment = {
-        systemPackages = with pkgs; [
-          gnome-themes-extra
-          adwaita-qt
-          libsForQt5.qt5ct
-          kdePackages.qt6ct
-        ];
+      environment.systemPackages = with pkgs; [
+        gnome-themes-extra
+      ];
 
-        sessionVariables = {
-          QT_QPA_PLATFORMTHEME = "qt5ct";
-        };
+      qt = {
+        enable = true;
+        platformTheme = "qt5ct";
+        style = "adwaita-dark";
       };
 
       # I think the following will allow setting the theme without touching
