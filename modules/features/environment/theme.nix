@@ -14,6 +14,7 @@
     config = lib.mkIf windowingEnabled {
       environment.systemPackages = with pkgs; [
         gnome-themes-extra
+        adwaita-qt
       ];
 
       qt = {
