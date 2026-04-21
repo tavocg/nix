@@ -13,6 +13,9 @@
       })
     ];
 
+    environment.systemPackages = [ pkgs.libheif pkgs.libheif.out ];
+    environment.pathsToLink = [ "share/thumbnailers" ];
+
     services.gvfs.enable = true;
     services.udisks2.enable = true;
   };
