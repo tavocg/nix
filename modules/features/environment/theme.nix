@@ -14,14 +14,7 @@
     config = lib.mkIf windowingEnabled {
       environment.systemPackages = with pkgs; [
         gnome-themes-extra
-        adwaita-qt
       ];
-
-      qt = {
-        enable = true;
-        platformTheme = "qt5ct";
-        style = "adwaita-dark";
-      };
 
       # I think the following will allow setting the theme without touching
       # ~/.config/(gtk...|qt...)/
