@@ -26,11 +26,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1776784334,
-        "narHash": "sha256-5aCCXfSRcgJQAJ7X3hqNtUF1Qh/RwHldCxZLhVWWNlQ=",
+        "lastModified": 1776848726,
+        "narHash": "sha256-qFNRQlamQq4Fgsu4F+eTrkji/Mt2kqe0PFYov9vplso=",
         "owner": "tavocg",
         "repo": "dotfiles",
-        "rev": "f2bf5b6a4aca99be1b4cef29d9634c9c0d31c53d",
+        "rev": "7e10d56a95f5aeb3270672b88f303d1fe0bdfc48",
         "type": "gitlab"
       },
       "original": {
