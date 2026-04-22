@@ -16,19 +16,9 @@
         tmux
         jq
         eza
-        markdownlint-cli
         ffmpeg-full
-        gnumake
-        autoconf
-        automake
-        binutils
-        m4
-        gcc
         tesseract
-        pkg-config
-        fakeroot
         flex
-        bison
         tectonic
         inputs.kanban.packages.${pkgs.stdenv.hostPlatform.system}.default
         glow
