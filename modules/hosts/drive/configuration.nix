@@ -8,6 +8,7 @@
       self.nixosModules.cr
       self.nixosModules.tailscale
       self.nixosModules.ssh
+      self.nixosModules.shell
       self.nixosModules.user
     ];
 
