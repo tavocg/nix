@@ -1,8 +1,4 @@
 { inputs, ... }: {
-  imports = [
-    ./shells/cuda.nix
-  ];
-
   config = {
     systems = [
       "x86_64-linux"
