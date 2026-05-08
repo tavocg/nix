@@ -19,6 +19,7 @@ let
           pkgs.cudaPackages;
 
       cudaLibPath = pkgs.lib.makeLibraryPath [
+        hostCompiler.cc
         cudaPackages.cudatoolkit
         cudaPackages.cudnn
       ];
