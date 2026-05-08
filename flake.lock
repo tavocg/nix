@@ -1,28 +1,5 @@
 {
   "nodes": {
-    "codex-nix": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1777055673,
-        "narHash": "sha256-rC23lQQfhTwLqTDd/HASi41r6fXV8T4J1aVFiCmNwZg=",
-        "owner": "SecBear",
-        "repo": "codex-nix",
-        "rev": "44ba7bccf5cba172216f773d875b843b940394c4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SecBear",
-        "repo": "codex-nix",
-        "type": "github"
-      }
-    },
     "dotfiles": {
       "flake": false,
       "locked": {
@@ -132,7 +109,6 @@
     },
     "root": {
       "inputs": {
-        "codex-nix": "codex-nix",
         "dotfiles": "dotfiles",
         "flake-parts": "flake-parts",
         "import-tree": "import-tree",
