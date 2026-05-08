@@ -17,6 +17,7 @@
 
       self.nixosModules.nvidiaProprietary
       self.nixosModules.nvidiaCuda
+      self.nixosModules.xmrig
     ];
 
     local.user = {
