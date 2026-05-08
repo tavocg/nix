@@ -14,12 +14,6 @@
       flake = false;
     };
 
-    # not currently wired into any module.
-    # wrapper-modules = {
-    #   url = "github:BirdeeHub/nix-wrapper-modules";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     shtatus = {
       url = "github:tavocg/shtatus";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,12 +32,6 @@
     pinentry-bemenu = {
       url = "github:tavocg/pinentry-bemenu";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    codex-nix = {
-      url = "github:SecBear/codex-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
     };
   };
 

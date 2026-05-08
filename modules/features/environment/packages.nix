@@ -16,6 +16,8 @@
         tmux
         jq
         eza
+        btop
+        fzf
         ffmpeg-full
         tesseract
         flex
@@ -33,7 +35,6 @@
         exiftool
         config.local.environment.packages.emacs
         file
-        inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
         poppler-utils
         bubblewrap
         ripgrep
