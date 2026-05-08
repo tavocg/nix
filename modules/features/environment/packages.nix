@@ -52,9 +52,6 @@
         kdePackages.kdenlive
         darktable
         config.local.environment.packages.obs
-        # config.local.environment.packages.nautilus
-        # libheif
-        # libheif.out
         xournalpp
         zathura
       ];

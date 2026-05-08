@@ -8,6 +8,7 @@
       binutils
       m4
       gcc
+      cmake
       tesseract
       pkg-config
       fakeroot
