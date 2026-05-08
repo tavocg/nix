@@ -15,6 +15,8 @@
         trash-cli
         tmux
         jq
+        zbar
+        qrencode
         eza
         btop
         fzf
