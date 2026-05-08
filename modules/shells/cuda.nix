@@ -49,6 +49,7 @@ let
         export LIBRARY_PATH=${cudaLibPath}:''${LIBRARY_PATH:-}
         export CPATH=$CUDA_PATH/include:$CUDNN_ROOT/include:''${CPATH:-}
         export CMAKE_PREFIX_PATH=$CUDA_PATH:$CUDNN_ROOT:''${CMAKE_PREFIX_PATH:-}
+        export CMAKE_LIBRARY_PATH=$CUDA_PATH/lib/stubs:$CUDA_PATH/lib64/stubs:''${CMAKE_LIBRARY_PATH:-}
       '';
     };
 in
