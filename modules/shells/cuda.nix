@@ -10,6 +10,7 @@ let
           cudaSupport = true;
         };
       };
+      hostCompiler = pkgs.gcc13;
 
       cudaPackages =
         if builtins.hasAttr "cudaPackages_12_6" pkgs then
@@ -18,7 +19,7 @@ let
           pkgs.cudaPackages;
 
       cudaLibPath = pkgs.lib.makeLibraryPath [
-        pkgs.stdenv.cc.cc
+        hostCompiler.cc
         cudaPackages.cudatoolkit
         cudaPackages.cudnn
       ];
@@ -27,7 +28,7 @@ let
       name = "cuda-shell";
 
       packages = [
-        pkgs.gcc
+        hostCompiler
         cudaPackages.cudatoolkit
         cudaPackages.cudnn
       ];
@@ -40,8 +41,8 @@ let
         export CUDNN_ROOT=${cudaPackages.cudnn}
         export CUDNN_PATH=$CUDNN_ROOT
 
-        export CC=${pkgs.gcc}/bin/gcc
-        export CXX=${pkgs.gcc}/bin/g++
+        export CC=${hostCompiler}/bin/gcc
+        export CXX=${hostCompiler}/bin/g++
         export CUDAHOSTCXX=$CXX
         export CUDACXX=$CUDA_PATH/bin/nvcc
 
