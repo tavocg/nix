@@ -32,6 +32,7 @@
       self.nixosModules.ssh
       self.nixosModules.storage
       self.nixosModules.user
+      self.nixosModules.v4l2lb
       self.nixosModules.windowing
     ];
   };
