@@ -39,5 +39,8 @@
           ];
         };
       };
+
+      # Keep the unit installed but not enabled at boot by default.
+      systemd.services.xmrig.wantedBy = lib.mkForce [ ];
     };
 }
