@@ -2,7 +2,7 @@
   flake.nixosModules.environmentDev = { config, lib, pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       markdownlint-cli
-      android-tools
+      androidenv.androidPkgs.platform-tools
       scrcpy
       gnumake
       autoconf
