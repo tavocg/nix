@@ -8,6 +8,10 @@ switch:
 boot:
 	nixos-rebuild boot --flake .
 
+.PHONY: drive
+drive:
+	nix build .#drive
+
 .PHONY: update
 update:
 	nix flake update
