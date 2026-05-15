@@ -1,10 +1,8 @@
 { ... }: {
-  flake.nixosModules.gaming = { config, lib, ... }: {
+  flake.nixosModules.gamingSunshine = { config, lib, ... }: {
     config = lib.mkMerge [
       {
         hardware.uinput.enable = true;
-
-        programs.steam.enable = true;
 
         services.sunshine = {
           enable = true;
