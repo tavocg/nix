@@ -17,6 +17,7 @@
       bison
       go
       uv
+      upx
     ];
   };
 }
