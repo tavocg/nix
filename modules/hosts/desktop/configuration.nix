@@ -14,6 +14,7 @@
 
       self.nixosModules.hyprland
       self.nixosModules.hyprlandAutologin
+      self.nixosModules.gaming
 
       self.nixosModules.nvidiaProprietary
       self.nixosModules.nvidiaCuda
@@ -27,8 +28,6 @@
     };
 
     local.ssh.enable = true;
-
-    programs.steam.enable = true;
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;

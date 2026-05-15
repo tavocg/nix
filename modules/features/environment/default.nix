@@ -4,6 +4,7 @@
       self.nixosModules.environmentTheme
       self.nixosModules.environmentPackages
       self.nixosModules.environmentDev
+      self.nixosModules.environmentGUI
     ];
   };
 }

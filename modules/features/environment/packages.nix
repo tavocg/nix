@@ -41,22 +41,6 @@
         bubblewrap
         ripgrep
         fd
-      ]
-      ++ lib.optionals (config.local.x11.enable || config.local.wayland.enable) [
-        imv
-        vlc
-        mpv
-        obsidian
-        firefox
-        thunderbird
-        libreoffice-fresh
-        gnome-disk-utility
-        gimp
-        kdePackages.kdenlive
-        darktable
-        config.local.environment.packages.obs
-        xournalpp
-        zathura
       ];
   };
 }
