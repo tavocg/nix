@@ -1,8 +1,7 @@
 { inputs, ... }: {
-  flake.nixosModules.tailscale = { pkgs, ... }: {
+  flake.nixosModules.tailscale = { ... }: {
     services.tailscale = {
       enable = true;
-      interfaceName = "userspace-networking";
     };
   };
 }

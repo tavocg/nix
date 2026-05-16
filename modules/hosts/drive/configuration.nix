@@ -21,6 +21,10 @@
 
     local.ssh.enable = true;
 
+    # Keep Tailscale in userspace networking on drive; this host runs without
+    # a regular TUN setup.
+    services.tailscale.interfaceName = "userspace-networking";
+
     services.resolved.enable = true;
     services.resolved.settings.Resolve = {
       FallbackDNS = [
