@@ -15,6 +15,9 @@
         trash-cli
         tmux
         jq
+        p7zip
+        zip
+        unrar
         zbar
         qrencode
         eza
