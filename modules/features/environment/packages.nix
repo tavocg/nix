@@ -20,7 +20,7 @@
         unrar
         zbar
         qrencode
-        mupdf
+        mupdf-headless
         eza
         btop
         fzf
