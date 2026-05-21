@@ -24,6 +24,7 @@
         btop
         fzf
         ffmpeg-full
+        librsvg
         tesseract
         flex
         tectonic
