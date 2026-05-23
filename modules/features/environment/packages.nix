@@ -21,6 +21,7 @@
         zbar
         qrencode
         mupdf-headless
+        sqlite
         eza
         btop
         fzf
