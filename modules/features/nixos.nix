@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.nixos = { ... }: {
+  flake.nixosModules.nixos = { pkgs, ... }: {
     nixpkgs.config.allowUnfree = true;
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -7,5 +7,6 @@
 
     # research this later?
     programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = [ pkgs.udev ];
   };
 }
