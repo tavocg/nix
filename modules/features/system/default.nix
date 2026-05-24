@@ -21,12 +21,12 @@
       self.nixosModules.binsh
       self.nixosModules.cacert
       self.nixosModules.cr
-      self.nixosModules.cups
       self.nixosModules.docker
       self.nixosModules.fonts
       self.nixosModules.gnupg
       self.nixosModules.hosts
       self.nixosModules.pipewire
+      self.nixosModules.printing
       self.nixosModules.plymouth
       self.nixosModules.shell
       self.nixosModules.ssh
