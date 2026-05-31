@@ -28,6 +28,7 @@
         config.local.environment.packages.obs
         xournalpp
         zathura
+        qbittorrent
       ];
     };
   };

@@ -16,6 +16,7 @@
       fakeroot
       bison
       go
+      hugo
       uv
       upx
       R
