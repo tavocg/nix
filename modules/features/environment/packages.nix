@@ -15,9 +15,31 @@
         trash-cli
         tmux
         jq
+        arj
+        atool
+        brotli
+        bzip2
+        cabextract
+        cpio
+        gzip
+        gnutar
+        lhasa
+        libarchive
+        lrzip
+        lz4
+        lzip
+        lzop
         p7zip
+        pbzip2
+        pigz
+        pixz
+        unar
+        unzip
         zip
         unrar
+        xz
+        zopfli
+        zstd
         zbar
         qrencode
         mupdf-headless
