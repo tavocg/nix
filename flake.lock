@@ -3,11 +3,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1779809668,
-        "narHash": "sha256-K+v0dIgEut2XN23K6Qs/dSThv2xLbSzm/+kh/ZoN8hk=",
+        "lastModified": 1780415626,
+        "narHash": "sha256-solixvT9qPsYKQpGRRXvH68INsudKMXy+gG7mcDgSQk=",
         "owner": "tavocg",
         "repo": "dotfiles",
-        "rev": "e45ae58aac58ce3f06e359122cc0c03c31ac8e8d",
+        "rev": "0d284b08b2cd5a4b52948c3d42839b1e0aab0bbb",
         "type": "gitlab"
       },
       "original": {
@@ -73,11 +73,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1779560665,
-        "narHash": "sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o=",
+        "lastModified": 1780243769,
+        "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
+        "rev": "331800de5053fcebacf6813adb5db9c9dca22a0c",
         "type": "github"
       },
       "original": {
