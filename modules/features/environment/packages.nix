@@ -69,6 +69,7 @@
         bubblewrap
         ripgrep
         fd
+        dnsutils
       ];
   };
 }
