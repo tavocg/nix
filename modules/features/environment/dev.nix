@@ -20,6 +20,7 @@
       uv
       upx
       R
+      tokei
     ];
   };
 }
