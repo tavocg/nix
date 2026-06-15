@@ -10,6 +10,7 @@
       with pkgs;
       [
         neovim
+        xdg-ninja
         yazi
         git
         trash-cli
