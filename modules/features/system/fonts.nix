@@ -1,7 +1,7 @@
 { ... }: {
   flake.nixosModules.fonts = { pkgs, ... }:
   let
-    iosevkaEtoile = pkgs.iosevka.override { set = "Etoile"; };
+    iosevkaEtoile = pkgs.iosevka-bin.override { variant = "Etoile"; };
   in {
     fonts.packages = with pkgs; [
       cm_unicode
