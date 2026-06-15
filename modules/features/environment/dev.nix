@@ -19,6 +19,8 @@
       gopls
       golangci-lint
       hugo
+      typescript-language-server
+      vscode-langservers-extracted
       pyright
       ruff
       uv
