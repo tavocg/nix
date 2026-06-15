@@ -10,7 +10,10 @@
       binutils
       m4
       gcc
+      clang-tools
       cmake
+      cppcheck
+      cpplint
       tesseract
       pkg-config
       fakeroot
