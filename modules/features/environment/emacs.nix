@@ -17,5 +17,10 @@
           pkgs.emacs
         else
           pkgs.emacs;
+
+      environment.systemPackages = with pkgs; [
+        libtool
+        libvterm
+      ];
     };
 }
