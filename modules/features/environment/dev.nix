@@ -21,6 +21,7 @@
       upx
       R
       tokei
+      shellcheck
     ];
   };
 }
