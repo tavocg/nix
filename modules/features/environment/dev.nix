@@ -21,11 +21,20 @@
       go
       gopls
       golangci-lint
+      gomodifytags
+      gotests
+      gore
       hugo
+      html-tidy
+      stylelint
+      js-beautify
       typescript-language-server
       vscode-langservers-extracted
+      nixfmt
       pyright
       ruff
+      isort
+      pipenv
       uv
       upx
       R

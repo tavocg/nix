@@ -59,6 +59,8 @@
         (pass.withExtensions (exts: [ exts.pass-otp ]))
         lazygit
         lazydocker
+        isync
+        mu
         impala
         wiremix
         bluetui
