@@ -16,7 +16,11 @@
       fakeroot
       bison
       go
+      gopls
+      golangci-lint
       hugo
+      pyright
+      ruff
       uv
       upx
       R
