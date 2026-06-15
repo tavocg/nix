@@ -73,6 +73,7 @@
         ripgrep
         fd
         dnsutils
+        ispell
       ];
   };
 }
