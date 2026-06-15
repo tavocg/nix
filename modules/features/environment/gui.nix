@@ -31,6 +31,7 @@
         qbittorrent
         rstudio
         discord
+        godot
       ];
     };
   };
