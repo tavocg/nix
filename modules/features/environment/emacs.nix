@@ -10,17 +10,19 @@
         description = "Resolved Emacs package for this host.";
       };
 
-      config.local.environment.packages.emacs =
-        if waylandEnabled then
-          pkgs.emacs-pgtk
-        else if x11Enabled then
-          pkgs.emacs
-        else
-          pkgs.emacs;
+      config = {
+        local.environment.packages.emacs =
+          if waylandEnabled then
+            pkgs.emacs-pgtk
+          else if x11Enabled then
+            pkgs.emacs
+          else
+            pkgs.emacs;
 
-      environment.systemPackages = with pkgs; [
-        libtool
-        libvterm
-      ];
+        environment.systemPackages = with pkgs; [
+          libtool
+          libvterm
+        ];
+      };
     };
 }
