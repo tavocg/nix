@@ -41,7 +41,7 @@
       R
       tokei
       shellcheck
-      gdtoolkit
+      gdtoolkit_4
       shfmt
       libxml2
     ];
