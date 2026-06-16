@@ -35,11 +35,15 @@
       ruff
       isort
       pipenv
+      black
       uv
       upx
       R
       tokei
       shellcheck
+      gdtoolkit
+      shfmt
+      libxml2
     ];
   };
 }
