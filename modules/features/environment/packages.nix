@@ -74,6 +74,14 @@
         fd
         dnsutils
         ispell
+        (aspellWithDicts (dicts: with dicts; [
+          en
+          es
+          fr
+          de
+          pt_BR
+          pt_PT
+        ]))
       ];
   };
 }
