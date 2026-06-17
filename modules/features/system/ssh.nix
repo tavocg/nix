@@ -22,6 +22,10 @@
           services.openssh = {
             enable = true;
             openFirewall = true;
+            authorizedKeysInHomedir = false;
+            authorizedKeysFiles = [
+              "%h/.local/share/ssh/authorized_keys"
+            ];
             settings = {
               PasswordAuthentication = false;
               KbdInteractiveAuthentication = false;
