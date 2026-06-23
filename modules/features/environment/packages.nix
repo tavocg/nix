@@ -73,6 +73,8 @@
         ripgrep
         fd
         dnsutils
+        groff
+        graplang
         ispell
         (aspellWithDicts (dicts: with dicts; [
           en
