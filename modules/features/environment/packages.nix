@@ -76,6 +76,7 @@
         groff
         graplang
         typst
+        tinymist
         ispell
         (aspellWithDicts (dicts: with dicts; [
           en
