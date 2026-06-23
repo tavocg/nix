@@ -75,6 +75,7 @@
         dnsutils
         groff
         graplang
+        typst
         ispell
         (aspellWithDicts (dicts: with dicts; [
           en
