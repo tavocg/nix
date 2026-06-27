@@ -43,6 +43,7 @@
       shellcheck
       gdtoolkit_4
       shfmt
+      bash-language-server
       libxml2
     ];
   };
