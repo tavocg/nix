@@ -19,6 +19,7 @@
         mpv
         obsidian
         firefox
+        chromium
         thunderbird
         libreoffice-fresh
         gnome-disk-utility
