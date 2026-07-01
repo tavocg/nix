@@ -24,6 +24,7 @@
         libreoffice-fresh
         gnome-disk-utility
         gimp
+        audacity
         kdePackages.kdenlive
         darktable
         config.local.environment.packages.obs
