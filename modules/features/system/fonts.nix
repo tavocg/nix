@@ -5,19 +5,19 @@
     iosevkaEtoile = pkgs.iosevka-bin.override { variant = "Etoile"; };
   in {
     fonts.packages = with pkgs; [
-      cm_unicode
-      corefonts
-      iosevka
-      iosevkaAile
-      iosevkaEtoile
       jetbrains-mono
+      nerd-fonts.jetbrains-mono
+      symbola
+      nerd-fonts.symbols-only
+      # iosevka
+      # iosevkaAile
+      # iosevkaEtoile
+      # nerd-fonts.iosevka
+      # nerd-fonts.iosevka-term
+      corefonts
+      cm_unicode
       lmodern
       newcomputermodern
-      nerd-fonts.iosevka
-      nerd-fonts.iosevka-term
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.symbols-only
-      symbola
     ];
   };
 }
