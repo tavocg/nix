@@ -7,6 +7,7 @@
       pkgs.foot
       pkgs.waybar
       pkgs.wl-clipboard
+      pkgs.libnotify
       pkgs.wtype
       pkgs.grim
       pkgs.slurp
@@ -18,6 +19,8 @@
       enable = true;
       xwayland.enable = true;
     };
+
+    services.dunst.enable = true;
 
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
