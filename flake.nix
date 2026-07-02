@@ -19,11 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    kanban = {
-      url = "github:tavocg/kanban";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     st = {
       url = "github:tavocg/st";
       inputs.nixpkgs.follows = "nixpkgs";
