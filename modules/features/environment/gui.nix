@@ -31,7 +31,6 @@
         xournalpp
         zathura
         qbittorrent
-        rstudio
         discord
         godot
       ];
