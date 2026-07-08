@@ -7,6 +7,11 @@
     ];
 
     environment.systemPackages =
+      let
+        pkgs-2605 = import inputs.nixpkgs-2605 {
+          inherit (pkgs) system;
+        };
+      in
       with pkgs;
       [
         neovim
@@ -59,7 +64,7 @@
         lazygit
         lazydocker
         isync
-        mu
+        pkgs-2605.mu
         impala
         wiremix
         bluetui
