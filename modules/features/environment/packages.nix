@@ -9,7 +9,7 @@
     environment.systemPackages =
       let
         pkgs-2605 = import inputs.nixpkgs-2605 {
-          inherit (pkgs) system;
+          system = pkgs.stdenv.hostPlatform.system;
         };
       in
       with pkgs;

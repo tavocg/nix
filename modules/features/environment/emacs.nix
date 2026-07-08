@@ -2,7 +2,7 @@
   flake.nixosModules.emacs = { config, lib, pkgs, ... }:
     let
       pkgs-2605 = import inputs.nixpkgs-2605 {
-        inherit (pkgs) system;
+        system = pkgs.stdenv.hostPlatform.system;
       };
       x11Enabled = lib.attrByPath [ "local" "x11" "enable" ] false config;
       waylandEnabled = lib.attrByPath [ "local" "wayland" "enable" ] false config;
