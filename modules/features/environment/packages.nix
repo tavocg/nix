@@ -19,6 +19,7 @@
         yazi
         git
         trash-cli
+        ledger
         tmux
         jq
         arj
