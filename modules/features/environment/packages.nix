@@ -53,6 +53,7 @@
         eza
         btop
         fzf
+        pv
         ffmpeg-full
         librsvg
         tesseract
