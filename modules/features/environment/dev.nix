@@ -35,7 +35,8 @@
       pyright
       ruff
       isort
-      pipenv
+      # virtualenv-clone 0.5.7 tests fail under Python 3.14.
+      (pipenv.override { python3 = python313; })
       black
       uv
       upx
