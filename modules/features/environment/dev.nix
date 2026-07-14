@@ -13,8 +13,10 @@
       clang-tools
       cmake
       cppcheck
-      # cpplint 2.0.2 tests fail under Python 3.14 on a codecs.open() warning.
-      (cpplint.override { python3Packages = python313Packages; })
+      # Avoid Python 3.14 test regressions in nixos-unstable.
+      (import inputs.nixpkgs-2605 {
+        system = pkgs.stdenv.hostPlatform.system;
+      }).cpplint
       tesseract
       pkg-config
       fakeroot
@@ -35,8 +37,10 @@
       pyright
       ruff
       isort
-      # virtualenv-clone 0.5.7 tests fail under Python 3.14.
-      (pipenv.override { python3 = python313; })
+      # Avoid Python 3.14 test regressions in nixos-unstable.
+      (import inputs.nixpkgs-2605 {
+        system = pkgs.stdenv.hostPlatform.system;
+      }).pipenv
       black
       uv
       upx
