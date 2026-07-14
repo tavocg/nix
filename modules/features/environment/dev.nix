@@ -14,7 +14,7 @@
       cmake
       cppcheck
       # cpplint 2.0.2 tests fail under Python 3.14 on a codecs.open() warning.
-      python313Packages.cpplint
+      (cpplint.override { python3Packages = python313Packages; })
       tesseract
       pkg-config
       fakeroot
