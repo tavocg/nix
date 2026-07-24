@@ -20,6 +20,7 @@
         git
         trash-cli
         ledger
+        usbutils
         tmux
         jq
         arj
