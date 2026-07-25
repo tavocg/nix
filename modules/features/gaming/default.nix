@@ -9,6 +9,8 @@
 
     environment.systemPackages = with pkgs; [
       lutris
+      umu-launcher
+      vulkan-tools
     ];
   };
 }
