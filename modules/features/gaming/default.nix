@@ -11,6 +11,7 @@
       lutris
       umu-launcher
       vulkan-tools
+      mangohud
     ];
   };
 }
