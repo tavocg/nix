@@ -1,4 +1,4 @@
-{ inputs, self, ... }: {
+{ ... }: {
   flake.nixosModules.environmentDev = { config, lib, pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       markdownlint-cli
@@ -13,10 +13,7 @@
       clang-tools
       cmake
       cppcheck
-      # Avoid Python 3.14 test regressions in nixos-unstable.
-      (import inputs.nixpkgs-2605 {
-        system = pkgs.stdenv.hostPlatform.system;
-      }).cpplint
+      cpplint
       tesseract
       pkg-config
       fakeroot
@@ -37,10 +34,7 @@
       pyright
       ruff
       isort
-      # Avoid Python 3.14 test regressions in nixos-unstable.
-      (import inputs.nixpkgs-2605 {
-        system = pkgs.stdenv.hostPlatform.system;
-      }).pipenv
+      pipenv
       black
       uv
       upx

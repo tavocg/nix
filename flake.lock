@@ -67,22 +67,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-2605": {
-      "locked": {
-        "lastModified": 1785104993,
-        "narHash": "sha256-eKbrvPoAOFutbYMdbB3r5EQVmFxKv24iKqHPPUXA0gM=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "8623c4c20aa4ca2f5fb81510d2944066c3fb0d96",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-26.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pinentry-bemenu": {
       "inputs": {
         "nixpkgs": [
@@ -109,7 +93,6 @@
         "flake-parts": "flake-parts",
         "import-tree": "import-tree",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-2605": "nixpkgs-2605",
         "pinentry-bemenu": "pinentry-bemenu",
         "shtatus": "shtatus",
         "st": "st"
