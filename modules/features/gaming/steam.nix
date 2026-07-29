@@ -1,5 +1,15 @@
 { ... }: {
   flake.nixosModules.gamingSteam = { ... }: {
-    programs.steam.enable = true;
+    programs = {
+      gamescope = {
+        enable = true;
+        capSysNice = true;
+      };
+
+      steam = {
+        enable = true;
+        # gamescopeSession.enable = true;
+      };
+    };
   };
 }
