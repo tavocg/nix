@@ -8,6 +8,8 @@
       self.nixosModules.nixos
       self.nixosModules.environment
       self.nixosModules.system
+      self.nixosModules.usbipHost
+      self.nixosModules.usbipClient
       self.nixosModules.bt
 
       self.nixosModules.tailscale
