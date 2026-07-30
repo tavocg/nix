@@ -26,10 +26,7 @@
             enable = true;
             openFirewall = true;
             package = sunshinePackage;
-            settings = {
-              capture = "wlr";
-              encoder = "nvenc";
-            };
+            autoStart = false;
             applications.apps = [
               {
                 name = "Steam Big Picture (Gamescope)";
