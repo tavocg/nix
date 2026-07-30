@@ -27,13 +27,6 @@
             openFirewall = true;
             package = sunshinePackage;
             autoStart = false;
-            applications.apps = [
-              {
-                name = "Steam Big Picture (Gamescope)";
-                cmd = "steam-gs -w $SUNSHINE_CLIENT_WIDTH -h $SUNSHINE_CLIENT_HEIGHT";
-                image-path = "steam.png";
-              }
-            ];
           };
         }
         (lib.mkIf config.local.user.enable {
