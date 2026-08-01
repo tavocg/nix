@@ -14,7 +14,12 @@
       fsType = "ext4";
     };
 
-    boot.initrd.luks.devices."luks-19ff8ef6-830b-45b4-acef-0c8ac693360d".device = "/dev/disk/by-uuid/19ff8ef6-830b-45b4-acef-0c8ac693360d";
+    boot.initrd.luks.devices."luks-19ff8ef6-830b-45b4-acef-0c8ac693360d" = {
+      device = "/dev/disk/by-uuid/19ff8ef6-830b-45b4-acef-0c8ac693360d";
+      keyFile = "keyfile.bin:LABEL=CRYPTUSB";
+      keyFileSize = 4096;
+      keyFileTimeout = 10;
+    };
 
     fileSystems."/boot" = {
       device = "/dev/disk/by-uuid/0321-DD81";
