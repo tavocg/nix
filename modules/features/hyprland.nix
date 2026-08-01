@@ -17,6 +17,7 @@
 
     programs.hyprland = {
       enable = true;
+      withUWSM = true;
       xwayland.enable = true;
     };
 
@@ -33,8 +34,8 @@
     config = lib.mkMerge [
       (lib.mkIf config.programs.hyprland.enable {
         programs.bash.loginShellInit = ''
-          if [[ -z "$WAYLAND_DISPLAY" ]] && [[ -z "$DISPLAY" ]] && [[ "$(tty)" == /dev/tty1 ]]; then
-            exec /run/current-system/sw/bin/start-hyprland
+          if [[ "$(tty)" == /dev/tty1 ]] && uwsm check may-start; then
+            exec uwsm start hyprland.desktop
           fi
         '';
       })
