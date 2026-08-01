@@ -8,6 +8,7 @@
       self.nixosModules.nixos
       self.nixosModules.environment
       self.nixosModules.system
+      self.nixosModules.wol
       self.nixosModules.usbipHost
       self.nixosModules.usbipClient
       self.nixosModules.bt
