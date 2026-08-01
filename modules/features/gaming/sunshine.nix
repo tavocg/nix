@@ -4,16 +4,21 @@
       config,
       lib,
       pkgs,
+      utils,
       ...
     }:
     let
       cudaEnabled = lib.attrByPath [ "local" "nvidia" "cuda" "enable" ] false config;
       sunshineDotfilesDir = inputs.dotfiles + "/sunshine";
-      sunshineConfigFile = pkgs.writeText "sunshine.conf" (
-        builtins.readFile (sunshineDotfilesDir + "/sunshine.conf")
-      );
+      sunshineAppsSource = sunshineDotfilesDir + "/apps.json";
       sunshineAppsFile = pkgs.writeText "apps.json" (
-        builtins.readFile (sunshineDotfilesDir + "/apps.json")
+        builtins.readFile sunshineAppsSource
+      );
+      sunshineConfigFile = pkgs.writeText "sunshine.conf" (
+        builtins.replaceStrings
+          [ "file_apps = apps.json" ]
+          [ "file_apps = ${sunshineAppsFile}" ]
+          (builtins.readFile (sunshineDotfilesDir + "/sunshine.conf"))
       );
       sunshinePackage =
         if cudaEnabled then
@@ -35,15 +40,16 @@
             package = sunshinePackage;
             autoStart = true;
           };
+
+          systemd.user.services.sunshine.serviceConfig.ExecStart = lib.mkForce (
+            utils.escapeSystemdExecArgs [
+              (lib.getExe config.services.sunshine.package)
+              "${sunshineConfigFile}"
+            ]
+          );
         }
         (lib.mkIf config.local.user.enable {
           users.users.${config.local.user.name}.extraGroups = lib.mkAfter [ "uinput" ];
-
-          systemd.tmpfiles.rules = [
-            "d /home/${config.local.user.name}/.config/sunshine 0755 ${config.local.user.name} users - -"
-            "L+ /home/${config.local.user.name}/.config/sunshine/sunshine.conf - - - - ${sunshineConfigFile}"
-            "L+ /home/${config.local.user.name}/.config/sunshine/apps.json - - - - ${sunshineAppsFile}"
-          ];
         })
       ];
     };
