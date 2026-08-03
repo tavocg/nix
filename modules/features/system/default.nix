@@ -18,6 +18,7 @@
 
   flake.nixosModules.system = { ... }: {
     imports = [
+      self.nixosModules.appimage
       self.nixosModules.binsh
       self.nixosModules.cacert
       self.nixosModules.cr
