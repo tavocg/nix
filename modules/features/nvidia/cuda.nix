@@ -2,7 +2,7 @@
   flake.nixosModules.nvidiaCuda = { lib, ... }: {
     options.local.nvidia.cuda.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       description = "Enable CUDA-aware package overrides.";
     };
   };
