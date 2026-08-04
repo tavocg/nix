@@ -8,7 +8,7 @@
       ...
     }:
     let
-      cudaEnabled = lib.attrByPath [ "local" "nvidia" "cuda" "enable" ] false config;
+      cudaEnabled = lib.attrByPath [ "local" "gpu" "nvidia" "cuda" "enable" ] false config;
       sunshineDotfilesDir = inputs.dotfiles + "/sunshine";
       sunshineAppsSource = sunshineDotfilesDir + "/apps.json";
       sunshineAppsFile = pkgs.writeText "apps.json" (

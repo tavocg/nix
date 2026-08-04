@@ -1,7 +1,7 @@
 { ... }: {
   flake.nixosModules.obs = { config, lib, pkgs, ... }:
     let
-      cudaEnabled = lib.attrByPath [ "local" "nvidia" "cuda" "enable" ] false config;
+      cudaEnabled = lib.attrByPath [ "local" "gpu" "nvidia" "cuda" "enable" ] false config;
     in {
       options.local.environment.packages.obs = lib.mkOption {
         type = lib.types.package;

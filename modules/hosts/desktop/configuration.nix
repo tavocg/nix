@@ -20,8 +20,8 @@
       self.nixosModules.hyprlandAutologin
       self.nixosModules.gaming
 
-      self.nixosModules.nvidiaProprietary
-      self.nixosModules.nvidiaCuda
+      self.nixosModules.gpuNvidiaGTX1060
+      self.nixosModules.gpuCUDA
       self.nixosModules.xmrig
     ];
 
@@ -32,8 +32,6 @@
     };
 
     local.ssh.enable = true;
-    local.nvidia.cuda.enable = true;
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 

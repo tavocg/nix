@@ -1,7 +1,7 @@
 { ... }: {
   flake.nixosModules.xmrig = { config, lib, pkgs, ... }:
     let
-      cudaEnabled = lib.attrByPath [ "local" "nvidia" "cuda" "enable" ] false config;
+      cudaEnabled = lib.attrByPath [ "local" "gpu" "nvidia" "cuda" "enable" ] false config;
     in {
       services.xmrig = {
         enable = true;
