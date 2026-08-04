@@ -11,14 +11,14 @@
         else
           pkgs.emacs;
     in {
-      options.local.environment.packages.emacs = lib.mkOption {
+      options.local.packages.emacs = lib.mkOption {
         type = lib.types.package;
         readOnly = true;
         description = "Resolved Emacs package for this host.";
       };
 
       config = {
-        local.environment.packages.emacs =
+        local.packages.emacs =
           (pkgs.emacsPackagesFor emacsPackage).emacsWithPackages (epkgs: [
             epkgs.mu4e
           ]);

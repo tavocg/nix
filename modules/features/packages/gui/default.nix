@@ -29,7 +29,7 @@
         audacity
         kdePackages.kdenlive
         darktable
-        config.local.environment.packages.obs
+        config.local.packages.obs
         xournalpp
         zathura
         qbittorrent

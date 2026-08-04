@@ -1,6 +1,6 @@
 { ... }: {
   flake.nixosModules.packagesGUINautilus = { lib, pkgs, ... }: {
-    options.local.environment.packages.nautilus = lib.mkOption {
+    options.local.packages.nautilus = lib.mkOption {
       type = lib.types.package;
       readOnly = true;
       description = "Resolved Nautilus package for this host.";
@@ -20,7 +20,7 @@
         })
       ];
 
-      local.environment.packages.nautilus = pkgs.nautilus;
+      local.packages.nautilus = pkgs.nautilus;
       environment.pathsToLink = [ "share/thumbnailers" ];
 
       services.gvfs.enable = true;

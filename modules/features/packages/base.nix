@@ -60,7 +60,7 @@
       bluetui
       imagemagick
       exiftool
-      config.local.environment.packages.emacs
+      config.local.packages.emacs
       file
       poppler-utils
       bubblewrap
