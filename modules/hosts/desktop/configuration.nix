@@ -21,7 +21,7 @@
       self.nixosModules.gaming
 
       self.nixosModules.gpuNvidiaGTX1060
-      self.nixosModules.gpuCUDA
+      self.nixosModules.gpuNvidiaCUDA
       self.nixosModules.xmrig
     ];
 

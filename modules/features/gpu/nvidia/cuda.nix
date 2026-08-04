@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.gpuCUDA = { lib, ... }: {
+  flake.nixosModules.gpuNvidiaCUDA = { lib, ... }: {
     options.local.gpu.nvidia.cuda.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
