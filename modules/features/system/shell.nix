@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.shell = { pkgs, ... }: {
+  flake.nixosModules.systemShell = { pkgs, ... }: {
     users.defaultUserShell = pkgs.bashInteractive;
     environment.shells = [ pkgs.bashInteractive ];
     environment.shellAliases = {

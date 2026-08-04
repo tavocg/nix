@@ -6,7 +6,7 @@ let
     ];
   };
 in {
-  flake.nixosModules.usbipHost = { ... }: {
+  flake.nixosModules.systemUSBIPHost = { ... }: {
     imports = [ usbipCommon ];
 
     boot.kernelModules = [
@@ -18,7 +18,7 @@ in {
     ];
   };
 
-  flake.nixosModules.usbipClient = { ... }: {
+  flake.nixosModules.systemUSBIPClient = { ... }: {
     imports = [ usbipCommon ];
 
     boot.kernelModules = [

@@ -1,39 +1,22 @@
-{ self, inputs, ... }: {
-  flake.nixosModules.hosts = { lib, ... }:
-    let
-      hostsDir = inputs.dotfiles + "/hosts";
-      hostFiles = builtins.attrNames (
-        lib.filterAttrs (
-          name: type:
-            type == "regular"
-            && lib.hasSuffix ".hosts" name
-        )
-        (builtins.readDir hostsDir)
-      );
-    in {
-      networking.extraHosts = lib.concatMapStringsSep "\n" (
-        file: builtins.readFile (hostsDir + "/${file}")
-      ) hostFiles;
-    };
-
+{ self, ... }: {
   flake.nixosModules.system = { ... }: {
     imports = [
-      self.nixosModules.appimage
-      self.nixosModules.binsh
-      self.nixosModules.cacert
-      self.nixosModules.cr
-      self.nixosModules.fonts
-      self.nixosModules.gnupg
-      self.nixosModules.hosts
-      self.nixosModules.pipewire
-      self.nixosModules.printing
-      self.nixosModules.plymouth
-      self.nixosModules.shell
-      self.nixosModules.ssh
-      self.nixosModules.storage
-      self.nixosModules.user
-      self.nixosModules.v4l2lb
-      self.nixosModules.windowing
+      self.nixosModules.systemAppImage
+      self.nixosModules.systemBinsh
+      self.nixosModules.systemCACert
+      self.nixosModules.systemFonts
+      self.nixosModules.systemGnuPG
+      self.nixosModules.systemHosts
+      self.nixosModules.systemLocaleCR
+      self.nixosModules.systemPipewire
+      self.nixosModules.systemPrinting
+      self.nixosModules.systemPlymouth
+      self.nixosModules.systemShell
+      self.nixosModules.systemSSH
+      self.nixosModules.systemStorage
+      self.nixosModules.systemUser
+      self.nixosModules.systemV4L2Loopback
+      self.nixosModules.systemWindowing
     ];
   };
 }

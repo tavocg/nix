@@ -4,12 +4,12 @@
 
     imports = [
       self.nixosModules.nixos
-      self.nixosModules.binsh
-      self.nixosModules.cr
+      self.nixosModules.systemBinsh
+      self.nixosModules.systemLocaleCR
       self.nixosModules.networkTailscale
-      self.nixosModules.ssh
-      self.nixosModules.shell
-      self.nixosModules.user
+      self.nixosModules.systemSSH
+      self.nixosModules.systemShell
+      self.nixosModules.systemUser
     ];
 
     local.user = {

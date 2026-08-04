@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.pipewire = { ... }: {
+  flake.nixosModules.systemPipewire = { ... }: {
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
 

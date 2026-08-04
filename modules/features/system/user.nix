@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.user = { lib, config, ... }:
+  flake.nixosModules.systemUser = { lib, config, ... }:
     let
       cfg = config.local.user;
     in {

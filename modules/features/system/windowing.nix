@@ -1,5 +1,5 @@
 { inputs, ... }: {
-  flake.nixosModules.windowing = { config, lib, ... }:
+  flake.nixosModules.systemWindowing = { config, lib, ... }:
     let
       x11Enabled = config.local.x11.enable;
       waylandEnabled = config.local.wayland.enable;

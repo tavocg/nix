@@ -8,10 +8,10 @@
       self.nixosModules.nixos
       self.nixosModules.packages
       self.nixosModules.system
-      self.nixosModules.docker
-      self.nixosModules.wol
-      self.nixosModules.usbipHost
-      self.nixosModules.usbipClient
+      self.nixosModules.systemDocker
+      self.nixosModules.systemWOL
+      self.nixosModules.systemUSBIPHost
+      self.nixosModules.systemUSBIPClient
       self.nixosModules.networkBT
       self.nixosModules.networkTailscale
 

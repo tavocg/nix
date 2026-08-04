@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.ssh = { config, lib, ... }:
+  flake.nixosModules.systemSSH = { config, lib, ... }:
     let
       cfg = config.local.ssh;
     in {

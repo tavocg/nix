@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.wol = { pkgs, ... }: {
+  flake.nixosModules.systemWOL = { pkgs, ... }: {
     environment.systemPackages = [
       pkgs.wakeonlan
     ];

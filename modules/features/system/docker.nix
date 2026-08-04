@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.docker = { lib, config, ... }: {
+  flake.nixosModules.systemDocker = { lib, config, ... }: {
     config = lib.mkMerge [
       {
         virtualisation.docker.enable = true;
