@@ -24,6 +24,14 @@ update:
 test:
 	nixos-rebuild test --flake . $(NIX_BUILD_FLAGS)
 
+.PHONY: verify
+verify:
+	nix store verify --all
+
+.PHONY: repair
+repair:
+	nix store verify --all 2>&1 | awk -F"'" '/was modified!/ {print $$2}' | xargs -r nix store repair
+
 .PHONY: clean-garbage
 clean-garbage:
 	nix-collect-garbage -d
