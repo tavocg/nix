@@ -17,8 +17,6 @@
     };
 
   flake.nixosModules.system = { ... }: {
-    networking.dhcpcd.wait = "background";
-
     imports = [
       self.nixosModules.appimage
       self.nixosModules.binsh
