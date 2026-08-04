@@ -12,9 +12,9 @@
       self.nixosModules.docker
       self.nixosModules.usbipHost
       self.nixosModules.usbipClient
-      self.nixosModules.wireless
-
-      self.nixosModules.tailscale
+      self.nixosModules.networkBT
+      self.nixosModules.networkIWD
+      self.nixosModules.networkTailscale
 
       self.nixosModules.hyprland
       self.nixosModules.hyprlandAutologin

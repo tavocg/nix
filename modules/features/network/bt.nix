@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.bt = { ... }: {
+  flake.nixosModules.networkBT = { ... }: {
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = true;

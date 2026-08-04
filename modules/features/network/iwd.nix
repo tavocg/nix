@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.iwd = { ... }: {
+  flake.nixosModules.networkIWD = { ... }: {
     networking.dhcpcd.enable = false;
     networking.networkmanager.enable = false;
     services.resolved.enable = true;

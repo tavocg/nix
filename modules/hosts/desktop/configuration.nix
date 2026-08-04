@@ -12,9 +12,8 @@
       self.nixosModules.wol
       self.nixosModules.usbipHost
       self.nixosModules.usbipClient
-      self.nixosModules.bt
-
-      self.nixosModules.tailscale
+      self.nixosModules.networkBT
+      self.nixosModules.networkTailscale
 
       self.nixosModules.hyprland
       self.nixosModules.hyprlandAutologin
