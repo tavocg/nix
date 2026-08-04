@@ -13,14 +13,9 @@
   in {
     config = lib.mkIf windowingEnabled {
       environment.systemPackages = with pkgs; [
-        signal-desktop
         imv
-        vlc
         mpv
-        obsidian
         firefox
-        chromium
-        thunderbird
         libreoffice-fresh
         gnome-disk-utility
         gimp
@@ -32,7 +27,6 @@
         zathura
         qbittorrent
         discord
-        godot
       ];
     };
   };

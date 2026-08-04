@@ -44,7 +44,6 @@
       zbar
       qrencode
       mupdf-headless
-      calibre
       sqlite
       eza
       btop
