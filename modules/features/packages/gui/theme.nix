@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.environmentTheme = {
+  flake.nixosModules.packagesGUITheme = {
     config,
     lib,
     pkgs,

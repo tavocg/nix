@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.environmentDev = { config, lib, pkgs, ... }: {
+  flake.nixosModules.packagesDev = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       markdownlint-cli
       androidenv.androidPkgs.platform-tools

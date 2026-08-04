@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.nautilus = { lib, pkgs, ... }: {
+  flake.nixosModules.packagesGUINautilus = { lib, pkgs, ... }: {
     options.local.environment.packages.nautilus = lib.mkOption {
       type = lib.types.package;
       readOnly = true;

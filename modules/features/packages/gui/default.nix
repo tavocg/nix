@@ -1,5 +1,5 @@
-{ ... }: {
-  flake.nixosModules.environmentGUI = {
+{ self, ... }: {
+  flake.nixosModules.packagesGUI = {
     config,
     lib,
     pkgs,
@@ -11,6 +11,13 @@
     waylandEnabled = config.local.wayland.enable;
     windowingEnabled = x11Enabled || waylandEnabled;
   in {
+    imports = [
+      self.nixosModules.packagesGUIEmacs
+      self.nixosModules.packagesGUIOBS
+      self.nixosModules.packagesGUITheme
+      self.nixosModules.packagesGUINautilus
+    ];
+
     config = lib.mkIf windowingEnabled {
       environment.systemPackages = with pkgs; [
         imv

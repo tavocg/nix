@@ -1,11 +1,5 @@
-{ self, ... }: {
-  flake.nixosModules.environmentPackages = { config, lib, pkgs, ... }: {
-    imports = [
-      self.nixosModules.obs
-      self.nixosModules.emacs
-      # self.nixosModules.nautilus
-    ];
-
+{ ... }: {
+  flake.nixosModules.packagesBase = { config, pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       neovim
       xdg-ninja

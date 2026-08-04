@@ -7,7 +7,7 @@
       self.nixosModules.laptopHardware
 
       self.nixosModules.nixos
-      self.nixosModules.environment
+      self.nixosModules.packages
       self.nixosModules.system
       self.nixosModules.docker
       self.nixosModules.usbipHost
