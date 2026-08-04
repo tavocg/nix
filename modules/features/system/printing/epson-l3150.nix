@@ -1,5 +1,5 @@
-{ lib, pkgs, ... }: {
-  flake.nixosModules.systemPrintingEpsonL3150 = { ... }: {
+{ ... }: {
+  flake.nixosModules.systemPrintingEpsonL3150 = { lib, pkgs, ... }: {
     services.printing.drivers = lib.mkAfter [
       pkgs.epson-escpr
     ];
