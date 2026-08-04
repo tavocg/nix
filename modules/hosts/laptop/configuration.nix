@@ -10,6 +10,7 @@
       self.nixosModules.packages
       self.nixosModules.system
       self.nixosModules.systemDocker
+      self.nixosModules.systemPrintingEpsonL3150
       self.nixosModules.systemUSBIPHost
       self.nixosModules.systemUSBIPClient
       self.nixosModules.networkBT
