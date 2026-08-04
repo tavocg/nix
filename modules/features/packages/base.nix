@@ -1,15 +1,77 @@
 { ... }: {
   flake.nixosModules.packagesBase = { config, pkgs, ... }: {
     environment.systemPackages = with pkgs; [
+      # editors
       neovim
+      config.local.packages.emacs
+
+      # files
       xdg-ninja
       yazi
-      git
       trash-cli
+      file
+
+      # finance
       ledger
+
+      # hardware
       usbutils
+      bluetui
+
+      # cli tools
       tmux
+      btop
+      bubblewrap
+      dnsutils
+      eza
+      fd
+      fzf
+      glow
+      groff
       jq
+      pv
+      ripgrep
+      sqlite
+
+      # documents
+      mupdf-headless
+      poppler-utils
+      zbar
+      qrencode
+
+      # media
+      ffmpeg-full
+      imagemagick
+      exiftool
+      librsvg
+      tesseract
+      wiremix
+
+      # typesetting
+      pandoc
+      graplang
+      tectonic
+      typst
+      tinymist
+      flex
+
+      # mail
+      impala
+      isync
+      mu
+
+      # language
+      ispell
+      (aspellWithDicts (dicts: with dicts; [
+        en
+        es
+        fr
+        de
+        pt_BR
+        pt_PT
+      ]))
+
+      # archiving
       arj
       atool
       brotli
@@ -35,51 +97,9 @@
       xz
       zopfli
       zstd
-      zbar
-      qrencode
-      mupdf-headless
-      sqlite
-      eza
-      btop
-      fzf
-      pv
-      ffmpeg-full
-      librsvg
-      tesseract
-      flex
-      tectonic
-      glow
-      pandoc
+
+      # misc
       (pass.withExtensions (exts: [ exts.pass-otp ]))
-      lazygit
-      lazydocker
-      isync
-      mu
-      impala
-      wiremix
-      bluetui
-      imagemagick
-      exiftool
-      config.local.packages.emacs
-      file
-      poppler-utils
-      bubblewrap
-      ripgrep
-      fd
-      dnsutils
-      groff
-      graplang
-      typst
-      tinymist
-      ispell
-      (aspellWithDicts (dicts: with dicts; [
-        en
-        es
-        fr
-        de
-        pt_BR
-        pt_PT
-      ]))
     ];
   };
 }

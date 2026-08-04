@@ -20,20 +20,31 @@
 
     config = lib.mkIf windowingEnabled {
       environment.systemPackages = with pkgs; [
+        # web
+        firefox
+        discord
+
+        # viewers
         imv
         mpv
-        firefox
+        zathura
+
+        # office
         libreoffice-fresh
-        gnome-disk-utility
+        xournalpp
+
+        # creative
         gimp
         audacity
         kdePackages.kdenlive
         darktable
         config.local.packages.obs
-        xournalpp
-        zathura
+
+        # tools
+        gnome-disk-utility
+
+        # misc
         qbittorrent
-        discord
       ];
     };
   };

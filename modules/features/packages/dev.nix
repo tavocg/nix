@@ -1,50 +1,70 @@
 { ... }: {
   flake.nixosModules.packagesDev = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
-      markdownlint-cli
+      # android
       androidenv.androidPkgs.platform-tools
       scrcpy
-      gnumake
-      autoconf
-      automake
+
+      # c and c++
       binutils
-      m4
-      gcc
       clang-tools
       cmake
       cppcheck
       cpplint
-      tesseract
+      gcc
+      libxml2
       pkg-config
-      fakeroot
-      bison
+
+      # go
       go
-      gopls
-      golangci-lint
       gomodifytags
-      gotests
+      golangci-lint
+      gopls
       gore
-      hugo
+      gotests
+
+      # web
       html-tidy
-      stylelint
       js-beautify
+      stylelint
       typescript-language-server
       vscode-langservers-extracted
+
+      # nix
       nixfmt
-      pyright
-      ruff
+
+      # python
+      black
       isort
       pipenv
-      black
+      pyright
+      ruff
       uv
-      upx
+
+      # r
       R
-      tokei
-      shellcheck
-      gdtoolkit_4
-      shfmt
+
+      # shell
       bash-language-server
-      libxml2
+      shellcheck
+      shfmt
+
+      # tooling
+      git
+      lazygit
+      lazydocker
+      autoconf
+      automake
+      bison
+      fakeroot
+      gdtoolkit_4
+      gnumake
+      hugo
+      markdownlint-cli
+      m4
+      tesseract
+      tokei
+      upx
     ];
   };
 }
