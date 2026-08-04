@@ -9,6 +9,7 @@
       self.nixosModules.nixos
       self.nixosModules.environment
       self.nixosModules.system
+      self.nixosModules.docker
       self.nixosModules.usbipHost
       self.nixosModules.usbipClient
       self.nixosModules.wireless
