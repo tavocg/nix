@@ -20,7 +20,7 @@ in
     };
   };
 
-  flake.nixosModules.startx =
+  flake.nixosModules.desktopStartx =
     {
       config,
       lib,

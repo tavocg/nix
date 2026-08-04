@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.hyprland = { pkgs, ... }: {
+  flake.nixosModules.desktopHyprland = { pkgs, ... }: {
     local.wayland.enable = true;
 
     environment.systemPackages = [
@@ -30,7 +30,7 @@
     };
   };
 
-  flake.nixosModules.hyprlandAutologin = { config, lib, ... }: {
+  flake.nixosModules.desktopHyprlandAutologin = { config, lib, ... }: {
     config = lib.mkMerge [
       (lib.mkIf config.programs.hyprland.enable {
         programs.bash.loginShellInit = ''

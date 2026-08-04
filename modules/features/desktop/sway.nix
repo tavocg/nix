@@ -1,5 +1,5 @@
 { inputs, ... }: {
-  flake.nixosModules.sway = { pkgs, ... }: {
+  flake.nixosModules.desktopSway = { pkgs, ... }: {
     local.wayland.enable = true;
 
     programs.sway = {
@@ -17,7 +17,7 @@
     };
   };
 
-  flake.nixosModules.swayAutologin = { config, lib, ... }: {
+  flake.nixosModules.desktopSwayAutologin = { config, lib, ... }: {
     config = lib.mkMerge [
       (lib.mkIf config.programs.sway.enable {
         programs.bash.loginShellInit = ''

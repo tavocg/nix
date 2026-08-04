@@ -16,8 +16,8 @@
       self.nixosModules.networkBT
       self.nixosModules.networkTailscale
 
-      self.nixosModules.hyprland
-      self.nixosModules.hyprlandAutologin
+      self.nixosModules.desktopHyprland
+      self.nixosModules.desktopHyprlandAutologin
       self.nixosModules.gaming
 
       self.nixosModules.gpuNvidiaGTX1060

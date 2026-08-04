@@ -1,6 +1,6 @@
 { config, inputs, ... }: {
-  flake.nixosModules.i3 = { pkgs, ... }: {
-    imports = [ config.flake.nixosModules.startx ];
+  flake.nixosModules.desktopI3 = { pkgs, ... }: {
+    imports = [ config.flake.nixosModules.desktopStartx ];
 
     local.x11.enable = true;
 
@@ -23,7 +23,7 @@
     };
   };
 
-  flake.nixosModules.i3Autologin = { config, lib, ... }: {
+  flake.nixosModules.desktopI3Autologin = { config, lib, ... }: {
     config = lib.mkMerge [
       (lib.mkIf config.services.xserver.windowManager.i3.enable {
         programs.bash.loginShellInit = ''

@@ -17,8 +17,8 @@
       self.nixosModules.networkIWD
       self.nixosModules.networkTailscale
 
-      self.nixosModules.hyprland
-      self.nixosModules.hyprlandAutologin
+      self.nixosModules.desktopHyprland
+      self.nixosModules.desktopHyprlandAutologin
     ];
 
     local.user = {
