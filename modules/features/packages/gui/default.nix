@@ -12,7 +12,6 @@
     windowingEnabled = x11Enabled || waylandEnabled;
   in {
     imports = [
-      self.nixosModules.packagesGUIEmacs
       self.nixosModules.packagesGUIOBS
       self.nixosModules.packagesGUITheme
       self.nixosModules.packagesGUINautilus
@@ -42,6 +41,7 @@
 
         # tools
         gnome-disk-utility
+        config.local.packages.nautilus
 
         # misc
         qbittorrent

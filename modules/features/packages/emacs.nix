@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.packagesGUIEmacs = { config, lib, pkgs, ... }:
+  flake.nixosModules.packagesEmacs = { config, lib, pkgs, ... }:
     let
       x11Enabled = lib.attrByPath [ "local" "x11" "enable" ] false config;
       waylandEnabled = lib.attrByPath [ "local" "wayland" "enable" ] false config;

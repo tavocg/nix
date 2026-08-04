@@ -1,5 +1,7 @@
-{ ... }: {
+{ self, ... }: {
   flake.nixosModules.packagesBase = { config, pkgs, ... }: {
+    imports = [ self.nixosModules.packagesEmacs ];
+
     environment.systemPackages = with pkgs; [
       # editors
       neovim
