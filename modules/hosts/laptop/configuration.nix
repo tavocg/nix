@@ -7,6 +7,7 @@
       self.nixosModules.laptopHardware
 
       self.nixosModules.nixos
+      self.nixosModules.gamingSunshine
       self.nixosModules.packages
       self.nixosModules.system
       self.nixosModules.systemDocker
