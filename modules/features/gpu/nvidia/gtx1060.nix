@@ -2,6 +2,12 @@
   # Note: this would work in desktop but not in a laptop,
   # for laptop create something like gpuNvidiaPrime
   flake.nixosModules.gpuNvidiaGTX1060 = { config, ... }: {
+    imports = [
+      self.nixosModules.gpuNvidia
+    ];
+
+    local.gpu.nvidia.enable = true;
+
     hardware.graphics.enable = true;
 
     services.xserver.videoDrivers = [ "nvidia" ]; # (Xorg and Wayland)

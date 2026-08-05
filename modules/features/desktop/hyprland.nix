@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.desktopHyprland = { pkgs, ... }: {
+  flake.nixosModules.desktopHyprland = { config, lib, pkgs, ... }: {
     local.wayland.enable = true;
 
     environment.systemPackages = [
@@ -23,11 +23,15 @@
 
     services.dunst.enable = true;
 
-    environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    };
+    environment.sessionVariables = lib.mkMerge [
+      {
+        NIXOS_OZONE_WL = "1";
+      }
+      (lib.mkIf (lib.attrByPath [ "local" "gpu" "nvidia" "enable" ] false config) {
+        LIBVA_DRIVER_NAME = "nvidia";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      })
+    ];
   };
 
   flake.nixosModules.desktopHyprlandAutologin = { config, lib, ... }: {
