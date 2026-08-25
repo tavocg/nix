@@ -29,7 +29,6 @@
       fd
       fzf
       glow
-      groff
       jq
       pv
       ripgrep
@@ -50,6 +49,8 @@
       wiremix
 
       # typesetting
+      groff
+      ghostscript
       pandoc
       graplang
       tectonic
