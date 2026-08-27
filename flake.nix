@@ -28,6 +28,11 @@
       url = "github:tavocg/pinentry-bemenu";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wlctl = {
+      url = "github:aashish-thapa/wlctl";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:

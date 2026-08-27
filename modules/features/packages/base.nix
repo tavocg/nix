@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, inputs, ... }: {
   flake.nixosModules.packagesBase = { config, pkgs, ... }: {
     imports = [ self.nixosModules.packagesEmacs ];
 
@@ -33,6 +33,7 @@
       pv
       ripgrep
       sqlite
+      inputs.wlctl.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       # documents
       mupdf-headless
@@ -60,7 +61,6 @@
       flex
 
       # mail
-      impala
       isync
       mu
 
