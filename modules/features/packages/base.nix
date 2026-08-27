@@ -41,6 +41,7 @@
       qrencode
 
       # media
+      cliamp
       ffmpeg-full
       imagemagick
       exiftool
