@@ -14,6 +14,7 @@
       self.nixosModules.systemUSBIPHost
       self.nixosModules.systemUSBIPClient
       self.nixosModules.networkBT
+      self.nixosModules.networkManagerIWD
       self.nixosModules.networkTailscale
 
       self.nixosModules.desktopHyprland
