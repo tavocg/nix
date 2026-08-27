@@ -34,6 +34,7 @@
       ripgrep
       sqlite
       inputs.wlctl.packages.${pkgs.stdenv.hostPlatform.system}.default
+      speedtest-cli
 
       # documents
       mupdf-headless
