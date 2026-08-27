@@ -29,7 +29,7 @@
         zathura
 
         # office
-        libreoffice-fresh
+        libreoffice-stable
         xournalpp
 
         # creative
