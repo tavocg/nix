@@ -21,7 +21,6 @@
         local.packages.emacs =
           (pkgs.emacsPackagesFor emacsPackage).emacsWithPackages (epkgs: [
             epkgs.mu4e
-            epkgs.pdf-tools
           ]);
 
         environment.systemPackages = with pkgs; [
