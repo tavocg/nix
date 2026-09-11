@@ -20,6 +20,8 @@
 
       self.nixosModules.desktopHyprland
       self.nixosModules.desktopHyprlandAutologin
+
+      self.nixosModules.xmrig
     ];
 
     local.user = {
