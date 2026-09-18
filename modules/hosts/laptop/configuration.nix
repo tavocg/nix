@@ -3,6 +3,11 @@
     networking.hostName = "laptop";
     console.keyMap = "la-latin1";
 
+    services.udev.extraRules = ''
+      # Keep a stable alias for the built-in camera's primary video node.
+      SUBSYSTEM=="video4linux", ENV{ID_SERIAL}=="SunplusIT_Inc_HP_True_Vision_FHD_Camera_DTESU0A9IJSNKT", ATTR{index}=="0", SYMLINK+="webcam0"
+    '';
+
     imports = [
       self.nixosModules.laptopHardware
 
