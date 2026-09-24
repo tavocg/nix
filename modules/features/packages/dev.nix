@@ -15,6 +15,7 @@
       libxml2
       pkg-config
       bear
+      glibc.static
 
       # go
       go
