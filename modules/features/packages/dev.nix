@@ -11,11 +11,10 @@
       cmake
       cppcheck
       cpplint
-      gcc
+      pkgsStatic.gcc
       libxml2
       pkg-config
       bear
-      glibc.static
 
       # go
       go
