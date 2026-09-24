@@ -11,7 +11,7 @@
       cmake
       cppcheck
       cpplint
-      pkgsStatic.gcc
+      gcc
       libxml2
       pkg-config
       bear
