@@ -14,6 +14,7 @@
       gcc
       libxml2
       pkg-config
+      bear
 
       # go
       go
