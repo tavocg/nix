@@ -9,6 +9,7 @@
       self.nixosModules.packages
       self.nixosModules.system
       self.nixosModules.systemDocker
+      self.nixosModules.systemOllama
       self.nixosModules.systemPrintingEpsonL3150
       self.nixosModules.systemWOL
       self.nixosModules.systemUSBIPHost
