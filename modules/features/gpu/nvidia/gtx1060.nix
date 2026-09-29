@@ -7,6 +7,7 @@
     ];
 
     local.gpu.nvidia.enable = true;
+    local.gpu.nvidia.cuda.arches = [ "61" ];
 
     hardware.graphics.enable = true;
 
