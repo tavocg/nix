@@ -6,6 +6,8 @@
     in {
       services.ollama = {
         enable = true;
+        host = "0.0.0.0";
+        openFirewall = true;
         package =
           if cudaEnabled then
             if cudaArches != [ ] then
