@@ -24,6 +24,11 @@
       gore
       gotests
 
+      # go (wails)
+      gtk3
+      webkitgtk_4_1
+      nsis
+
       # web
       html-tidy
       js-beautify
