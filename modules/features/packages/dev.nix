@@ -52,6 +52,7 @@
 
       # tooling
       git
+      git-lfs
       lazygit
       lazydocker
       autoconf
