@@ -14,6 +14,8 @@
       self.nixosModules.systemWOL
       self.nixosModules.systemUSBIPHost
       self.nixosModules.systemUSBIPClient
+      self.nixosModules.systemDigitalSignature
+
       self.nixosModules.networkBT
       self.nixosModules.networkManagerIWD
       self.nixosModules.networkTailscale
