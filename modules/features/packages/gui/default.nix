@@ -22,6 +22,8 @@
         # web
         firefox
         discord
+        telegram-desktop
+        signal-desktop
 
         # viewers
         imv
