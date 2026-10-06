@@ -16,6 +16,26 @@
         "type": "gitlab"
       }
     },
+    "fdcr-repo": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791320585,
+        "narHash": "sha256-1kRI5wa+60fm1ZI7g3ChVIMIISnxvYtC6Hu1xWFBBDg=",
+        "owner": "tavocg",
+        "repo": "fdcr-repo",
+        "rev": "08969960d50d5e264b793b958da548ea294729d6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tavocg",
+        "repo": "fdcr-repo",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -90,6 +110,7 @@
     "root": {
       "inputs": {
         "dotfiles": "dotfiles",
+        "fdcr-repo": "fdcr-repo",
         "flake-parts": "flake-parts",
         "import-tree": "import-tree",
         "nixpkgs": "nixpkgs",
