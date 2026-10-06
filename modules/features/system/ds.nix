@@ -1,9 +1,6 @@
-{ inputs, ... }: {
-  flake.nixosModules.systemDigitalSignature = { pkgs, ... }: {
+{ ... }: {
+  flake.nixosModules.systemDigitalSignature = { ... }: {
     services.pcscd.enable = true;
-
-    environment.systemPackages = [
-      inputs.fdcr-repo.packages.${pkgs.stdenv.hostPlatform.system}.fdcr-middleware-idopte
-    ];
   };
 }
+
