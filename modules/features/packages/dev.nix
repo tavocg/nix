@@ -69,6 +69,9 @@
       upx
       nsis
 
+      # java
+      maven
+
       # packaging - deb
       dpkg
       # packaging - dnf
