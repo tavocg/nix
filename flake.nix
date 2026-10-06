@@ -33,6 +33,11 @@
       url = "github:aashish-thapa/wlctl";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fdcr-repo = {
+      url = "github:tavocg/fdcr-repo";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
