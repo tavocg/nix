@@ -5,7 +5,13 @@
   in {
     imports = [ inputs.fdcr.nixosModules.default ];
 
-    services.fdcr.enable = true;
+    services.fdcr = {
+      enable = true;
+      scmanager = {
+        enable = true;
+        nautilus.enable = true;
+      };
+    };
 
     environment.systemPackages = [
       config.services.fdcr.package

@@ -28,8 +28,10 @@
       eza
       fd
       fzf
+      glib
       glow
       jq
+      openssl
       pv
       ripgrep
       sqlite
