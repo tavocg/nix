@@ -40,6 +40,8 @@
         kdePackages.kdenlive
         darktable
         config.local.packages.obs
+        krita
+        inkscape
 
         # tools
         gnome-disk-utility
