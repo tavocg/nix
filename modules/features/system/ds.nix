@@ -1,14 +1,17 @@
 { inputs, ... }: {
-  flake.nixosModules.systemDigitalSignature = { pkgs, ... }:
+  flake.nixosModules.systemDigitalSignature = { config, pkgs, ... }:
   let
     fdcr = inputs.fdcr.packages.${pkgs.stdenv.hostPlatform.system};
   in {
-    services.pcscd.enable = true;
+    imports = [ inputs.fdcr.nixosModules.default ];
+
+    services.fdcr.enable = true;
 
     environment.systemPackages = [
-      fdcr.fdcr-middleware-idopte
+      config.services.fdcr.package
+
       (fdcr.firmador.override {
-        pkcs11Module = "${fdcr.fdcr-middleware-idopte}/lib/SCMiddleware/libidop11.so";
+        pkcs11Module = "${config.services.fdcr.package}/lib/SCMiddleware/libidop11.so";
       })
     ];
   };
