@@ -13,9 +13,16 @@
   in {
     config = lib.mkIf windowingEnabled {
       environment.systemPackages = with pkgs; [
+        gtk3
+        gsettings-desktop-schemas
         gnome-themes-extra
       ] ++ lib.optionals x11Enabled [
         pkgs.xsettingsd
+      ];
+
+      environment.sessionVariables.XDG_DATA_DIRS = [
+        "${pkgs.glib.getSchemaPath pkgs.gtk3}"
+        "${pkgs.glib.getSchemaPath pkgs.gsettings-desktop-schemas}"
       ];
 
       programs.dconf = {
