@@ -23,11 +23,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791433905,
-        "narHash": "sha256-GPep5solQc1T5PwfGOiZ10DebngOAlTHwB9M2/+60po=",
+        "lastModified": 1791444701,
+        "narHash": "sha256-97uqM94NB3wBORVYJzcrgQ7/Xa9m3QEwEr5Yf/KejmI=",
         "owner": "tavocg",
         "repo": "fdcr-repo",
-        "rev": "671ded1dca6a1a5b653ba77c6b5fadde06305c45",
+        "rev": "73846623121e049882c29bd08290b6af64731587",
         "type": "github"
       },
       "original": {
@@ -73,11 +73,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1791260994,
-        "narHash": "sha256-Miqqk/ammqnTUxaoCyvtwoPeLbI1ksFyLxi/CazZpWY=",
+        "lastModified": 1791456040,
+        "narHash": "sha256-H83yz/do+hjOO0uujHyH8RgtIQP2v7Mw+cLwcZK/xKc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "151fa4e8ddfdd8dd25d945ad94ed54a13de9f6e4",
+        "rev": "e7439b6b14ad3cc35d05608ebca9bce01a25f5f8",
         "type": "github"
       },
       "original": {
