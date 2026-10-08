@@ -7,10 +7,13 @@
 
     services.fdcr = {
       enable = true;
-      scmanager = {
-        enable = true;
-        nautilus.enable = true;
-      };
+      middleware.enable = true;
+      # scmanager = {
+      #   enable = true;
+      #   nautilus.enable = true;
+      # };
+      # gaudi.enable = true;
+      # certificates.enable = true;
     };
 
     environment.systemPackages = [
