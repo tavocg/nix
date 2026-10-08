@@ -71,19 +71,6 @@
 
       # java
       maven
-
-      # packaging - deb
-      dpkg
-      # packaging - dnf
-      rpm
-      cpio
-      # packaging - pacman
-      pacman
-      # packaging - misc
-      libarchive
-      file
-      binutils
-      patchelf
     ];
   };
 }

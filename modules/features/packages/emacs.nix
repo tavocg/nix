@@ -26,6 +26,8 @@
         environment.systemPackages = with pkgs; [
           libtool
           libvterm
+          isync
+          mu
         ];
       };
     };

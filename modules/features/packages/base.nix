@@ -8,7 +8,6 @@
       config.local.packages.emacs
 
       # files
-      xdg-ninja
       yazi
       trash-cli
       file
@@ -28,7 +27,6 @@
       eza
       fd
       fzf
-      glib
       glow
       jq
       openssl
@@ -44,13 +42,13 @@
       qrencode
 
       # media
-      cliamp
       ffmpeg-full
       imagemagick
       exiftool
       librsvg
       tesseract
       wiremix
+      # cliamp
 
       # typesetting
       groff
@@ -61,10 +59,6 @@
       typst
       tinymist
       flex
-
-      # mail
-      isync
-      mu
 
       # language
       ispell

@@ -21,9 +21,9 @@
       environment.systemPackages = with pkgs; [
         # web
         firefox
-        discord
-        telegram-desktop
-        signal-desktop
+        # discord
+        # telegram-desktop
+        # signal-desktop
 
         # viewers
         imv
@@ -40,11 +40,9 @@
         kdePackages.kdenlive
         darktable
         config.local.packages.obs
-        krita
         inkscape
 
         # tools
-        gnome-disk-utility
         config.local.packages.nautilus
 
         # misc
