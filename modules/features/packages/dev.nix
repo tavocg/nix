@@ -53,7 +53,7 @@
       # tooling
       git
       git-lfs
-      lazygit
+      lazygit delta
       lazydocker
       autoconf
       automake
