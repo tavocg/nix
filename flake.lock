@@ -24,11 +24,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792127299,
-        "narHash": "sha256-PeBQa7fHPRipjXnjVpdHnrvlon/7T0wHO5do/C/PA6E=",
+        "lastModified": 1792128937,
+        "narHash": "sha256-o1qgKDJ6o3ds+m2ivBTucIzRI07dk742SEMOqspebPE=",
         "owner": "tavocg",
         "repo": "fdcr",
-        "rev": "82d7d2ffd55c14f49b0af6bfde9050f72b33c9a8",
+        "rev": "d123579c7af87c392d183b789961fb38106f07f2",
         "type": "github"
       },
       "original": {
