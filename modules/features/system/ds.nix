@@ -12,7 +12,7 @@
         enable = true;
         nautilus.enable = true;
       };
-      gaudi.enable = true;
+      # gaudi.enable = true; # Does not work on nix because of auto-update, fix later.
       certificates.enable = true;
     };
 
