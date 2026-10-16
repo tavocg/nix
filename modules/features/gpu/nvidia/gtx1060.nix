@@ -1,13 +1,17 @@
 { self, ... }: {
   # Note: this would work in desktop but not in a laptop,
   # for laptop create something like gpuNvidiaPrime
-  flake.nixosModules.gpuNvidiaGTX1060 = { config, ... }: {
+  flake.nixosModules.gpuNvidiaGTX1060 = { config, pkgs, ... }: {
     imports = [
       self.nixosModules.gpuNvidia
     ];
 
     local.gpu.nvidia.enable = true;
     local.gpu.nvidia.cuda.arches = [ "61" ];
+
+    # Pascal (compute capability 6.1) was dropped in CUDA 13, so build local
+    # CUDA packages against the newest 12.x line that still supports it.
+    local.gpu.nvidia.cuda.packages = pkgs.cudaPackages_12_6;
 
     hardware.graphics.enable = true;
 

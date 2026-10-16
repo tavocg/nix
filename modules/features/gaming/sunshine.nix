@@ -9,6 +9,7 @@
     }:
     let
       cudaEnabled = lib.attrByPath [ "local" "gpu" "nvidia" "cuda" "enable" ] false config;
+      cudaPackages = lib.attrByPath [ "local" "gpu" "nvidia" "cuda" "packages" ] pkgs.cudaPackages config;
       sunshineDotfilesDir = inputs.dotfiles + "/sunshine";
       sunshineAppsSource = sunshineDotfilesDir + "/apps.json";
       sunshineAppsFile = pkgs.writeText "apps.json" (
@@ -24,7 +25,7 @@
         if cudaEnabled then
           pkgs.sunshine.override {
             cudaSupport = true;
-            cudaPackages = pkgs.cudaPackages;
+            inherit cudaPackages;
           }
         else
           pkgs.sunshine;
