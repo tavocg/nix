@@ -49,13 +49,15 @@ in
       waylandEnabled = config.local.wayland.enable;
       windowingEnabled = x11Enabled || waylandEnabled;
 
-      # Turn a URL into an installable desktop shortcut (a .desktop entry plus
-      # its icon).
+      # Turn a URL into an installable desktop shortcut: a .desktop entry, its
+      # icon and a launcher command in $PATH.
       makeDesktopApp =
         {
           name,
           url,
           icon,
+          # Command installed in $PATH and referenced by the .desktop entry.
+          command ? lib.toLower (lib.replaceStrings [ " " ] [ "-" ] name),
           browser ? pkgs.ungoogled-chromium,
           categories ? [ "Network" ],
           # Flags shared by every web app. Adjust per app if necessary.
@@ -73,19 +75,22 @@ in
         let
           appId = chromiumAppId { inherit url executable profile; };
 
-          launcher = pkgs.writeShellScript "${appId}-webapp" ''
-            exec ${lib.getExe browser} \
-              ${lib.escapeShellArgs flags} \
-              --app=${lib.escapeShellArg url} \
-              "$@"
-          '';
+          launcher = pkgs.writeShellApplication {
+            name = command;
+            text = ''
+              exec ${lib.getExe browser} \
+                ${lib.escapeShellArgs flags} \
+                --app=${lib.escapeShellArg url} \
+                "$@"
+            '';
+          };
 
           desktopItem = pkgs.makeDesktopItem {
             name = appId;
             desktopName = name;
             genericName = "${name} (web app)";
             comment = "${name}, installed as a Chromium web app";
-            exec = "${launcher} %U";
+            exec = "${launcher}/bin/${command} %U";
             icon = appId;
             categories = categories;
             startupNotify = true;
@@ -106,7 +111,7 @@ in
           '';
         in
         {
-          inherit desktopItem icons;
+          inherit desktopItem icons launcher;
         };
 
       webapps = [
@@ -153,6 +158,7 @@ in
         environment.systemPackages = lib.concatMap (app: [
           app.desktopItem
           app.icons
+          app.launcher
         ]) webapps;
       };
     };
