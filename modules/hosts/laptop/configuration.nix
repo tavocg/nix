@@ -12,13 +12,15 @@
       self.nixosModules.laptopHardware
 
       self.nixosModules.nixos
-      self.nixosModules.gamingSunshine
       self.nixosModules.packages
       self.nixosModules.system
       self.nixosModules.systemDocker
       self.nixosModules.systemPrintingEpsonL3150
       self.nixosModules.systemUSBIPHost
       self.nixosModules.systemUSBIPClient
+      self.nixosModules.systemDigitalSignature
+      self.nixosModules.virt
+
       self.nixosModules.networkBT
       self.nixosModules.networkManagerIWD
       self.nixosModules.networkTailscale
