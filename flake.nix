@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     fdcr = {
-      url = "github:tavocg/fdcr-repo";
+      url = "github:tavocg/fdcr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
