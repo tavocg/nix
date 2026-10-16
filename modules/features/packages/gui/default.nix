@@ -21,6 +21,7 @@
       environment.systemPackages = with pkgs; [
         # web
         firefox
+        ungoogled-chromium
         discord
         # telegram-desktop
         # signal-desktop
