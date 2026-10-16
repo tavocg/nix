@@ -1,12 +1,5 @@
 { lib, ... }:
 let
-  # Interface languages. Costa Rica has no dedicated pack, so es-MX is the
-  # closest Latin American Spanish variant.
-  languagePacks = [
-    "en-US"
-    "es-MX"
-  ];
-
   # --------------------------------------------------------------------------
   # about:config preferences applied through the enterprise "Preferences"
   # policy (`programs.firefox.preferences` on the NixOS module, and
@@ -347,7 +340,7 @@ in
       config = lib.mkIf windowingEnabled {
         programs.firefox = {
           enable = true;
-          inherit languagePacks preferences autoConfig;
+          inherit preferences autoConfig;
           policies = basePolicies // {
             ExtensionSettings = extensionSettings;
           };
