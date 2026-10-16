@@ -21,9 +21,11 @@
 
     config = lib.mkIf windowingEnabled {
       environment.systemPackages = with pkgs; [
-        # web (firefox is installed via programs.firefox, see firefox.nix)
+        # web
+        # firefox # installed via programs.firefox, see firefox.nix
+        # discord # installed via webapps, see webapps/default.nix
         ungoogled-chromium
-        discord
+        # tor-browser
         # telegram-desktop
         # signal-desktop
 
