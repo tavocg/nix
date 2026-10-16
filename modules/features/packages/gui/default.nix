@@ -16,6 +16,7 @@
       self.nixosModules.packagesGUITheme
       self.nixosModules.packagesGUINautilus
       self.nixosModules.packagesGUIFirefox
+      self.nixosModules.packagesGUIWebapps
     ];
 
     config = lib.mkIf windowingEnabled {
