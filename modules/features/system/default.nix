@@ -7,6 +7,7 @@
       self.nixosModules.systemFonts
       self.nixosModules.systemGnuPG
       self.nixosModules.systemHosts
+      self.nixosModules.systemJava
       self.nixosModules.systemLocaleCR
       self.nixosModules.systemPipewire
       self.nixosModules.systemPrinting

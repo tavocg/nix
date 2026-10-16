@@ -1,0 +1,21 @@
+OpenJDK: store the fontconfig cache in XDG_CACHE_HOME.
+
+java.util.prefs.userRoot controls preferences, not this cache. Ignore empty
+and relative XDG_CACHE_HOME values, falling back to ~/.cache as required by
+the XDG Base Directory specification. Leave user.home unchanged.
+
+--- a/src/java.desktop/unix/classes/sun/font/FcFontConfiguration.java
++++ b/src/java.desktop/unix/classes/sun/font/FcFontConfiguration.java
+@@ -377,7 +377,11 @@
+             String userDir = System.getProperty("user.home");
+             String version = System.getProperty("java.version");
+             String fs = File.separator;
+-            String dir = userDir+fs+".java"+fs+"fonts"+fs+version;
++            String cacheDir = System.getenv("XDG_CACHE_HOME");
++            if (cacheDir == null || !new File(cacheDir).isAbsolute()) {
++                cacheDir = userDir+fs+".cache";
++            }
++            String dir = cacheDir+fs+"java"+fs+"fonts"+fs+version;
+             Locale locale = SunToolkit.getStartupLocale();
+             String lang = locale.getLanguage();
+             String country = locale.getCountry();
