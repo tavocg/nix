@@ -5,7 +5,8 @@ let
       config.boot.kernelPackages.usbip
     ];
   };
-in {
+in
+{
   flake.nixosModules.systemUSBIPHost = { ... }: {
     imports = [ usbipCommon ];
 

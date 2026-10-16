@@ -1,4 +1,10 @@
-top@{ self, inputs, lib, ... }: {
+top@{
+  self,
+  inputs,
+  lib,
+  ...
+}:
+{
   flake.nixosConfigurations.drive = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [

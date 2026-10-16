@@ -1,8 +1,10 @@
 { ... }: {
-  flake.nixosModules.systemSSH = { config, lib, ... }:
+  flake.nixosModules.systemSSH =
+    { config, lib, ... }:
     let
       cfg = config.local.ssh;
-    in {
+    in
+    {
       options.local.ssh = {
         enable = lib.mkEnableOption "OpenSSH access for the primary user";
 
@@ -17,25 +19,27 @@
         };
       };
 
-      config = lib.mkIf cfg.enable (lib.mkMerge [
-        {
-          services.openssh = {
-            enable = true;
-            openFirewall = true;
-            authorizedKeysInHomedir = false;
-            authorizedKeysFiles = [
-              "%h/.local/share/ssh/authorized_keys"
-            ];
-            settings = {
-              PasswordAuthentication = false;
-              KbdInteractiveAuthentication = false;
-              PermitRootLogin = "no";
+      config = lib.mkIf cfg.enable (
+        lib.mkMerge [
+          {
+            services.openssh = {
+              enable = true;
+              openFirewall = true;
+              authorizedKeysInHomedir = false;
+              authorizedKeysFiles = [
+                "%h/.local/share/ssh/authorized_keys"
+              ];
+              settings = {
+                PasswordAuthentication = false;
+                KbdInteractiveAuthentication = false;
+                PermitRootLogin = "no";
+              };
             };
-          };
-        }
-        (lib.mkIf config.local.user.enable {
-          users.users.${config.local.user.name}.openssh.authorizedKeys.keys = cfg.authorizedKeys;
-        })
-      ]);
+          }
+          (lib.mkIf config.local.user.enable {
+            users.users.${config.local.user.name}.openssh.authorizedKeys.keys = cfg.authorizedKeys;
+          })
+        ]
+      );
     };
 }

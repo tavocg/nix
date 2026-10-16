@@ -1,8 +1,10 @@
 { ... }: {
-  flake.nixosModules.systemUser = { lib, config, ... }:
+  flake.nixosModules.systemUser =
+    { lib, config, ... }:
     let
       cfg = config.local.user;
-    in {
+    in
+    {
       options.local.user = {
         enable = lib.mkEnableOption "primary user configuration";
 
@@ -18,7 +20,11 @@
 
         extraGroups = lib.mkOption {
           type = lib.types.listOf lib.types.str;
-          default = [ "wheel" "video" "input" ];
+          default = [
+            "wheel"
+            "video"
+            "input"
+          ];
           description = "Base groups for the primary user.";
         };
       };

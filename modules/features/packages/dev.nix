@@ -53,7 +53,8 @@
       # tooling
       git
       git-lfs
-      lazygit delta
+      lazygit
+      delta
       lazydocker
       autoconf
       automake
@@ -70,17 +71,20 @@
       nsis
 
       # java
-      (let
-        runtimeMaven = maven.override { jdk_headless = jdk21Xdg; };
-      in symlinkJoin {
-        name = "maven-wrapped";
-        paths = [
-          (writeShellScriptBin "mvn" ''
-            exec ${runtimeMaven}/bin/mvn -gs "$XDG_CONFIG_HOME/maven/settings.xml" "$@"
-          '')
-          runtimeMaven
-        ];
-      })
+      (
+        let
+          runtimeMaven = maven.override { jdk_headless = jdk21Xdg; };
+        in
+        symlinkJoin {
+          name = "maven-wrapped";
+          paths = [
+            (writeShellScriptBin "mvn" ''
+              exec ${runtimeMaven}/bin/mvn -gs "$XDG_CONFIG_HOME/maven/settings.xml" "$@"
+            '')
+            runtimeMaven
+          ];
+        }
+      )
     ];
   };
 }

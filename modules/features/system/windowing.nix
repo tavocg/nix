@@ -1,18 +1,17 @@
 { inputs, ... }: {
-  flake.nixosModules.systemWindowing = { config, lib, ... }:
+  flake.nixosModules.systemWindowing =
+    { config, lib, ... }:
     let
       x11Enabled = config.local.x11.enable;
       waylandEnabled = config.local.wayland.enable;
       xorgConfDir = inputs.dotfiles + "/X11/xorg.conf.d";
       xorgConfFiles = builtins.attrNames (
-        lib.filterAttrs (
-          name: type:
-            type == "regular"
-            && lib.hasSuffix ".conf" name
+        lib.filterAttrs (name: type: type == "regular" && lib.hasSuffix ".conf" name) (
+          builtins.readDir xorgConfDir
         )
-        (builtins.readDir xorgConfDir)
       );
-    in {
+    in
+    {
       options.local = {
         x11.enable = lib.mkEnableOption "X11-specific local configuration";
         wayland.enable = lib.mkEnableOption "Wayland-specific local configuration";

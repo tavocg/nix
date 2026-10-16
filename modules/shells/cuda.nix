@@ -13,10 +13,7 @@ let
       hostCompiler = pkgs.gcc13;
 
       cudaPackages =
-        if builtins.hasAttr "cudaPackages_12_6" pkgs then
-          pkgs.cudaPackages_12_6
-        else
-          pkgs.cudaPackages;
+        if builtins.hasAttr "cudaPackages_12_6" pkgs then pkgs.cudaPackages_12_6 else pkgs.cudaPackages;
 
       cudaLibPath = pkgs.lib.makeLibraryPath [
         cudaPackages.cudatoolkit

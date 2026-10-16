@@ -1,5 +1,11 @@
 { ... }: {
-  flake.nixosModules.xmrig = { config, lib, pkgs, ... }:
+  flake.nixosModules.xmrig =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
     let
       cudaEnabled = lib.attrByPath [ "local" "gpu" "nvidia" "cuda" "enable" ] false config;
       cudaArches = lib.attrByPath [ "local" "gpu" "nvidia" "cuda" "arches" ] [ ] config;
@@ -15,7 +21,8 @@
           (old.cmakeFlags or [ ])
           ++ lib.optional (cudaArches != [ ]) "-DCUDA_ARCH=${lib.concatStringsSep ";" cudaArches}";
       });
-    in {
+    in
+    {
       services.xmrig = {
         enable = true;
         settings = {
@@ -43,7 +50,8 @@
           "pools" = [
             {
               "url" = "pool.hashvault.pro:443";
-              "user" = "43aTAGoRZyb8M7RvhtYw1pHCpHqJ2nM51W7SjuGFdVdWekzTFf9PsVTCZPexd93o234z6SSq6Ag9fUSm4cjZkwvh3rp2kqT";
+              "user" =
+                "43aTAGoRZyb8M7RvhtYw1pHCpHqJ2nM51W7SjuGFdVdWekzTFf9PsVTCZPexd93o234z6SSq6Ag9fUSm4cjZkwvh3rp2kqT";
               "pass" = config.networking.hostName;
               "rig-id" = config.networking.hostName;
               "keepalive" = false;

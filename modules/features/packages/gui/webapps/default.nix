@@ -37,13 +37,17 @@ let
       host = builtins.head parts;
       path = builtins.elemAt parts 1;
     in
-    lib.replaceStrings [ "/" ] [ "_" ] "${executable}-${host}_${
-      if path == null then "/" else path
-    }-${profile}";
+    lib.replaceStrings [ "/" ] [ "_" ]
+      "${executable}-${host}_${if path == null then "/" else path}-${profile}";
 in
 {
   flake.nixosModules.packagesGUIWebapps =
-    { config, lib, pkgs, ... }:
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
     let
       x11Enabled = config.local.x11.enable;
       waylandEnabled = config.local.wayland.enable;
@@ -98,17 +102,20 @@ in
           };
 
           # Icons at the sizes toolkits look for, plus the scalable original.
-          icons = pkgs.runCommand "webapp-icon-${appId}" {
-            nativeBuildInputs = [ pkgs.librsvg ];
-          } ''
-            install -Dm644 ${icon} "$out/share/icons/hicolor/scalable/apps/${appId}.svg"
-            for size in 32 48 64 128 256 512; do
-              dir="$out/share/icons/hicolor/''${size}x''${size}/apps"
-              mkdir -p "$dir"
-              rsvg-convert --width "$size" --height "$size" \
-                --output "$dir/${appId}.png" ${icon}
-            done
-          '';
+          icons =
+            pkgs.runCommand "webapp-icon-${appId}"
+              {
+                nativeBuildInputs = [ pkgs.librsvg ];
+              }
+              ''
+                install -Dm644 ${icon} "$out/share/icons/hicolor/scalable/apps/${appId}.svg"
+                for size in 32 48 64 128 256 512; do
+                  dir="$out/share/icons/hicolor/''${size}x''${size}/apps"
+                  mkdir -p "$dir"
+                  rsvg-convert --width "$size" --height "$size" \
+                    --output "$dir/${appId}.png" ${icon}
+                done
+              '';
         in
         {
           inherit desktopItem icons launcher;
@@ -125,25 +132,37 @@ in
           name = "WhatsApp";
           url = "https://web.whatsapp.com/";
           icon = ./icons/whatsapp.svg;
-          categories = [ "Network" "InstantMessaging" ];
+          categories = [
+            "Network"
+            "InstantMessaging"
+          ];
         })
         (makeDesktopApp {
           name = "Telegram";
           url = "https://web.telegram.org/a/";
           icon = ./icons/telegram.svg;
-          categories = [ "Network" "InstantMessaging" ];
+          categories = [
+            "Network"
+            "InstantMessaging"
+          ];
         })
         (makeDesktopApp {
           name = "Google Meet";
           url = "https://meet.google.com/";
           icon = ./icons/google-meet.svg;
-          categories = [ "Network" "VideoConference" ];
+          categories = [
+            "Network"
+            "VideoConference"
+          ];
         })
         (makeDesktopApp {
           name = "Discord";
           url = "https://discord.com/app";
           icon = ./icons/discord.svg;
-          categories = [ "Network" "InstantMessaging" ];
+          categories = [
+            "Network"
+            "InstantMessaging"
+          ];
         })
         (makeDesktopApp {
           name = "Instagram";

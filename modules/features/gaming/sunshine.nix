@@ -12,29 +12,28 @@
       cudaPackages = lib.attrByPath [ "local" "gpu" "nvidia" "cuda" "packages" ] pkgs.cudaPackages config;
       sunshineDotfilesDir = inputs.dotfiles + "/sunshine";
       sunshineAppsSource = sunshineDotfilesDir + "/apps.json";
-      sunshineAppsFile = pkgs.writeText "apps.json" (
-        builtins.readFile sunshineAppsSource
-      );
+      sunshineAppsFile = pkgs.writeText "apps.json" (builtins.readFile sunshineAppsSource);
       sunshineConfigFile = pkgs.writeText "sunshine.conf" (
-        builtins.replaceStrings
-          [ "file_apps = apps.json" ]
-          [ "file_apps = ${sunshineAppsFile}" ]
-          (builtins.readFile (sunshineDotfilesDir + "/sunshine.conf"))
+        builtins.replaceStrings [ "file_apps = apps.json" ] [ "file_apps = ${sunshineAppsFile}" ] (
+          builtins.readFile (sunshineDotfilesDir + "/sunshine.conf")
+        )
       );
-      sunshinePackage = (
-        if cudaEnabled then
-          pkgs.sunshine.override {
-            cudaSupport = true;
-            inherit cudaPackages;
-          }
-        else
-          pkgs.sunshine
-      ).overrideAttrs (old: {
-        # Sunshine uses std::ranges::to (C++23), which is missing from the GCC
-        # 13 libstdc++ that ships with the pinned CUDA 12.6 package set (used
-        # for Pascal GPUs). Patch the single debug-log use so it builds there.
-        patches = (old.patches or [ ]) ++ [ ./sunshine-ranges-to.patch ];
-      });
+      sunshinePackage =
+        (
+          if cudaEnabled then
+            pkgs.sunshine.override {
+              cudaSupport = true;
+              inherit cudaPackages;
+            }
+          else
+            pkgs.sunshine
+        ).overrideAttrs
+          (old: {
+            # Sunshine uses std::ranges::to (C++23), which is missing from the GCC
+            # 13 libstdc++ that ships with the pinned CUDA 12.6 package set (used
+            # for Pascal GPUs). Patch the single debug-log use so it builds there.
+            patches = (old.patches or [ ]) ++ [ ./sunshine-ranges-to.patch ];
+          });
     in
     {
       config = lib.mkMerge [

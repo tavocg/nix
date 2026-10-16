@@ -1,5 +1,11 @@
 { ... }: {
-  flake.nixosModules.packagesEmacs = { config, lib, pkgs, ... }:
+  flake.nixosModules.packagesEmacs =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
     let
       x11Enabled = lib.attrByPath [ "local" "x11" "enable" ] false config;
       waylandEnabled = lib.attrByPath [ "local" "wayland" "enable" ] false config;
@@ -10,7 +16,8 @@
           pkgs.emacs
         else
           pkgs.emacs;
-    in {
+    in
+    {
       options.local.packages.emacs = lib.mkOption {
         type = lib.types.package;
         readOnly = true;
@@ -18,10 +25,9 @@
       };
 
       config = {
-        local.packages.emacs =
-          (pkgs.emacsPackagesFor emacsPackage).emacsWithPackages (epkgs: [
-            epkgs.mu4e
-          ]);
+        local.packages.emacs = (pkgs.emacsPackagesFor emacsPackage).emacsWithPackages (epkgs: [
+          epkgs.mu4e
+        ]);
 
         environment.systemPackages = with pkgs; [
           libtool
