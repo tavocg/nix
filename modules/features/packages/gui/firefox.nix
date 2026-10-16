@@ -353,23 +353,6 @@ in
   # instead of being read from /etc.
   perSystem =
     { pkgs, lib, ... }:
-    let
-      mozPlatform =
-        {
-          x86_64-linux = "linux-x86_64";
-          aarch64-linux = "linux-aarch64";
-        }
-        .${pkgs.stdenv.hostPlatform.system} or null;
-
-      langpackSettings = lib.optionalAttrs (mozPlatform != null) (
-        builtins.listToAttrs (
-          map (lang: lib.nameValuePair "langpack-${lang}@firefox.mozilla.org" {
-            installation_mode = "normal_installed";
-            install_url = "https://releases.mozilla.org/pub/firefox/releases/${pkgs.firefox.version}/${mozPlatform}/xpi/${lang}.xpi";
-          }) languagePacks
-        )
-      );
-    in
     {
       packages = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
         firefox = pkgs.firefox.override {
@@ -377,7 +360,7 @@ in
             # The nixpkgs NixOS module sets this; mirror it for the package.
             DisableAppUpdate = true;
             Preferences = preferencesPolicy;
-            ExtensionSettings = extensionSettings // langpackSettings;
+            ExtensionSettings = extensionSettings;
           };
           extraPrefsFiles = [
             (pkgs.writeText "firefox-autoconfig.js" autoConfig)
