@@ -25,7 +25,7 @@
         # firefox # installed via programs.firefox, see firefox.nix
         # discord # installed via webapps, see webapps/default.nix
         ungoogled-chromium
-        # tor-browser
+        tor-browser
         # telegram-desktop
         # signal-desktop
 
