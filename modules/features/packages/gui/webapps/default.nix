@@ -116,6 +116,12 @@ in
 
       webapps = [
         (makeDesktopApp {
+          name = "ChatGPT";
+          url = "https://chatgpt.com/";
+          icon = ./icons/chatgpt.svg;
+          categories = [ "Network" ];
+        })
+        (makeDesktopApp {
           name = "WhatsApp";
           url = "https://web.whatsapp.com/";
           icon = ./icons/whatsapp.svg;
