@@ -1,7 +1,7 @@
 { ... }: {
   flake.nixosModules.gamingMinecraft = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
-      jdk
+      jdk21Xdg
       prismlauncher
     ];
   };

@@ -9,10 +9,10 @@
         });
     in
     {
-      openjdk21 = patchFontCache prev.openjdk21;
-      openjdk25 = patchFontCache prev.openjdk25;
-      openjdk21_headless = patchFontCache prev.openjdk21_headless;
-      openjdk25_headless = patchFontCache prev.openjdk25_headless;
+      # Keep build dependencies unchanged so unrelated packages retain their
+      # binary cache paths. Opt into the patched JDK only at runtime.
+      jdk21Xdg = patchFontCache prev.jdk21;
+      jdk25Xdg = patchFontCache prev.jdk25;
     };
 
   flake.nixosModules.systemJava = { ... }: {

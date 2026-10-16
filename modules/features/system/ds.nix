@@ -35,13 +35,13 @@
       environment.systemPackages = [
         config.services.fdcr.package
 
-        (withJava pkgs.jdk21 (
+        (withJava pkgs.jdk21Xdg (
           fdcr.firmador.override {
             pkcs11Module = "${config.services.fdcr.package}/lib/SCMiddleware/libidop11.so";
           }
         ))
 
-        (withJava pkgs.jdk25 (
+        (withJava pkgs.jdk25Xdg (
           fdcr.firmador-git.override {
             pkcs11Module = "${config.services.fdcr.package}/lib/SCMiddleware/libidop11.so";
           }
