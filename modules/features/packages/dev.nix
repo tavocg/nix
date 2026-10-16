@@ -70,7 +70,15 @@
       nsis
 
       # java
-      maven
+      (symlinkJoin {
+        name = "maven-wrapped";
+        paths = [
+          (writeShellScriptBin "mvn" ''
+            exec ${maven}/bin/mvn -gs "$XDG_CONFIG_HOME/maven/settings.xml" "$@"
+          '')
+          maven
+        ];
+      })
     ];
   };
 }
