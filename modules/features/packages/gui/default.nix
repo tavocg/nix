@@ -15,12 +15,12 @@
       self.nixosModules.packagesGUIOBS
       self.nixosModules.packagesGUITheme
       self.nixosModules.packagesGUINautilus
+      self.nixosModules.packagesGUIFirefox
     ];
 
     config = lib.mkIf windowingEnabled {
       environment.systemPackages = with pkgs; [
-        # web
-        firefox
+        # web (firefox is installed via programs.firefox, see firefox.nix)
         ungoogled-chromium
         discord
         # telegram-desktop
