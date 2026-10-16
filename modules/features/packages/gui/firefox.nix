@@ -8,56 +8,29 @@ let
   ];
 
   # --------------------------------------------------------------------------
-  # about:config preferences.
-  #
-  # Used as `programs.firefox.preferences` by the NixOS module (emitted through
-  # the enterprise "Preferences" policy) and as the same "Preferences" policy by
-  # the standalone `.#firefox` package. With the default
+  # about:config preferences applied through the enterprise "Preferences"
+  # policy (`programs.firefox.preferences` on the NixOS module, and
+  # `extraPolicies.Preferences` for the standalone package). With the default
   # `preferencesStatus = "locked"` they show up as defaults and cannot be
   # changed from the UI.
+  #
+  # That policy only accepts a fixed allowlist of pref prefixes; anything
+  # outside it is *silently dropped* (it only shows up as a failure in
+  # about:policies). Preferences that fall outside the allowlist go through
+  # AutoConfig instead, see `lockedPrefs` / `autoConfig` below.
   # --------------------------------------------------------------------------
   preferences = {
     # ---- Content / tracking protection ----
     "browser.contentblocking.category" = "strict";
-    "privacy.trackingprotection.enabled" = true;
-    "privacy.trackingprotection.pbmode.enabled" = true;
-    "privacy.trackingprotection.socialtracking.enabled" = true;
-    "privacy.trackingprotection.cryptomining.enabled" = true;
-    "privacy.trackingprotection.fingerprinting.enabled" = true;
-    "privacy.trackingprotection.emailtracking.enabled" = true;
-    "privacy.donottrackheader.enabled" = true;
     "privacy.globalprivacycontrol.enabled" = true;
-    "privacy.globalprivacycontrol.functionality.enabled" = true;
-
-    # ---- Fingerprint resistance ----
-    # Strong hardening; a few sites (canvas, timezone, screen size) may
-    # behave differently.
-    "privacy.resistFingerprinting" = true;
-    "privacy.resistFingerprinting.pbmode" = true;
 
     # ---- Telemetry / studies / crash reports ----
-    "app.shield.optoutstudies.enabled" = false;
-    "app.normandy.enabled" = false;
-    "app.normandy.api_url" = "";
-    "datareporting.healthreport.uploadEnabled" = false;
     "datareporting.policy.dataSubmissionEnabled" = false;
     "datareporting.policy.dataSubmissionPolicyBypassNotification" = true;
-    "toolkit.telemetry.enabled" = false;
-    "toolkit.telemetry.unified" = false;
-    "toolkit.telemetry.archive.enabled" = false;
-    "toolkit.telemetry.newProfilePing.enabled" = false;
-    "toolkit.telemetry.shutdownPingSender.enabled" = false;
-    "toolkit.telemetry.updatePing.enabled" = false;
-    "toolkit.telemetry.bhrPing.enabled" = false;
-    "toolkit.telemetry.firstShutdownPing.enabled" = false;
-    "toolkit.telemetry.coverage.opt-out" = true;
-    "toolkit.coverage.opt-out" = true;
-    "toolkit.coverage.endpoint.base" = "";
     "browser.ping-centre.telemetry" = false;
     "browser.discovery.enabled" = false;
     "browser.tabs.crashReporting.sendReport" = false;
     "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
-    "breakpad.reportURL" = "";
 
     # ---- Search / address bar suggestions ----
     "browser.search.suggest.enabled" = false;
@@ -86,10 +59,9 @@ let
     "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
     "browser.topsites.contile.enabled" = false;
 
-    # ---- Pocket / screenshots / accounts ----
+    # ---- Pocket / screenshots ----
     "extensions.pocket.enabled" = false;
     "extensions.screenshots.disabled" = true;
-    "identity.fxaccounts.enabled" = false;
 
     # ---- Forms / passwords / autofill ----
     "browser.formfill.enable" = false;
@@ -121,11 +93,9 @@ let
     "network.IDN_show_punycode" = true;
 
     # ---- Misc privacy / security ----
-    "beacon.enabled" = false;
     "browser.send_pings" = false;
     "browser.send_pings.require_same_host" = true;
     "dom.battery.enabled" = false;
-    "device.sensors.enabled" = false;
     "dom.event.clipboardevents.enabled" = false;
     "geo.enabled" = false;
     "media.peerconnection.ice.default_address_only" = true;
@@ -133,7 +103,6 @@ let
     "dom.security.https_only_mode_ever_enabled" = true;
     "dom.security.https_only_mode_pbm" = true;
     "pdfjs.enableScripting" = false;
-    "security.cert_pinning.enforcement_level" = 2;
     "browser.safebrowsing.downloads.remote.enabled" = false;
 
     # ---- Containers ----
@@ -165,6 +134,62 @@ let
     # re-inject it into the nav-bar on startup.
     "browser.toolbarbuttons.introduced.sidebar-button" = true;
   };
+
+  # --------------------------------------------------------------------------
+  # Prefs the "Preferences" policy above would silently drop, because they are
+  # outside its allowlist. They are written through AutoConfig instead, which
+  # accepts any pref name and locks it as a default just the same.
+  # --------------------------------------------------------------------------
+  lockedPrefs = {
+    # ---- Tracking protection ----
+    "privacy.trackingprotection.enabled" = true;
+    "privacy.trackingprotection.pbmode.enabled" = true;
+    "privacy.trackingprotection.socialtracking.enabled" = true;
+    "privacy.trackingprotection.cryptomining.enabled" = true;
+    "privacy.trackingprotection.fingerprinting.enabled" = true;
+    "privacy.trackingprotection.emailtracking.enabled" = true;
+    "privacy.donottrackheader.enabled" = true;
+    "privacy.globalprivacycontrol.functionality.enabled" = true;
+
+    # ---- Fingerprint resistance ----
+    # Strong hardening; a few sites (canvas, timezone, screen size) may
+    # behave differently.
+    "privacy.resistFingerprinting" = true;
+    "privacy.resistFingerprinting.pbmode" = true;
+
+    # ---- Telemetry / studies / crash reports ----
+    "app.shield.optoutstudies.enabled" = false;
+    "app.normandy.enabled" = false;
+    "app.normandy.api_url" = "";
+    "datareporting.healthreport.uploadEnabled" = false;
+    "toolkit.telemetry.enabled" = false;
+    "toolkit.telemetry.unified" = false;
+    "toolkit.telemetry.archive.enabled" = false;
+    "toolkit.telemetry.newProfilePing.enabled" = false;
+    "toolkit.telemetry.shutdownPingSender.enabled" = false;
+    "toolkit.telemetry.updatePing.enabled" = false;
+    "toolkit.telemetry.bhrPing.enabled" = false;
+    "toolkit.telemetry.firstShutdownPing.enabled" = false;
+    "toolkit.telemetry.coverage.opt-out" = true;
+    "toolkit.coverage.opt-out" = true;
+    "toolkit.coverage.endpoint.base" = "";
+    "breakpad.reportURL" = "";
+
+    # ---- Misc privacy / security ----
+    "beacon.enabled" = false;
+    "device.sensors.enabled" = false;
+    "security.cert_pinning.enforcement_level" = 2;
+
+    # ---- Accounts ----
+    "identity.fxaccounts.enabled" = false;
+  };
+
+  # AutoConfig file (`mozilla.cfg`) locking the prefs above.
+  autoConfig = lib.concatStringsSep "\n" (
+    lib.mapAttrsToList (
+      name: value: "lockPref(${builtins.toJSON name}, ${builtins.toJSON value});"
+    ) lockedPrefs
+  );
 
   # --------------------------------------------------------------------------
   # Enterprise policies (about:policies#documentation) shared by the module and
@@ -260,6 +285,21 @@ let
         Locked = true;
       };
     };
+
+    # ---- Extension configuration (storage.managed) ----
+    # Read by the add-on through the `storage.managed` API. uBlock Origin's
+    # per-site "no-scripting" switch falls back to the `*` scope, so this
+    # disables JavaScript on every site: requests of type "script" are blocked
+    # and a CSP covers inline scripts. Admin storage is re-applied on every
+    # startup, which means per-site switch changes made from the popup do not
+    # survive a restart.
+    "3rdparty" = {
+      Extensions."uBlock0@raymondhill.net" = {
+        adminSettings = {
+          hostnameSwitchesString = "no-scripting: * true";
+        };
+      };
+    };
   };
 
   # Extensions installed and locked down. "*" blocks every other add-on.
@@ -307,7 +347,7 @@ in
       config = lib.mkIf windowingEnabled {
         programs.firefox = {
           enable = true;
-          inherit languagePacks preferences;
+          inherit languagePacks preferences autoConfig;
           policies = basePolicies // {
             ExtensionSettings = extensionSettings;
           };
@@ -346,6 +386,9 @@ in
             Preferences = preferencesPolicy;
             ExtensionSettings = extensionSettings // langpackSettings;
           };
+          extraPrefsFiles = [
+            (pkgs.writeText "firefox-autoconfig.js" autoConfig)
+          ];
         };
       };
     };
