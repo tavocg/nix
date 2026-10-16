@@ -22,6 +22,10 @@
       (fdcr.firmador.override {
         pkcs11Module = "${config.services.fdcr.package}/lib/SCMiddleware/libidop11.so";
       })
+
+      (fdcr.firmador-git.override {
+        pkcs11Module = "${config.services.fdcr.package}/lib/SCMiddleware/libidop11.so";
+      })
     ];
   };
 }
