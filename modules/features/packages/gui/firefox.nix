@@ -139,6 +139,31 @@ let
     # ---- Containers ----
     "privacy.userContext.enabled" = true;
     "privacy.userContext.ui.enabled" = true;
+
+    # ---- Toolbar layout / density ----
+    # Compact density (0 = normal, 1 = compact, 2 = touch).
+    "browser.uidensity" = 1;
+
+    # Start from Firefox's default nav-bar, minus the sidebar button. We keep
+    # the new sidebar (`sidebar.revamp` stays enabled) but drop its toolbar
+    # button, which otherwise has no dedicated pref to hide it.
+    "browser.uiCustomization.state" = builtins.toJSON {
+      placements."nav-bar" = [
+        "back-button"
+        "forward-button"
+        "stop-reload-button"
+        "spring"
+        "vertical-spacer"
+        "urlbar-container"
+        "spring"
+        "downloads-button"
+        "fxa-toolbar-menu-button"
+      ];
+      currentVersion = 28;
+    };
+    # Marks the sidebar button as already introduced so Firefox does not
+    # re-inject it into the nav-bar on startup.
+    "browser.toolbarbuttons.introduced.sidebar-button" = true;
   };
 
   # --------------------------------------------------------------------------
@@ -179,6 +204,11 @@ let
     DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
     DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
     SearchBar = "unified"; # alternative: "separate"
+
+    # ---- Search ----
+    SearchEngines = {
+      Default = "DuckDuckGo";
+    };
 
     # ---- New tab page ----
     FirefoxHome = {
@@ -240,12 +270,15 @@ let
     "uBlock0@raymondhill.net" = {
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+      # The add-on asks for the toolbar; keep it in the extensions panel.
+      default_area = "menupanel";
     };
 
     # Privacy Badger
     "jid1-MnnxcxisBPnSXQ@jetpack" = {
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
+      default_area = "menupanel";
     };
 
     # Dark Reader
