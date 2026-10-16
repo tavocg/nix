@@ -1,0 +1,30 @@
+Sunshine 2026.914.233613 uses std::ranges::to (C++23), which is only
+implemented in libstdc++ >= 15. When Sunshine is built against the pinned
+CUDA 12.6 package set (required for Pascal/GTX 1060), nixpkgs uses that set's
+backendStdenv, i.e. GCC 13.5.0, whose libstdc++ lacks std::ranges::to, so the
+build fails with "'to' is not a member of 'std::ranges'".
+
+The only use is a debug log line, so replace it with boost::algorithm::join,
+which is already used elsewhere in the codebase and works with GCC 13.
+
+--- a/src/platform/linux/kmsgrab.cpp
++++ b/src/platform/linux/kmsgrab.cpp
+@@ -12,6 +12,9 @@
+ #include <thread>
+ #include <unistd.h>
+ 
++// lib includes
++#include <boost/algorithm/string/join.hpp>
++
+ // platform includes
+ #include <drm_fourcc.h>
+ #include <linux/dma-buf.h>
+@@ -2286,7 +2289,7 @@
+ 
+     kms::card_descriptors = std::move(cds);
+ 
+-    BOOST_LOG(debug) << "Final KMS display_names return list: " << (display_names | std::views::join_with(' ') | std::ranges::to<std::string>());
++    BOOST_LOG(debug) << "Final KMS display_names return list: " << boost::algorithm::join(display_names, " ");
+     return display_names;
+   }
+ 

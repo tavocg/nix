@@ -21,14 +21,20 @@
           [ "file_apps = ${sunshineAppsFile}" ]
           (builtins.readFile (sunshineDotfilesDir + "/sunshine.conf"))
       );
-      sunshinePackage =
+      sunshinePackage = (
         if cudaEnabled then
           pkgs.sunshine.override {
             cudaSupport = true;
             inherit cudaPackages;
           }
         else
-          pkgs.sunshine;
+          pkgs.sunshine
+      ).overrideAttrs (old: {
+        # Sunshine uses std::ranges::to (C++23), which is missing from the GCC
+        # 13 libstdc++ that ships with the pinned CUDA 12.6 package set (used
+        # for Pascal GPUs). Patch the single debug-log use so it builds there.
+        patches = (old.patches or [ ]) ++ [ ./sunshine-ranges-to.patch ];
+      });
     in
     {
       config = lib.mkMerge [
