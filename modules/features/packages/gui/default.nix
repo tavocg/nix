@@ -24,11 +24,14 @@
       config = lib.mkIf windowingEnabled {
         programs.chromium = {
           enable = true;
-          extensions = [
-            "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
-            "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
-            "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
-          ];
+          # ungoogled-chromium disables the downloader used by this policy.
+          # Install these with https://github.com/NeverDecaf/chromium-web-store
+          # instead; it also checks for updates (installation requires a click).
+          # extensions = [
+          #   "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
+          #   "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
+          #   "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
+          # ];
           defaultSearchProviderEnabled = true;
           defaultSearchProviderSearchURL = "https://www.google.com/search?q={searchTerms}";
           extraOpts = {
