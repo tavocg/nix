@@ -3,20 +3,27 @@
     { config, pkgs, ... }:
     let
       fdcr = inputs.fdcr.packages.${pkgs.stdenv.hostPlatform.system};
+      fdcrEnvironments = import "${inputs.fdcr}/lib/nix/environments.nix" {
+        inherit pkgs;
+        packages = inputs.fdcr.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+        middlewarePackage = config.services.fdcr.package;
+      };
       # FDCR snapshots use a separate, pinned nixpkgs. Replace their launcher's
       # runtime with our patched JDK, retaining the snapshot's build JDK.
       withJava =
         jdk: package:
-        package.overrideAttrs (old: {
-          postInstall = (old.postInstall or "") + ''
-            launcher="$out/bin/${old.pname}"
-            if [ -f "$out/bin/.${old.pname}-wrapped" ]; then
-              launcher="$out/bin/.${old.pname}-wrapped"
-            fi
-            substituteInPlace "$launcher" \
-              --replace-fail '${old.env.JAVA_HOME}/bin/java' '${jdk}/bin/java'
-          '';
-        });
+        fdcrEnvironments.firmadorEnv {
+          base = package.nativePackage.overrideAttrs (old: {
+            postInstall = (old.postInstall or "") + ''
+              launcher="$out/bin/${old.pname}"
+              if [ -f "$out/bin/.${old.pname}-wrapped" ]; then
+                launcher="$out/bin/.${old.pname}-wrapped"
+              fi
+              substituteInPlace "$launcher" \
+                --replace-fail '${old.env.JAVA_HOME}/bin/java' '${jdk}/bin/java'
+            '';
+          });
+        };
     in
     {
       imports = [ inputs.fdcr.nixosModules.default ];
@@ -35,17 +42,9 @@
       environment.systemPackages = [
         config.services.fdcr.package
 
-        (withJava pkgs.jdk21Xdg (
-          fdcr.firmador.override {
-            pkcs11Module = "${config.services.fdcr.package}/lib/SCMiddleware/libidop11.so";
-          }
-        ))
+        (withJava pkgs.jdk21Xdg fdcr.firmador)
 
-        (withJava pkgs.jdk25Xdg (
-          fdcr.firmador-git.override {
-            pkcs11Module = "${config.services.fdcr.package}/lib/SCMiddleware/libidop11.so";
-          }
-        ))
+        (withJava pkgs.jdk25Xdg fdcr.firmador-git)
       ];
     };
 }
