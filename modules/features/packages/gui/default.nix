@@ -24,6 +24,11 @@
       config = lib.mkIf windowingEnabled {
         programs.chromium = {
           enable = true;
+          extensions = [
+            "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
+            "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
+            "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
+          ];
           defaultSearchProviderEnabled = true;
           defaultSearchProviderSearchURL = "https://www.google.com/search?q={searchTerms}";
           extraOpts = {

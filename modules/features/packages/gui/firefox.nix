@@ -280,19 +280,20 @@ let
     };
 
     # ---- Extension configuration (storage.managed) ----
+    # Optional example, left commented out to keep JavaScript enabled.
     # Read by the add-on through the `storage.managed` API. uBlock Origin's
     # per-site "no-scripting" switch falls back to the `*` scope, so this
     # disables JavaScript on every site: requests of type "script" are blocked
     # and a CSP covers inline scripts. Admin storage is re-applied on every
     # startup, which means per-site switch changes made from the popup do not
     # survive a restart.
-    "3rdparty" = {
-      Extensions."uBlock0@raymondhill.net" = {
-        adminSettings = {
-          hostnameSwitchesString = "no-scripting: * true";
-        };
-      };
-    };
+    # "3rdparty" = {
+    #   Extensions."uBlock0@raymondhill.net" = {
+    #     adminSettings = {
+    #       hostnameSwitchesString = "no-scripting: * true";
+    #     };
+    #   };
+    # };
   };
 
   # Extensions installed and locked down. "*" blocks every other add-on.
