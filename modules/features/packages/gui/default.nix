@@ -22,6 +22,16 @@
       ];
 
       config = lib.mkIf windowingEnabled {
+        programs.chromium = {
+          enable = true;
+          defaultSearchProviderEnabled = true;
+          defaultSearchProviderSearchURL = "https://www.google.com/search?q={searchTerms}";
+          extraOpts = {
+            DefaultSearchProviderName = "Google";
+            DefaultSearchProviderKeyword = "google.com";
+          };
+        };
+
         environment.systemPackages = with pkgs; [
           # web
           # firefox # installed via programs.firefox, see firefox.nix
