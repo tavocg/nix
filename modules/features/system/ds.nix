@@ -24,12 +24,12 @@
       services.fdcr = {
         enable = true;
         middleware.enable = true;
-        scmanager = {
-          enable = true;
-          nautilus.enable = true;
-        };
+        # scmanager = {
+        #   enable = true;
+        #   nautilus.enable = true;
+        # };
         # gaudi.enable = true; # Does not work on nix because of auto-update, fix later.
-        certificates.enable = true;
+        # certificates.enable = true;
       };
 
       environment.systemPackages = [
