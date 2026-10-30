@@ -87,7 +87,7 @@
       )
 
       # rust
-      cargo
+      rustup
     ];
   };
 }
