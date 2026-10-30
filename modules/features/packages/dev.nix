@@ -69,6 +69,7 @@
       tokei
       upx
       nsis
+      gh
 
       # java
       (
