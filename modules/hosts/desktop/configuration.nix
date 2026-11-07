@@ -14,7 +14,7 @@
       self.nixosModules.systemWOL
       self.nixosModules.systemUSBIPHost
       self.nixosModules.systemUSBIPClient
-      self.nixosModules.systemDigitalSignature
+      # self.nixosModules.systemDigitalSignature
       self.nixosModules.virt
 
       self.nixosModules.networkBT
