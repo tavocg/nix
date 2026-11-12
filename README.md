@@ -1,5 +1,7 @@
 # nix
 
+Tavo's personal NixOS configuration.
+
 ## Usage
 
 ```sh

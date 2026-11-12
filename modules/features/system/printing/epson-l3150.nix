@@ -1,19 +1,17 @@
 { ... }: {
-  flake.nixosModules.systemPrintingEpsonL3150 = { lib, pkgs, ... }: {
-    services.printing.drivers = lib.mkAfter [
-      pkgs.epson-escpr
-    ];
+    flake.nixosModules.systemPrintingEpsonL3150 = { lib, pkgs, ... }: {
+        services.printing.drivers = lib.mkAfter [ pkgs.epson-escpr ];
 
-    hardware.printers.ensurePrinters = [
-      {
-        name = "Epson_L3150";
-        description = "Epson L3150 Series";
-        location = "Home";
+        hardware.printers.ensurePrinters = [
+            {
+                name = "Epson_L3150";
+                description = "Epson L3150 Series";
+                location = "Home";
 
-        deviceUri = "dnssd://EPSON%20L3150%20Series._pdl-datastream._tcp.local/";
+                deviceUri = "dnssd://EPSON%20L3150%20Series._pdl-datastream._tcp.local/";
 
-        model = "epson-inkjet-printer-escpr/Epson-L3150_Series-epson-escpr-en.ppd";
-      }
-    ];
-  };
+                model = "epson-inkjet-printer-escpr/Epson-L3150_Series-epson-escpr-en.ppd";
+            }
+        ];
+    };
 }

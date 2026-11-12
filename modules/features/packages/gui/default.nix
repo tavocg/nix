@@ -1,77 +1,77 @@
 { self, ... }: {
-  flake.nixosModules.packagesGUI =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
+    flake.nixosModules.packagesGUI =
+        {
+            config,
+            lib,
+            pkgs,
+            ...
+        }:
 
-    let
-      x11Enabled = config.local.x11.enable;
-      waylandEnabled = config.local.wayland.enable;
-      windowingEnabled = x11Enabled || waylandEnabled;
-    in
-    {
-      imports = [
-        self.nixosModules.packagesGUIOBS
-        self.nixosModules.packagesGUITheme
-        self.nixosModules.packagesGUINautilus
-        self.nixosModules.packagesGUIFirefox
-        self.nixosModules.packagesGUIWebapps
-      ];
+        let
+            x11Enabled = config.local.x11.enable;
+            waylandEnabled = config.local.wayland.enable;
+            windowingEnabled = x11Enabled || waylandEnabled;
+        in
+        {
+            imports = [
+                self.nixosModules.packagesGUIOBS
+                self.nixosModules.packagesGUITheme
+                self.nixosModules.packagesGUINautilus
+                self.nixosModules.packagesGUIFirefox
+                self.nixosModules.packagesGUIWebapps
+            ];
 
-      config = lib.mkIf windowingEnabled {
-        programs.chromium = {
-          enable = true;
-          # ungoogled-chromium disables the downloader used by this policy.
-          # Install these with https://github.com/NeverDecaf/chromium-web-store
-          # instead; it also checks for updates (installation requires a click).
-          # extensions = [
-          #   "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
-          #   "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
-          #   "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
-          # ];
-          defaultSearchProviderEnabled = true;
-          defaultSearchProviderSearchURL = "https://www.google.com/search?q={searchTerms}";
-          extraOpts = {
-            DefaultSearchProviderName = "Google";
-            DefaultSearchProviderKeyword = "google.com";
-          };
+            config = lib.mkIf windowingEnabled {
+                programs.chromium = {
+                    enable = true;
+                    # ungoogled-chromium disables the downloader used by this policy.
+                    # Install these with https://github.com/NeverDecaf/chromium-web-store
+                    # instead; it also checks for updates (installation requires a click).
+                    # extensions = [
+                    #   "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
+                    #   "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
+                    #   "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
+                    # ];
+                    defaultSearchProviderEnabled = true;
+                    defaultSearchProviderSearchURL = "https://www.google.com/search?q={searchTerms}";
+                    extraOpts = {
+                        DefaultSearchProviderName = "Google";
+                        DefaultSearchProviderKeyword = "google.com";
+                    };
+                };
+
+                environment.systemPackages = with pkgs; [
+                    # web
+                    # firefox # installed via programs.firefox, see firefox.nix
+                    # discord # installed via webapps, see webapps/default.nix
+                    ungoogled-chromium
+                    tor-browser
+                    # telegram-desktop
+                    # signal-desktop
+
+                    # viewers
+                    imv
+                    mpv
+                    zathura
+
+                    # office
+                    libreoffice-stable
+                    xournalpp
+
+                    # creative
+                    gimp
+                    audacity
+                    kdePackages.kdenlive
+                    darktable
+                    config.local.packages.obs
+                    inkscape
+
+                    # tools
+                    config.local.packages.nautilus
+
+                    # misc
+                    qbittorrent
+                ];
+            };
         };
-
-        environment.systemPackages = with pkgs; [
-          # web
-          # firefox # installed via programs.firefox, see firefox.nix
-          # discord # installed via webapps, see webapps/default.nix
-          ungoogled-chromium
-          tor-browser
-          # telegram-desktop
-          # signal-desktop
-
-          # viewers
-          imv
-          mpv
-          zathura
-
-          # office
-          libreoffice-stable
-          xournalpp
-
-          # creative
-          gimp
-          audacity
-          kdePackages.kdenlive
-          darktable
-          config.local.packages.obs
-          inkscape
-
-          # tools
-          config.local.packages.nautilus
-
-          # misc
-          qbittorrent
-        ];
-      };
-    };
 }

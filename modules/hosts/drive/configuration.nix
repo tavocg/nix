@@ -1,55 +1,55 @@
 { self, ... }: {
-  flake.nixosModules.driveConfiguration = { pkgs, ... }: {
-    networking.hostName = "drive";
+    flake.nixosModules.driveConfiguration = { pkgs, ... }: {
+        networking.hostName = "drive";
 
-    imports = [
-      self.nixosModules.nixos
-      self.nixosModules.systemBinsh
-      self.nixosModules.systemLocaleCR
-      self.nixosModules.networkTailscale
-      self.nixosModules.systemSSH
-      self.nixosModules.systemShell
-      self.nixosModules.systemUser
-    ];
+        imports = [
+            self.nixosModules.nixos
+            self.nixosModules.systemBinsh
+            self.nixosModules.systemLocaleCR
+            self.nixosModules.networkTailscale
+            self.nixosModules.systemSSH
+            self.nixosModules.systemShell
+            self.nixosModules.systemUser
+        ];
 
-    local.user = {
-      enable = true;
-      name = "tavo";
-      description = "Gustavo Calvo";
-      extraGroups = [ "wheel" ];
+        local.user = {
+            enable = true;
+            name = "tavo";
+            description = "Gustavo Calvo";
+            extraGroups = [ "wheel" ];
+        };
+
+        local.ssh.enable = true;
+
+        # Keep Tailscale in userspace networking on drive; this host runs without
+        # a regular TUN setup.
+        services.tailscale.interfaceName = "userspace-networking";
+
+        services.resolved.enable = true;
+        services.resolved.settings.Resolve = {
+            FallbackDNS = [
+                "1.1.1.1"
+                "8.8.8.8"
+            ];
+        };
+
+        systemd.network.networks."50-tailscale0" = {
+            matchConfig.Name = "tailscale0";
+            DHCP = "no";
+            networkConfig = {
+                IPv6AcceptRA = false;
+                LinkLocalAddressing = "no";
+            };
+        };
+
+        security.sudo.wheelNeedsPassword = false;
+
+        environment.systemPackages = with pkgs; [
+            git
+            tmux
+            curl
+        ];
+
+        system.stateVersion = "25.11";
     };
-
-    local.ssh.enable = true;
-
-    # Keep Tailscale in userspace networking on drive; this host runs without
-    # a regular TUN setup.
-    services.tailscale.interfaceName = "userspace-networking";
-
-    services.resolved.enable = true;
-    services.resolved.settings.Resolve = {
-      FallbackDNS = [
-        "1.1.1.1"
-        "8.8.8.8"
-      ];
-    };
-
-    systemd.network.networks."50-tailscale0" = {
-      matchConfig.Name = "tailscale0";
-      DHCP = "no";
-      networkConfig = {
-        IPv6AcceptRA = false;
-        LinkLocalAddressing = "no";
-      };
-    };
-
-    security.sudo.wheelNeedsPassword = false;
-
-    environment.systemPackages = with pkgs; [
-      git
-      tmux
-      curl
-    ];
-
-    system.stateVersion = "25.11";
-  };
 }

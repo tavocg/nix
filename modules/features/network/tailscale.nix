@@ -1,7 +1,7 @@
 { ... }: {
-  flake.nixosModules.networkTailscale = { ... }: {
-    services.tailscale = {
-      enable = true;
+    flake.nixosModules.networkTailscale = { ... }: {
+        services.tailscale = {
+            enable = true;
+        };
     };
-  };
 }

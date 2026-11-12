@@ -4,6 +4,14 @@ NIX_BUILD_FLAGS = --max-jobs $(NIX_MAX_JOBS) --cores $(NIX_CORES)
 
 all: switch
 
+.PHONY: format
+format:
+	git ls-files --cached --others --exclude-standard -z -- '*.nix' | xargs -0 nixfmt --strict --indent=4 --verify
+
+.PHONY: format-check
+format-check:
+	git ls-files --cached --others --exclude-standard -z -- '*.nix' | xargs -0 nixfmt --strict --indent=4 --check
+
 .PHONY: switch
 switch:
 	nixos-rebuild switch --flake . $(NIX_BUILD_FLAGS)

@@ -1,10 +1,10 @@
 { self, ... }: {
-  flake.nixosModules.packages = { ... }: {
-    imports = [
-      self.nixosModules.packagesBase
-      self.nixosModules.packagesDev
-      self.nixosModules.packagesTex
-      self.nixosModules.packagesGUI
-    ];
-  };
+    flake.nixosModules.packages = { ... }: {
+        imports = [
+            self.nixosModules.packagesBase
+            self.nixosModules.packagesDev
+            self.nixosModules.packagesTex
+            self.nixosModules.packagesGUI
+        ];
+    };
 }

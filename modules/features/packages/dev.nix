@@ -1,94 +1,94 @@
 { ... }: {
-  flake.nixosModules.packagesDev = { pkgs, ... }: {
-    environment.systemPackages = with pkgs; [
-      # android
-      androidenv.androidPkgs.platform-tools
-      scrcpy
+    flake.nixosModules.packagesDev = { pkgs, ... }: {
+        environment.systemPackages = with pkgs; [
+            # android
+            androidenv.androidPkgs.platform-tools
+            scrcpy
 
-      # c and c++
-      binutils
-      clang-tools
-      cmake
-      cppcheck
-      cpplint
-      gcc
-      libxml2
-      pkg-config
-      bear
+            # c and c++
+            binutils
+            clang-tools
+            cmake
+            cppcheck
+            cpplint
+            gcc
+            libxml2
+            pkg-config
+            bear
 
-      # go
-      go
-      gomodifytags
-      golangci-lint
-      gopls
-      gore
-      gotests
+            # go
+            go
+            gomodifytags
+            golangci-lint
+            gopls
+            gore
+            gotests
 
-      # web
-      html-tidy
-      js-beautify
-      stylelint
-      typescript-language-server
-      vscode-langservers-extracted
+            # web
+            html-tidy
+            js-beautify
+            stylelint
+            typescript-language-server
+            vscode-langservers-extracted
 
-      # nix
-      nixfmt
+            # nix
+            nixfmt
 
-      # python
-      black
-      isort
-      pipenv
-      pyright
-      ruff
-      uv
+            # python
+            black
+            isort
+            pipenv
+            pyright
+            ruff
+            uv
 
-      # r
-      R
+            # r
+            R
 
-      # shell
-      bash-language-server
-      shellcheck
-      shfmt
+            # shell
+            bash-language-server
+            shellcheck
+            shfmt
 
-      # tooling
-      git
-      git-lfs
-      lazygit
-      delta
-      lazydocker
-      autoconf
-      automake
-      bison
-      fakeroot
-      gdtoolkit_4
-      gnumake
-      hugo
-      markdownlint-cli
-      m4
-      tesseract
-      tokei
-      upx
-      nsis
-      gh
+            # tooling
+            git
+            git-lfs
+            lazygit
+            delta
+            lazydocker
+            autoconf
+            automake
+            bison
+            fakeroot
+            gdtoolkit_4
+            gnumake
+            hugo
+            markdownlint-cli
+            m4
+            tesseract
+            tokei
+            upx
+            nsis
+            gh
 
-      # java
-      (
-        let
-          runtimeMaven = maven.override { jdk_headless = jdk21Xdg; };
-        in
-        symlinkJoin {
-          name = "maven-wrapped";
-          paths = [
-            (writeShellScriptBin "mvn" ''
-              exec ${runtimeMaven}/bin/mvn -gs "$XDG_CONFIG_HOME/maven/settings.xml" "$@"
-            '')
-            runtimeMaven
-          ];
-        }
-      )
+            # java
+            (
+                let
+                    runtimeMaven = maven.override { jdk_headless = jdk21Xdg; };
+                in
+                symlinkJoin {
+                    name = "maven-wrapped";
+                    paths = [
+                        (writeShellScriptBin "mvn" ''
+                            exec ${runtimeMaven}/bin/mvn -gs "$XDG_CONFIG_HOME/maven/settings.xml" "$@"
+                        '')
+                        runtimeMaven
+                    ];
+                }
+            )
 
-      # rust
-      rustup
-    ];
-  };
+            # rust
+            rustup
+        ];
+    };
 }

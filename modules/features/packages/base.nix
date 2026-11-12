@@ -1,107 +1,107 @@
 { self, inputs, ... }: {
-  flake.nixosModules.packagesBase = { config, pkgs, ... }: {
-    imports = [ self.nixosModules.packagesEmacs ];
+    flake.nixosModules.packagesBase = { config, pkgs, ... }: {
+        imports = [ self.nixosModules.packagesEmacs ];
 
-    environment.systemPackages = with pkgs; [
-      # editors
-      neovim
-      config.local.packages.emacs
+        environment.systemPackages = with pkgs; [
+            # editors
+            neovim
+            config.local.packages.emacs
 
-      # files
-      yazi
-      trash-cli
-      file
+            # files
+            yazi
+            trash-cli
+            file
 
-      # finance
-      ledger
+            # finance
+            ledger
 
-      # hardware
-      usbutils
-      bluetui
+            # hardware
+            usbutils
+            bluetui
 
-      # cli tools
-      tmux
-      btop
-      bubblewrap
-      dnsutils
-      eza
-      fd
-      fzf
-      glow
-      jq
-      openssl
-      pv
-      ripgrep
-      sqlite
-      inputs.wlctl.packages.${pkgs.stdenv.hostPlatform.system}.default
+            # cli tools
+            tmux
+            btop
+            bubblewrap
+            dnsutils
+            eza
+            fd
+            fzf
+            glow
+            jq
+            openssl
+            pv
+            ripgrep
+            sqlite
+            inputs.wlctl.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-      # documents
-      mupdf-headless
-      poppler-utils
-      zbar
-      qrencode
+            # documents
+            mupdf-headless
+            poppler-utils
+            zbar
+            qrencode
 
-      # media
-      ffmpeg-full
-      imagemagick
-      exiftool
-      librsvg
-      tesseract
-      wiremix
-      # cliamp
+            # media
+            ffmpeg-full
+            imagemagick
+            exiftool
+            librsvg
+            tesseract
+            wiremix
+            # cliamp
 
-      # typesetting
-      groff
-      ghostscript
-      pandoc
-      graplang
-      tectonic
-      typst
-      tinymist
-      flex
+            # typesetting
+            groff
+            ghostscript
+            pandoc
+            graplang
+            tectonic
+            typst
+            tinymist
+            flex
 
-      # language
-      ispell
-      (aspellWithDicts (
-        dicts: with dicts; [
-          en
-          es
-          fr
-          de
-          pt_BR
-          pt_PT
-        ]
-      ))
+            # language
+            ispell
+            (aspellWithDicts (
+                dicts: with dicts; [
+                    en
+                    es
+                    fr
+                    de
+                    pt_BR
+                    pt_PT
+                ]
+            ))
 
-      # archiving
-      arj
-      atool
-      brotli
-      bzip2
-      cabextract
-      cpio
-      gzip
-      gnutar
-      lhasa
-      libarchive
-      lrzip
-      lz4
-      lzip
-      lzop
-      p7zip
-      pbzip2
-      pigz
-      pixz
-      unar
-      unzip
-      zip
-      unrar
-      xz
-      zopfli
-      zstd
+            # archiving
+            arj
+            atool
+            brotli
+            bzip2
+            cabextract
+            cpio
+            gzip
+            gnutar
+            lhasa
+            libarchive
+            lrzip
+            lz4
+            lzip
+            lzop
+            p7zip
+            pbzip2
+            pigz
+            pixz
+            unar
+            unzip
+            zip
+            unrar
+            xz
+            zopfli
+            zstd
 
-      # misc
-      (pass.withExtensions (exts: [ exts.pass-otp ]))
-    ];
-  };
+            # misc
+            (pass.withExtensions (exts: [ exts.pass-otp ]))
+        ];
+    };
 }

@@ -1,45 +1,45 @@
 { self, ... }: {
-  flake.nixosModules.desktopConfiguration = { ... }: {
-    networking.hostName = "desktop";
+    flake.nixosModules.desktopConfiguration = { ... }: {
+        networking.hostName = "desktop";
 
-    imports = [
-      self.nixosModules.desktopHardware
+        imports = [
+            self.nixosModules.desktopHardware
 
-      self.nixosModules.nixos
-      self.nixosModules.packages
-      self.nixosModules.system
-      self.nixosModules.systemDocker
-      self.nixosModules.systemOllama
-      self.nixosModules.systemPrintingEpsonL3150
-      self.nixosModules.systemWOL
-      self.nixosModules.systemUSBIPHost
-      self.nixosModules.systemUSBIPClient
-      # self.nixosModules.systemDigitalSignature
-      self.nixosModules.virt
+            self.nixosModules.nixos
+            self.nixosModules.packages
+            self.nixosModules.system
+            self.nixosModules.systemDocker
+            self.nixosModules.systemOllama
+            self.nixosModules.systemPrintingEpsonL3150
+            self.nixosModules.systemWOL
+            self.nixosModules.systemUSBIPHost
+            self.nixosModules.systemUSBIPClient
+            # self.nixosModules.systemDigitalSignature
+            self.nixosModules.virt
 
-      self.nixosModules.networkBT
-      self.nixosModules.networkManagerIWD
-      self.nixosModules.networkTailscale
+            self.nixosModules.networkBT
+            self.nixosModules.networkManagerIWD
+            self.nixosModules.networkTailscale
 
-      self.nixosModules.desktopHyprland
-      self.nixosModules.desktopHyprlandAutologin
-      self.nixosModules.gaming
+            self.nixosModules.desktopHyprland
+            self.nixosModules.desktopHyprlandAutologin
+            self.nixosModules.gaming
 
-      self.nixosModules.gpuNvidiaGTX1060
-      self.nixosModules.gpuNvidiaCUDA
-      self.nixosModules.xmrig
-    ];
+            self.nixosModules.gpuNvidiaGTX1060
+            self.nixosModules.gpuNvidiaCUDA
+            self.nixosModules.xmrig
+        ];
 
-    local.user = {
-      enable = true;
-      name = "tavo";
-      description = "Gustavo Calvo";
+        local.user = {
+            enable = true;
+            name = "tavo";
+            description = "Gustavo Calvo";
+        };
+
+        local.ssh.enable = true;
+        boot.loader.systemd-boot.enable = true;
+        boot.loader.efi.canTouchEfiVariables = true;
+
+        system.stateVersion = "25.11";
     };
-
-    local.ssh.enable = true;
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
-    system.stateVersion = "25.11";
-  };
 }

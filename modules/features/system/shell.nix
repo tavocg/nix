@@ -1,34 +1,34 @@
 { ... }: {
-  flake.nixosModules.systemShell = { pkgs, ... }: {
-    users.defaultUserShell = pkgs.bashInteractive;
-    environment.shells = [ pkgs.bashInteractive ];
-    environment.shellAliases = {
-      l = null;
-      ll = null;
-      ls = null;
+    flake.nixosModules.systemShell = { pkgs, ... }: {
+        users.defaultUserShell = pkgs.bashInteractive;
+        environment.shells = [ pkgs.bashInteractive ];
+        environment.shellAliases = {
+            l = null;
+            ll = null;
+            ls = null;
+        };
+
+        programs.direnv = {
+            enable = true;
+            nix-direnv.enable = true;
+        };
+
+        programs.bash = {
+            enable = true;
+
+            loginShellInit = ''
+                if [ -r ~/.config/bashrc ]; then
+                  . ~/.config/bashrc
+                fi
+            '';
+
+            # NixOS writes its default prompt via promptInit, so source ~/.config/bashrc
+            # there to keep PS1/PROMPT_COMMAND from being overwritten when present.
+            promptInit = ''
+                if [ -r ~/.config/bashrc ]; then
+                  . ~/.config/bashrc
+                fi
+            '';
+        };
     };
-
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
-    programs.bash = {
-      enable = true;
-
-      loginShellInit = ''
-        if [ -r ~/.config/bashrc ]; then
-          . ~/.config/bashrc
-        fi
-      '';
-
-      # NixOS writes its default prompt via promptInit, so source ~/.config/bashrc
-      # there to keep PS1/PROMPT_COMMAND from being overwritten when present.
-      promptInit = ''
-        if [ -r ~/.config/bashrc ]; then
-          . ~/.config/bashrc
-        fi
-      '';
-    };
-  };
 }
