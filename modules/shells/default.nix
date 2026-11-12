@@ -1,5 +1,1 @@
-{ ... }: {
-  imports = [
-    ./cuda.nix
-  ];
-}
+{ ... }: { imports = [ ./cuda.nix ]; }
