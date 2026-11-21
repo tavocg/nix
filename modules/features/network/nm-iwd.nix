@@ -3,6 +3,7 @@
         networking.dhcpcd.enable = false;
         networking.networkmanager.enable = true;
         networking.networkmanager.wifi.backend = "iwd";
+        systemd.services.NetworkManager-wait-online.enable = false;
         users.users.${config.local.user.name}.extraGroups = lib.mkAfter [ "networkmanager" ];
         services.resolved.enable = true;
 

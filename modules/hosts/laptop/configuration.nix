@@ -1,5 +1,5 @@
 { self, ... }: {
-    flake.nixosModules.laptopConfiguration = { lib, pkgs, ... }: {
+    flake.nixosModules.laptopConfiguration = { pkgs, ... }: {
         networking.hostName = "laptop";
         console.keyMap = "la-latin1";
 
@@ -39,9 +39,6 @@
 
         local.ssh.enable = true;
         services.openssh.startWhenNeeded = true;
-
-        # virt-manager and guest restoration can both start libvirtd via its socket.
-        systemd.services.libvirtd.wantedBy = lib.mkForce [ ];
 
         environment.systemPackages = [ pkgs.brightnessctl ];
 
