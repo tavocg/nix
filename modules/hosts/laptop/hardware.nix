@@ -10,6 +10,8 @@
             imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
             boot.initrd.availableKernelModules = [
+                # Let udev probe the GPU while the encrypted root is being unlocked.
+                "amdgpu"
                 "nvme"
                 "xhci_pci"
                 "usb_storage"
