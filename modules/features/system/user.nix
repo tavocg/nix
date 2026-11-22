@@ -24,6 +24,7 @@
                         "wheel"
                         "video"
                         "input"
+                        "dialout"
                     ];
                     description = "Base groups for the primary user.";
                 };
